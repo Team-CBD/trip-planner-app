@@ -76,7 +76,7 @@ class Header extends React.Component {
         <div className="container">
 
           <Link to="/" className="navbar-brand">
-            <img id="brand-logo" src="/travellynxlogo.png"></img>
+            <img id="brand-logo" alt="TRAVELynx" src="/travellynxlogo.png"></img>
             
           </Link>
 
