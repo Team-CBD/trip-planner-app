@@ -1,0 +1,18 @@
+#brand-logo {
+    max-width: 320px;
+}
+.nav-pills.outline-active .nav-link.active {
+    background: #fff!important;
+    border-bottom: 2px solid #0f75bc!important;
+    color: #0f75bc!important;
+}
+a {
+    color: #0f75bc;
+    text-decoration: none;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #0f75bc;
+    border-color: #0f75bc;
+}
+
