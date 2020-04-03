@@ -41,7 +41,7 @@ const [result, setResult] = useState([]);
 
 
       {result.map((photo) => (
-        <img className="image" src={photo.urls.small} />
+        <img className="image" alt="" src={photo.urls.small} />
       ))}
 
 
