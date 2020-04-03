@@ -26,18 +26,17 @@
     </style>
   </head>
   <body>
-    <div id="map" style="height:300px"></div>
-    <div id="root"></div>
     
-    <script>
-    var map;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
-      }
-      </script>
+    <div id="root"></div>
+      <script>var map;
+        function initMap() {
+          map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: -34.397, lng: 150.644},
+            zoom: 8
+          });
+        }
+        </script>
+
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYYKgROMbSDTX7a3TJpMoywZCpZgqxY88&callback=initMap" async defer>
       </script>
   </body>
