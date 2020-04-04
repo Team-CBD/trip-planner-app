@@ -16,7 +16,7 @@ import { store } from '../store';
 import { push } from 'react-router-redux';
 import imageSearch from "../components/imageSearch.js";
 import Gmap from './Gmap.js';
-import feed from "../components/feed.js";
+//import feed from "../components/feed.js";
 
 const mapStateToProps = state => {
   return {
@@ -70,7 +70,7 @@ class App extends React.Component {
             <Route path="/@:username/favorites" component={ProfileFavorites} />
             <Route path="/@:username" component={Profile} />
             <Route path="/imageSearch" component={imageSearch} />
-            <Route path="/feed" component={feed} />
+            
             <Route path="/map" component={Gmap} />
           </Switch>
         </div>
@@ -86,8 +86,6 @@ class App extends React.Component {
   }
 }
 
-// App.contextTypes = {
-//   router: PropTypes.object.isRequired
-// };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

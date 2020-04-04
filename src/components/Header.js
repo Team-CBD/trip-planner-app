@@ -25,12 +25,6 @@ const LoggedOutView = props => {
         </li>
 
         <li className="nav-item">
-          <Link to="/feed" className="nav-link">
-            Article Feed
-          </Link>
-        </li>
-
-        <li className="nav-item">
           <Link to="/login" className="nav-link">
             Sign in
           </Link>
@@ -70,12 +64,6 @@ const LoggedInView = props => {
             Google Map
           </Link>
         </li>
-        
-        <li className="nav-item">
-          <Link to="/feed" className="nav-link">
-            Article Feed
-          </Link>
-        </li>
 
         <li className="nav-item">
           <Link to="/editor" className="nav-link">
@@ -108,19 +96,21 @@ const LoggedInView = props => {
 class Header extends React.Component {
   render() {
     return (
-      <nav className="navbar navbar-light shadow-sm">
-        <div className="container">
+      <div className="container">
+        <Link to="/" className="navbar-brand">
+          <img className="mt-2" id="brand-logo" alt="TRAVELynx" src="/travellynxlogo.png"></img>
+        </Link>
+        <nav className="navbar navbar-expand-lg navbar-light shadow-sm">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+              <LoggedOutView currentUser={this.props.currentUser} />
 
-          <Link to="/" className="navbar-brand">
-            <img id="brand-logo" alt="TRAVELynx" src="/travellynxlogo.png"></img>
+              <LoggedInView currentUser={this.props.currentUser} />
             
-          </Link>
-
-          <LoggedOutView currentUser={this.props.currentUser} />
-
-          <LoggedInView currentUser={this.props.currentUser} />
-        </div>
       </nav>
+      </div>
     );
   }
 }

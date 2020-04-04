@@ -47,12 +47,14 @@ class Home extends React.Component {
 
         <div className="container page">
           <div className="row">
-            
+          <div className="col-md-9">
+
+          </div>
             
             <div className="col-md-3">
               <div className="sidebar">
 
-                <p>SideBar Area</p>
+                <h5 className="text-center">Friends List</h5>
 
                 
 

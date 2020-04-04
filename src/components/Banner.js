@@ -5,12 +5,11 @@ const Banner = ({ appName, token }) => {
     return null;
   }
   return (
-    <div className="banner">
+    <div className="banner mt-5">
       <div className="container">
         <h1 className="logo-font">
-          {appName.toLowerCase()}
+        Social Trip Planner
         </h1>
-        <p>A place to share your travels.</p>
       </div>
     </div>
   );
