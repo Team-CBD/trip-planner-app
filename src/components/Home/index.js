@@ -1,6 +1,7 @@
 import Banner from '../Banner';
 import React from 'react';
 import agent from '../../agent';
+import CardElement from '../Card';
 import { connect } from 'react-redux';
 import {
   HOME_PAGE_LOADED,
@@ -48,12 +49,19 @@ class Home extends React.Component {
         <div className="container page">
           <div className="row">
           <div className="col-md-9">
+          
+          <h1>WELCOME TO TRAVELYNX</h1>
+          
+          <CardElement />
+          
+          
 
           </div>
+
             
             <div className="col-md-3">
               <div className="sidebar">
-
+               
                 <h5 className="text-center">Friends List</h5>
 
                 
