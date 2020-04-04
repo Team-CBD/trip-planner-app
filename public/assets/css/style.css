@@ -21,3 +21,7 @@ h1 {
 .home-page .banner {
     background: #0f75bc;
 }
+#map {
+    border-radius: 0px 0px 50px 50px;
+    overflow:hidden;
+}

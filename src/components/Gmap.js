@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
- 
+
+
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
  
 class Gmap extends Component {
@@ -11,21 +12,24 @@ class Gmap extends Component {
     },
     zoom: 11
   };
- 
+  
+
+
+
   render() {
     return (
       <div className="container">
         <div className="row">
-        <div className="col-8 offset-2" style={{ height: '50vh', width: '100%' }}>
+        <div id="map" className="col-8 offset-2" style={{ height: '50vh', width: '100%' }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyAYYKgROMbSDTX7a3TJpMoywZCpZgqxY88" }}
+          bootstrapURLKeys={{ key: "AIzaSyDOpL4ut22yVDXSPOcY6AiqvoHuX_Auah4" }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         >
           <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
-            text="Hotel"
+            lat={this.props.lat}
+            lng={this.props.lng}
+            
           />
         </GoogleMapReact>
       </div>
