@@ -14,7 +14,9 @@ import Register from '../components/Register';
 import Settings from '../components/Settings';
 import { store } from '../store';
 import { push } from 'react-router-redux';
-import imageSearch from "../components/imageSearch.js"
+import imageSearch from "../components/imageSearch.js";
+import Gmap from './Gmap.js';
+import feed from "../components/feed.js";
 
 const mapStateToProps = state => {
   return {
@@ -22,7 +24,8 @@ const mapStateToProps = state => {
     appName: state.common.appName,
     currentUser: state.common.currentUser,
     redirectTo: state.common.redirectTo
-  }};
+  }
+};
 
 const mapDispatchToProps = dispatch => ({
   onLoad: (payload, token) =>
@@ -56,8 +59,8 @@ class App extends React.Component {
           <Header
             appName={this.props.appName}
             currentUser={this.props.currentUser} />
-            <Switch>
-            <Route exact path="/" component={Home}/>
+          <Switch>
+            <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/editor/:slug" component={Editor} />
@@ -67,8 +70,9 @@ class App extends React.Component {
             <Route path="/@:username/favorites" component={ProfileFavorites} />
             <Route path="/@:username" component={Profile} />
             <Route path="/imageSearch" component={imageSearch} />
-            </Switch>
-            <imageSearch />
+            <Route path="/feed" component={feed} />
+            <Route path="/map" component={Gmap} />
+          </Switch>
         </div>
       );
     }

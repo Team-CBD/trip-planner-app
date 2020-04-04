@@ -11,9 +11,22 @@ const LoggedOutView = props => {
             Home
           </Link>
         </li>
+
         <li className="nav-item">
           <Link to="/imageSearch" className="nav-link">
             City Pictures
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link to="/map" className="nav-link">
+            Google Map
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link to="/feed" className="nav-link">
+            Article Feed
           </Link>
         </li>
 
@@ -43,6 +56,24 @@ const LoggedInView = props => {
         <li className="nav-item">
           <Link to="/" className="nav-link">
             Home
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link to="/imageSearch" className="nav-link">
+            City Pictures
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link to="/map" className="nav-link">
+            Google Map
+          </Link>
+        </li>
+        
+        <li className="nav-item">
+          <Link to="/feed" className="nav-link">
+            Article Feed
           </Link>
         </li>
 
