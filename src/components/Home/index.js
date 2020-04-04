@@ -1,7 +1,5 @@
-import Banner from './Banner';
-import MainView from './MainView';
+import Banner from '../Banner';
 import React from 'react';
-import Tags from './Tags';
 import agent from '../../agent';
 import { connect } from 'react-redux';
 import {
@@ -49,16 +47,16 @@ class Home extends React.Component {
 
         <div className="container page">
           <div className="row">
-            <MainView />
+          <div className="col-md-9">
 
+          </div>
+            
             <div className="col-md-3">
               <div className="sidebar">
 
-                <p>Popular Tags</p>
+                <h5 className="text-center">Friends List</h5>
 
-                <Tags
-                  tags={this.props.tags}
-                  onClickTag={this.props.onClickTag} />
+                
 
               </div>
             </div>

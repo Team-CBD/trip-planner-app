@@ -15,4 +15,15 @@ a {
     background-color: #0f75bc;
     border-color: #0f75bc;
 }
-
+h1 {
+    color: #0f75bc;
+}
+.home-page .banner {
+    background: #e4e4e4;
+}
+#map {
+    border-radius: 0px 0px 10px 10px;
+    overflow:hidden;
+    box-shadow: 0px 10px 12px -5px rgba(0, 0, 0, 0.56);
+    z-index:-1;
+}

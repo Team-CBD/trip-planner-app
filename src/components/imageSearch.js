@@ -6,6 +6,7 @@ import axios from "axios";
 function imageSearch() {
 
 const [photo, setPhoto] =useState("");
+// eslint-disable-next-line
 const [clientId, setClientId] = useState("LIUod54u1aBakvpL9JKb2GUq5t-pI0snN2wujAQqDKM");
 
 const [result, setResult] = useState([]);
@@ -23,7 +24,7 @@ const [result, setResult] = useState([]);
        axios.get(url)
        .then(response =>{
          console.log(response);
-         setResult(response.data.results);
+         setResult(response.data.results.slice(0,response.data.results.length-1));
        });
  }
 
@@ -36,14 +37,14 @@ const [result, setResult] = useState([]);
       <div>
       <input className="input-box" onChange={handleChange} type="text" name="photo" placeholder="Search for your city"/>
       {/* <button className="button" onClick={handleSubmit} type="submit">Search</button> */}
-      <button type="button" class="btn btn-info btn-lrg" onClick={handleSubmit}>Search</button>
+      <button type="button" class="btn btn-primary btn-lrg" onClick={handleSubmit}>Search</button>
       </div>
 
-
+      <div className="container">
       {result.map((photo) => (
         <img className="image" alt="" src={photo.urls.small} />
       ))}
-
+      </div>
 
       
 
