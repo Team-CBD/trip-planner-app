@@ -1,5 +1,4 @@
 body {
-	background-image: url("");
 	background-size: auto;
 	margin: 0 0 0 0;
 }
@@ -51,7 +50,6 @@ p .darkmode--activated {
 
 .darkmode-background {
 	background: transparent;
-	background-image: url('')!important;
 }
 .darkmode-layer {
 

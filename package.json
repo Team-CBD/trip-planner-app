@@ -1,7 +1,7 @@
 {
-  "name": "trip-planner-app",
+  "name": "mern",
   "version": "1.0.0",
-  "description": "trip-planner",
+  "description": "Mern Demo",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -20,10 +20,7 @@
     "nodemon": "^1.18.7"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "if-env": "^1.0.4",
-    "react-bootstrap": "^1.0.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "^3.4.1"
+    "express": "^4.16.3",
+    "if-env": "^1.0.4"
   }
 }

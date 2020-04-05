@@ -1,5 +1,5 @@
 import React from "react";
-import logo from '../logo.svg';
+//import logo from '../logo.svg';
 import Router from '../routes/route';
 import "../styles/Nav.css";
 
