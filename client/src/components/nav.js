@@ -5,11 +5,7 @@ import "../styles/Nav.css";
 
 function Nav() {
   return (
-<nav className="navbar navbar-expand-lg navbar-light bg-light">
-
-        <div id="logotext" className="navbar-brand App-logo brand-logo right">
-        <a>{ logo }</a>
-        </div>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
 
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon" />
@@ -17,7 +13,7 @@ function Nav() {
 
         <div className="collapse navbar-collapse row" id="navbarNav">
           <div className="navbar-nav">
-          <Router />
+            <Router />
           </div>
         </div>
     </nav>

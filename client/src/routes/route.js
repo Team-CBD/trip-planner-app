@@ -13,14 +13,13 @@ export default function route() {
 
         <ul className="row">
           <li className="col-sm">
-            <Link to="/">About</Link>
+            <Link to="/">Home</Link>
           </li>
           <li className="col-sm">
-            <Link to="/tripcreate">Trip Tool</Link>
+            <Link to="/tripcreate">Trip</Link>
           </li>
-          
           <li className="col-sm">
-            <Link to="/contact">Contact</Link>
+            <Link to="/contact">Contacts</Link>
           </li>
         </ul>
         

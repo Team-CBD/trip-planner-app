@@ -13,6 +13,9 @@ nav ul a {
 	background-color:#000;
 }
 
+a:hover {
+    text-decoration: none;
+}
 
 .darkmode--activated p, .darkmode--activated li {
 	color: #fff;

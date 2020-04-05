@@ -1,8 +1,8 @@
 import React from "react";
 import "../styles/style.css";
-import About from '../routes/about';
+import Home from '../routes/home';
 import Contact from '../routes/contact';
-import CreateTrip from '../routes/tripcreate';
+import TripCreate from '../routes/tripcreate';
 import {
   Switch,
   Route
@@ -13,10 +13,10 @@ function Main () {
      
       <Switch>
       <Route exact path="/">
-        <About />
+        <Home />
       </Route>
       <Route path="/tripcreate">
-        <CreateTrip />
+        <TripCreate />
       </Route>
       <Route path="/contact">
         <Contact />
