@@ -1,0 +1,13 @@
+.header1 {
+    padding: 30px 0;
+    color: #b29744;
+    background-color: #4498d3;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    box-shadow: 0px 1px 1px 3px #00000014;
+}
+
+.logo {
+    width:100%;
+}

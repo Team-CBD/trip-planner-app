@@ -8,11 +8,15 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to TRAVELynx</h2>
-        </div>
-        <p className="App-intro">
-         
-        </p>
+        <Router>
+          <Wrapper>
+            <Header />
+            <div id="maincontent">
+              <Main />
+            </div>
+            <Footer />
+          </Wrapper>
+        </Router>
       </div>
     );
   }
