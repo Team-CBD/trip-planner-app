@@ -63,6 +63,10 @@ p .darkmode--activated {
     right: 2%;
 }
 
+li {
+	list-style-type:none;
+}
+
 .headtext {
 	color: #fff;
 	text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444;
@@ -75,8 +79,8 @@ p .darkmode--activated {
 	font: 40px 'ChunkFiveRegular';
 }
 
-.headtextgold {
-	color: rgb(226, 188, 15);
+.headtextblue {
+	color: #1c75bc;
 	text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444;
 	font: 40px 'ChunkFiveRegular';
 }

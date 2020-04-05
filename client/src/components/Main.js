@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/style.css";
 import About from '../routes/about';
 import Contact from '../routes/contact';
-import Portfolio from '../routes/portfolio';
+import CreateTrip from '../routes/tripcreate';
 import {
   Switch,
   Route
@@ -15,8 +15,8 @@ function Main () {
       <Route exact path="/">
         <About />
       </Route>
-      <Route path="/portfolio">
-        <Portfolio />
+      <Route path="/tripcreate">
+        <CreateTrip />
       </Route>
       <Route path="/contact">
         <Contact />

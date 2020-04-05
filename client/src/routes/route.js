@@ -9,17 +9,17 @@ export default function route() {
   return (
    
 
-      <div className="nav-wrapper white-text row">
+      <div className="nav-wrapper white-text container">
 
-        <ul>
-          <li className="col s3 left">
+        <ul className="row">
+          <li className="col-sm">
             <Link to="/">About</Link>
           </li>
-          <li className="col s4 left">
-            <Link to="/portfolio">Portfolio</Link>
+          <li className="col-sm">
+            <Link to="/tripcreate">Trip Tool</Link>
           </li>
           
-          <li className="col s3 left">
+          <li className="col-sm">
             <Link to="/contact">Contact</Link>
           </li>
         </ul>
