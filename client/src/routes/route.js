@@ -12,14 +12,14 @@ export default function route() {
       <div className="nav-wrapper white-text row">
 
         <ul>
-          <li className="col s3 m3 left">
+          <li className="col s3 left">
             <Link to="/">About</Link>
           </li>
-          <li className="col s4 m4 left">
+          <li className="col s4 left">
             <Link to="/portfolio">Portfolio</Link>
           </li>
           
-          <li className="col s3 m3 left">
+          <li className="col s3 left">
             <Link to="/contact">Contact</Link>
           </li>
         </ul>
