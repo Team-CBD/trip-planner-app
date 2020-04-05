@@ -7,7 +7,14 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-scripts": "^2.1.1",
-    "eslint": "*"
+    "darkmode-js": "^1.5.5",
+    "eslint": "^6.8.0",
+    "express": "^4.17.1",
+    "lint": "^0.7.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
