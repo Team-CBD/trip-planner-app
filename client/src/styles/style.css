@@ -5,7 +5,9 @@
 a:hover {
     text-decoration: none;
 }
-
+.btn-primary {
+	background-color:#1c75bc;
+}
 nav ul a {
     font-size: 1.25rem;
 }

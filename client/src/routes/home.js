@@ -1,5 +1,7 @@
 import React from 'react';
 import CardElement from '../components/Card'
+import FriendsList from '../components/FriendsList'
+
 
 
 function Home() {
@@ -7,7 +9,7 @@ function Home() {
     <div>
       <div class="container">
         <div class="row">
-          <div className="col-md-9">
+          <div className="col-md-7 offset-1">
             <h2 className="text-dark">Dashboard</h2>
           
           
@@ -22,7 +24,7 @@ function Home() {
               <div className="sidebar">
                
                 <h5 className="text-center text-dark">Friends List</h5>
-
+                <FriendsList />
                 
 
               </div>
