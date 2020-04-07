@@ -6,7 +6,7 @@ import "../styles/map.css";
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 
-class gMap extends Component {
+class Gmap extends Component {
   static defaultProps = {
     center: {
       lat: 33.5,
@@ -45,5 +45,5 @@ class gMap extends Component {
   }
 }
  
-export default gMap;
+export default Gmap;
 
