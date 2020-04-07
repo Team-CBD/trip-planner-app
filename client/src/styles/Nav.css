@@ -7,6 +7,16 @@
   align-items: flex-start;
 }
 
+.navbar-light .navbar-toggler {
+  margin: 10px 10px -57px 0px;
+  z-index:1;
+}
+
+.navbar .container, .navbar .container-fluid, .navbar .container-lg, .navbar .container-md, .navbar .container-sm, .navbar .container-xl {
+
+  padding-left: 50px;
+}
+
 .navbar li {
   background-color:rgb(248, 248, 248);
   text-decoration-color: #1c75bc;

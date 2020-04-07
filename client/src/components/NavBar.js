@@ -12,7 +12,7 @@ function Nav() {
         </button>
 
         <div className="collapse navbar-collapse row" id="navbarNav">
-          <div className="navbar-nav">
+          <div className="navbar-nav block">
             <Router />
           </div>
         </div>

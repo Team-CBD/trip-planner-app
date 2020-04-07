@@ -43,7 +43,7 @@ handleSubmit(evt) {
                   name="date"
                   value={this.state.date}
                   onChange={this.handleChange} />
-                  <button>Submit</button>
+                  <button className="btn-sm btn-primary">Save</button>
               </form>
            </div>
         );
