@@ -9,7 +9,7 @@ function Home() {
     <div>
       <div class="container">
         <div class="row">
-          <div className="col-md-7 offset-1">
+          <div className="col-md-7 offset-1 justify-content-center">
             <h2 className="text-dark">Dashboard</h2>
           
           
@@ -23,7 +23,7 @@ function Home() {
             <div className="col-md-3">
               <div className="sidebar">
                
-                <h5 className="text-center text-dark">Friends List</h5>
+                <h5 className="text-center text-dark pt-3">Friends List</h5>
                 <FriendsList />
                 
 

@@ -27,7 +27,7 @@ handleSubmit(evt) {
     render(){
         return(
            <div>
-             <h1 className="text-dark">Save Friend Details</h1>
+             <h4 className="text-dark">Add Friends</h4>
               <form onSubmit={this.handleSubmit}>
                 <input
                   type="text" placeholder="Full Name"

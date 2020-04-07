@@ -14,7 +14,7 @@ class CardElement extends Component{
             <Card.Text>
                 Our trip to Italy we will visit the Roman Colosseium
             </Card.Text>
-            <Button variant="primary">Check Details</Button>
+            <Button href="/tripcreate" variant="primary">Check Details</Button>
             </Card.Body>
         </Card>
         

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Form from "./Form";
 import Gmap from "./Gmap";
 
-
 class TripData extends Component {
     constructor(props) {
         super(props);
@@ -50,14 +49,6 @@ class TripData extends Component {
        
         );
       }
-
-
-
-
-
-
-
-
 
 }
 
