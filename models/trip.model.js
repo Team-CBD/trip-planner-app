@@ -2,6 +2,13 @@ const mongoose = require('mongoose');
 //const daysEventSchema = require('./daysEvent.model');
 
 const daysEventSchema = new mongoose.Schema({
+    _id: mongoose.Schema.Types.ObjectId,
+    
+    tripDestination: { 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'Trip' 
+    },
+
     selectedDay: {
         type: Date,
         required: [true, 'A date for your event is required'],
@@ -34,9 +41,14 @@ const tripSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    daysEvent: [ daysEventSchema ]
+    daysEvent:[{ 
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'DaysEvent'
+    }]
+    //daysEvent: [ daysEventSchema ]
 });
 
+const DaysEvent = mongoose.model('DaysEvent', daysEventSchema);
 const Trip = mongoose.model('Trip', tripSchema);
 
 module.exports = Trip;
