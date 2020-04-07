@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Form from "./Form";
-import Gmap from "./Gmap";
+import gMap from "./Gmap";
 
 class TripData extends Component {
     constructor(props) {
@@ -43,7 +43,7 @@ class TripData extends Component {
             {this.renderTrips()}
             </div>
             <div className="col-lg-7 p-4">
-            <Gmap />
+            <gMap />
             </div>
             </div>
        
