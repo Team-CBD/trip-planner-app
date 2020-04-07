@@ -9,7 +9,7 @@ export default function route() {
   return (
    
 
-      <div className="nav-wrapper white-text container">
+      <div className="nav-wrapper container">
 
         <ul className="row">
           <li className="col-sm">
@@ -19,7 +19,7 @@ export default function route() {
             <Link to="/tripcreate">Trip</Link>
           </li>
           <li className="col-sm">
-            <Link to="/contact">Contacts</Link>
+            <Link to="/friends">Friends</Link>
           </li>
         </ul>
         
