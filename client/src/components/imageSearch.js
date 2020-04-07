@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../public/assets/css/image.css';
+import '../styles/image.css';
 import axios from "axios";
 
 function imageSearch() {

@@ -5,7 +5,7 @@ import CardElement from '../components/Card'
 function Home() {
   return (
     <div>
-      <div class="container z-depth-1 white radius-1">
+      <div class="container">
         <div class="row">
           <div className="col-md-9">
             <h2 className="text-dark">Dashboard</h2>
