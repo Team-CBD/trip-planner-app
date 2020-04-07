@@ -8,7 +8,9 @@ class TripData extends Component {
         this.state = {
         trips: [
             {city: "Florence, Italy", description: "We are eating pasta", date: "2020-05-13"},
-            {city: "London, England", description: "Going to watch Chelsea football", date: "2020-06-12"}
+            {city: "Rome, Italy", description: "Seeing the sites", date: "2020-05-15"},
+            {city: "London, England", description: "Going to watch Chelsea football", date: "2020-09-12"},
+            {city: "Sussex, England", description: "Going to watch the Duke and Duchess", date: "2020-09-13"}
         ]    
     };
     this.addTrip = this.addTrip.bind(this);
@@ -22,10 +24,10 @@ class TripData extends Component {
 
     renderTrips() {
         return (
-          <ul>
+          <ul className="card-body col-sm-6">
             {this.state.trips.map(trips => (
-              <li>
-                {trips.city}, {trips.description} {trips.date}
+              <li className="col card center m-2 p-2">
+                <div className="card-title">{trips.city}</div> {trips.description}<br/> {trips.date}
               </li>
             ))}
           </ul>
@@ -34,9 +36,12 @@ class TripData extends Component {
       render() {
         return (
           <div>
-            <h1>Trips</h1>
-            {this.renderTrips()}
+            
+            <div className="container">
             <Form addTrip={this.addTrip} />
+            {this.renderTrips()}
+            
+            </div>
           </div>
         );
       }

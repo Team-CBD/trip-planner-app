@@ -27,7 +27,7 @@ handleSubmit(evt) {
     render(){
         return(
            <div>
-             <h1>Save your Trip Details</h1>
+             <h1>Save Trip Details</h1>
               <form onSubmit={this.handleSubmit}>
                 <input
                   type="text" placeholder="City Name"
