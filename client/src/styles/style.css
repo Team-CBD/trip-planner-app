@@ -71,7 +71,7 @@ a {
 }
 
 .footer {
-	background-color: #4498d3;
+	background-color: #1c75bc;
 	color: rgb(197, 185, 153);
 	position: fixed;
 	display: -webkit-box;
@@ -79,7 +79,7 @@ a {
 	left: 0;
 	width: 100%;
 	height: 1.5em;
-	border-top: 4px solid #fdd600;
+	border-top: 4px solid #646464;
 }
 
 #copyright {

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Form from "./Form";
+import Gmap from "./Gmap";
 
 
 class TripData extends Component {
@@ -24,7 +25,7 @@ class TripData extends Component {
 
     renderTrips() {
         return (
-          <ul className="card-body col-sm-6">
+          <ul className="card-body">
             {this.state.trips.map(trips => (
               <li className="col card center m-2 p-2">
                 <div className="card-title">{trips.city}</div> {trips.description}<br/> {trips.date}
@@ -35,14 +36,18 @@ class TripData extends Component {
       }
       render() {
         return (
-          <div>
+
             
-            <div className="container">
+            <div className="row justify-content-center">
             <Form addTrip={this.addTrip} />
+            <div className="col-lg-5">
             {this.renderTrips()}
-            
             </div>
-          </div>
+            <div className="col-lg-7 p-4">
+            <Gmap />
+            </div>
+            </div>
+       
         );
       }
 

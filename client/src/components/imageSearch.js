@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-
-
 import '../../public/assets/css/image.css';
 import axios from "axios";
+
 function imageSearch() {
 
 const [photo, setPhoto] =useState("");

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import "../styles/map.css";
 
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
@@ -26,9 +27,7 @@ class Gmap extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="row">
-        <div id="map" className="col-8 offset-2" style={{ height: '50vh', width: '100%' }}>
+        <div id="map" className="shadow-sm" style={{ height: '94%', width: '94%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyDOpL4ut22yVDXSPOcY6AiqvoHuX_Auah4" }}
           defaultCenter={this.props.center}
@@ -42,9 +41,6 @@ class Gmap extends Component {
           />
         </GoogleMapReact>
       </div>
-        </div>
-      </div>
-      
     );
   }
 }
