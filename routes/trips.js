@@ -10,14 +10,14 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
     const destination = req.body.destination;
-    const startDate = Date.parse(req.body.startDate);
-    const endDate = Date.parse(req.body.endDate);
-
-    const newTrip = new Trip({
-        destination,
-        startDate,
-        endDate
-    });
+    // const startDate = Date.parse(req.body.startDate);
+    // const endDate = Date.parse(req.body.endDate);
+    const newTrip = new Trip(req.body);
+    // const newTrip = new Trip({
+    //     destination,
+    //     startDate,
+    //     endDate
+    // });
 
 newTrip.save()
     .then(() => res.json('New trip added!'))

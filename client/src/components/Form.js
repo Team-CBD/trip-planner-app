@@ -13,6 +13,7 @@ class Form extends Component {
 handleChange(evt){
     this.setState({
         [evt.target.name]: evt.target.value});
+        console.log(this.state[evt.target.name]);
 }
 
 handleSubmit(evt) {

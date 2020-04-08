@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Form from "./Form.js";
 // eslint-disable-next-line
-import Gmap from "./GoogleMap.js";
+import Gmap from "./GoogleMap";
 
 class TripData extends Component {
   constructor(props) {
