@@ -9,10 +9,10 @@ function Friends() {
       <h2 className="ptitle text-dark">Friends</h2>
 
       <div className="row">
-        <div className="col-md-4 offset-2">
+        <div className="col-sm-4">
           <FriendForm />
         </div>
-        <div className="col-md-4">
+        <div className="col-sm-4">
           <FriendsList />
         </div>
       </div>

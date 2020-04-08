@@ -11,31 +11,31 @@ function Home() {
         <div class="row">
           <div className="col-md-7 offset-1 justify-content-center">
             <h2 className="text-dark">Dashboard</h2>
-          
-          
-          <CardElement />
-          
-          
+
+
+            <CardElement />
+
+
 
           </div>
 
-            
-            <div className="col-md-4">
-              <div className="sidebar">
-               
-                <h5 className="text-center text-dark pt-3">Friends List</h5>
-                <FriendsList />
-                
 
-              </div>
+          <div className="col-md-4">
+            <div className="sidebar">
+
+              <h5 className="text-center text-dark pt-3">Friends List</h5>
+              <FriendsList />
+
+
             </div>
-    </div>
-
-  </div>
+          </div>
+        </div>
 
       </div>
-    );
-    
-  
-  }
-  export default Home;
+
+    </div>
+  );
+
+
+}
+export default Home;

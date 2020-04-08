@@ -38,7 +38,11 @@ class Gmap extends Component {
           }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
-          center={this.props.lat, this.props.lng}
+          center={
+            // eslint-disable-next-line
+            this.props.lat,
+            this.props.lng
+          }
         >
           <AnyReactComponent
             lat={this.props.lat}
