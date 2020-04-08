@@ -1,4 +1,4 @@
-/* body {
+body {
     margin: 0;
     display: flex;
     justify-content: center;
@@ -34,4 +34,4 @@
   .equals {
     font-weight: bold;
     font-size: 2rem;
-  } */
+  }
