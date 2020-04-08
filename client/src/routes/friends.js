@@ -6,7 +6,7 @@ function Friends() {
   return (
     <div className="container">
 
-      <h1 className="ptitle text-dark">Friends</h1>
+      <h2 className="ptitle text-dark">Friends</h2>
 
       <div className="row">
         <div className="col-md-4 offset-2">

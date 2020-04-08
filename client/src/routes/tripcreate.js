@@ -1,17 +1,14 @@
 import React from "react";
 import TripData from "../components/Trips";
-import Gmap from "../components/Gmap";
 
 
 
 function TripCreate() {
     return (
-        <div className="container">
+        <div className="">
 
             <TripData />
-            <div className="col-lg-7 p-4">
-            <Gmap />
-            </div>
+
             
         </div>
 

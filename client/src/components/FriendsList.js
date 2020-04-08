@@ -28,7 +28,7 @@ class FriendsList extends Component {
         return (
 
             
-          <div className="row justify-content-center">
+          <div className="justify-content-center">
           
             {this.renderFriends()}
             </div>

@@ -20,7 +20,7 @@ function Home() {
           </div>
 
             
-            <div className="col-md-3">
+            <div className="col-md-4">
               <div className="sidebar">
                
                 <h5 className="text-center text-dark pt-3">Friends List</h5>

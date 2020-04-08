@@ -29,6 +29,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.7",
     "morgan": "^1.10.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
     "uuid": "^7.0.3"
   }
 }

@@ -27,22 +27,22 @@ handleSubmit(evt) {
     render(){
         return(
            <div>
-             <h1 className="text-dark">Save Trip Details</h1>
+             <h2 className="text-dark">Trip</h2>
               <form onSubmit={this.handleSubmit}>
                 <input
                   type="text" placeholder="City Name"
                   name="city"
                   value={this.state.city}
                   onChange={this.handleChange}
-                  />
-                  <input type="text" placeholder="Brief Description of Trip" 
+                  /><br/>
+                  <input type="textarea" rows="4" cols="50" placeholder="Brief Description of Trip" 
                   name="description"
                   value={this.state.description}
-                  onChange={this.handleChange}/>
+                  onChange={this.handleChange}/><br/>
                   <input type="date" placeholder="Date of your trip" 
                   name="date"
                   value={this.state.date}
-                  onChange={this.handleChange} />
+                  onChange={this.handleChange} /><br/>
                   <button className="btn-sm btn-primary">Save</button>
               </form>
            </div>

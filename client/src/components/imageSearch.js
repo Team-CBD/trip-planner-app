@@ -44,9 +44,6 @@ const [result, setResult] = useState([]);
         <img className="image" alt="" src={photo.urls.small} />
       ))}
       </div>
-
-      
-
     </div>
   );
 }

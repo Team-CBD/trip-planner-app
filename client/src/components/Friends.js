@@ -36,9 +36,10 @@ class FriendData extends Component {
         return (
 
             
-          <div className="row justify-content-center">
+          <div className="justify-content-center">
+            <div className="justify-content-center">
           <FriendForm addFriend={this.addFriend} />
-          
+            </div>
             </div>
                  
         );
