@@ -1,13 +1,8 @@
 import React, { useState } from "react";
 import "./weather.css";
 
-
-
-
-
 const Forecast = () => {
     
-
     let [city, setCity] = useState("");
 
     let [query, setQuery] = useState([]);
@@ -17,21 +12,18 @@ const Forecast = () => {
         e.preventDefault();
         
 
-        fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${"749b68101d8a7b49d61948de98b46bfc&units=imperial"
-        }`)
+        fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${"749b68101d8a7b49d61948de98b46bfc&units=imperial"}`)
        
         .then(res => res.json())
         
         .then(res => setQuery(res.list))
         .catch(err => console.error(err));
-       
-        
-       
+           
     }
         console.log(setQuery);
     return (
         <div>
-        <h2>Find Current Weather Conditions</h2>
+        <h4 className="text-dark">Find Current Weather Conditions</h4>
         
         <div>
         <form onSubmit={getForecast}>

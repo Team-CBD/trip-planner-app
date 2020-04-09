@@ -28,7 +28,7 @@ class Gmap extends Component {
 
   render() {
     return (
-      <div id="map" className="shadow-sm" style={{ height: '94%', width: '94%' }}>
+      <div id="map" className="neu" style={{ height: '94%', width: '94%' }}>
         
         <GoogleMapReact
           bootstrapURLKeys={{

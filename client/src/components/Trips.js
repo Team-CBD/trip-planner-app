@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "./Form.js";
 // eslint-disable-next-line
 import Gmap from "./GoogleMap";
+import Weather from "./Weather";
 
 class TripData extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class TripData extends Component {
     return (
       <ul className="card-body">
         {this.state.trips.map(trips => (
-          <li className="col card shadow-sm center m-2 p-2">
+          <li className="col card neu center m-2 p-2">
             <div className="card-title">{trips.city}</div> {trips.description}<br /> {trips.date}
           </li>
         ))}
@@ -48,6 +49,8 @@ class TripData extends Component {
               <input id="submit" type="button" value="Geocode"></input>
             </div>
             <Gmap />
+            <br />
+            <Weather />
           </div>
           <div className="col-sm-5">
             {this.renderTrips()}

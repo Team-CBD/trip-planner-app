@@ -1,7 +1,23 @@
+body {
+	background-color:#f4f4f7;
+}
 
 .card-title {
 	font-weight: bold;
 }
+
+.neu {
+	border-radius: 7px;
+	background: #f4f4f7;
+	box-shadow: 3px 3px 5px #9d9fa1,
+			-3px -3px 5px #ffffff;
+}
+
+.App-header {
+	background-color: rgb(255, 255, 255);
+	color:black;
+}
+
 a:hover {
     text-decoration: none;
 }

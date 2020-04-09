@@ -1,6 +1,7 @@
 import React from 'react';
 import CardElement from '../components/Card'
 import FriendsList from '../components/FriendsList'
+import '../styles/style.css'
 
 
 
@@ -12,18 +13,14 @@ function Home() {
           <div className="col-md-7 offset-1 justify-content-center">
             <h2 className="text-dark">Dashboard</h2>
 
-
             <CardElement />
-
-
 
           </div>
 
-
-          <div className="col-md-4">
+          <div className="col-md-3">
             <div className="sidebar">
 
-              <h5 className="text-center text-dark pt-3">Friends List</h5>
+              <h4 className="text-center text-dark pt-3">Friends List</h4>
               <FriendsList />
 
 
