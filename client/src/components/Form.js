@@ -30,17 +30,17 @@ handleSubmit(evt) {
            <div>
              <h2 className="text-dark">Trip</h2>
               <form onSubmit={this.handleSubmit}>
-                <input className="neuflip" 
+                <input className="neuflip m-2 p-2" 
                   type="text" placeholder="City Name"
                   name="city"
                   value={this.state.city}
                   onChange={this.handleChange}
                   /><br/>
-                  <input type="textarea" rows="4" cols="50" className="neuflip"  placeholder="Brief Description of Trip" 
+                  <textarea type="textarea" rows="4" cols="24" className="neuflip m-2 p-2"  placeholder="Brief Description of Trip" 
                   name="description"
                   value={this.state.description}
                   onChange={this.handleChange}/><br/>
-                  <input type="date" className="neuflip" placeholder="Date of your trip" 
+                  <input type="date" className="neuflip m-2 p-2" placeholder="Date of your trip" 
                   name="date"
                   value={this.state.date}
                   onChange={this.handleChange} /><br/>
