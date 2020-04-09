@@ -45,7 +45,7 @@ class TripData extends Component {
 
           <div id="map" className="map col-sm-5 pt-5 offset-1">
             <div id="floating-panel">
-              <input id="address" type="textbox" value=""></input>
+              <input id="address"  value="" type="textbox" defaultValue />
               <input id="submit" type="button" value="Geocode"></input>
             </div>
             <Gmap />
