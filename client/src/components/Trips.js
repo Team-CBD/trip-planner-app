@@ -28,7 +28,7 @@ class TripData extends Component {
     return (
       <ul className="card-body">
         {this.state.trips.map(trips => (
-          <li className="col card neu center m-2 p-2">
+          <li key={trips.city} className="col card neu center m-2 p-2">
             <div className="card-title">{trips.city}</div> {trips.description}<br /> {trips.date}
           </li>
         ))}
