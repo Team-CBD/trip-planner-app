@@ -9,8 +9,15 @@ body {
 .neu {
 	border-radius: 7px;
 	background: #f4f4f7;
-	box-shadow: 3px 3px 5px #9d9fa1,
-			-3px -3px 5px #ffffff;
+	box-shadow: 2px 2px 3px #9d9fa1,
+			-2px -2px 3px #ffffff;
+}
+
+.neuflip {
+	border-radius: 7px;
+	background: #f4f4f7;
+	box-shadow: inset 2px 2px 2px #9d9fa1,
+			    inset -2px -2px 2px #ffffff;
 }
 
 .App-header {
@@ -76,13 +83,6 @@ li {
 	margin: 10px;
 }
 
-.inputs {
-	border-bottom: 1px solid #4498d3!important;
-}
-
-.inputs:active {
-	border-bottom: 1px solid #ffde16!important;
-}
 
 a {
 	text-decoration: none;
@@ -107,14 +107,14 @@ a {
 	margin: 0 auto;
 }
 
-input {
+/* input {
 	border-radius: 5px;
 	border: 1px solid #4498d3;
 	box-shadow: inset 0px 1px 1px 1px #00000014;
 	margin:2px;
 	padding:3px;
 	text-align:center;
-}
+} */
 
 iframe {
 	border-radius: 5px;
