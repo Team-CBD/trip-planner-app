@@ -1,6 +1,7 @@
 import React from "react";
 import FriendsList from "../components/FriendsList";
 import FriendForm from "../components/FriendForm";
+import '../styles/style.css'
 
 function Friends() {
   return (

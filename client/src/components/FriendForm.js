@@ -30,16 +30,16 @@ handleSubmit(evt) {
              <h4 className="text-dark">Add Friends</h4>
               <form onSubmit={this.handleSubmit}>
                 <input
-                  type="text" placeholder="Full Name"
+                  type="text" className="neuflip m-2 p-2" placeholder="Full Name"
                   name="name"
                   value={this.state.name}
                   onChange={this.handleChange}
                   /><br/>
-                  <input type="text" placeholder="Relation" 
+                  <input type="text" className="neuflip m-2 p-2" placeholder="Relation" 
                   name="relation"
                   value={this.state.relation}
                   onChange={this.handleChange}/><br/>
-                  <input type="tel" placeholder="Phone" 
+                  <input type="tel" className="neuflip m-2 p-2" placeholder="Phone" 
                   name="number"
                   value={this.state.number}
                   onChange={this.handleChange} /><br/>
