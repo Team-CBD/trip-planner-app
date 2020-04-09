@@ -43,8 +43,8 @@ const Forecast = () => {
                  {query.map((item) => (
                      <div>
                      {/* <p><strong>{item.city.name}</strong></p> */}
-                     <p>{Math.round(item.main.temp)} degrees out with {item.weather.description} (Clouds, rain, etc is supposed to go here).</p>
-                     <img className="icon" src ={`http://openweathermap.org/img/w/${item.weather.icon}.png`} alt="wthr img" />
+                     <p> It is {Math.round(item.main.temp)} degrees out with {item.weather[0].description}.</p>
+                     <img className="icon" src ={`http://openweathermap.org/img/w/${item.weather[0].icon}.png`} alt="wthr img" />
                         </div>
                         ))}
                </div>
