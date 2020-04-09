@@ -2,8 +2,12 @@ body {
 	background-color:#f4f4f7;
 }
 
+.card-body {
+	padding: 1.8rem 1.25rem 1.25rem 1.25rem;
+}
 .card-title {
 	font-weight: bold;
+	
 }
 
 .neu {
