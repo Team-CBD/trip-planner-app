@@ -43,7 +43,7 @@ const Forecast = () => {
                  {query.map((item,index) => (
                      <div>
                          {index % 9 === 0 &&
-                     <div>
+                     <div >
                      <p><strong>{Math.round(item.main.temp)}°</strong> with {item.weather[0].description}</p>
                      <img className="icon" src ={`http://openweathermap.org/img/w/${item.weather[0].icon}.png`} alt="wthr img" />
                       </div>
