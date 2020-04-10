@@ -1,30 +1,30 @@
 import React, { Component } from "react";
-import Form from "./TripForm.js";
+import EventForm from "./EventForm.js";
 // eslint-disable-next-line
 import Gmap from "./Gmap";
 import Weather from "./Weather";
-import API from '../utils/api';
 
-class TripData extends Component {
+class EventData extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      trips: [],
-      currentTrip: {}
+      trips: [
+        { city: "Florence, Italy", description: "We are eating pasta", date: "2020-05-13" },
+        { city: "Rome, Italy", description: "Seeing the sites", date: "2020-05-15" },
+        { city: "London, England", description: "Going to watch Chelsea football", date: "2020-09-12" },
+        { city: "Sussex, England", description: "Going to watch the Duke and Duchess", date: "2020-09-13" }
+      ]
     };
+    this.addTrip = this.addTrip.bind(this);
   }
 
-  addTrip = (trip) => {
+  addTrip(trip) {
     this.setState(state => ({
-      trips: [...state.trips, trip],
-      currentTrip: trip
+      trips: [...state.trips, trip]
     }))
-    API.addTrips(this.state.trip).then(res => {
-        console.log(res)
-    }) 
   }
 
-  renderTrips = () => {
+  renderTrips() {
     return (
       <ul className="card-body">
         {this.state.trips.map(trips => (
@@ -43,7 +43,7 @@ class TripData extends Component {
 
         <div className="row">
           <div className="col-sm-6">
-            <Form addTrip={this.addTrip} />
+            <EventForm addTrip={this.addTrip} />
           </div>
           <div className="col-sm-5">
             <Gmap />
@@ -64,4 +64,4 @@ class TripData extends Component {
 
 }
 
-export default TripData;
+export default EventData;

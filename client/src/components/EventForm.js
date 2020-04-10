@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Form extends Component {
+class EventForm extends Component {
     constructor(props){
         super(props);
         this.state=  {city: "", description: "", date: ""};
@@ -55,4 +55,4 @@ handleSubmit(evt) {
     }
 }
 
-export default Form;
+export default EventForm;
