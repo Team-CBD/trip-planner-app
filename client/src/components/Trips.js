@@ -39,20 +39,24 @@ class TripData extends Component {
     return (
 
 
-      <div className="justify-content-center">
-        <Form addTrip={this.addTrip} />
-        <div className="row">
+      <div className="justify-content-center ">
 
-          <div id="map" className="map col-sm-5 pt-5 offset-1">
-           
-            <Gmap />
-            <br />
-            <Weather />
+        <div className="row">
+          <div className="col-sm-6">
+            <Form addTrip={this.addTrip} />
           </div>
           <div className="col-sm-5">
-            {this.renderTrips()}
+            <Gmap />
           </div>
+        </div>
 
+        <div className="row">
+          <div className="col-sm-6">
+          {this.renderTrips()}
+          </div>
+          <div className="col-sm-5">
+          <Weather />
+          </div>
         </div>
       </div>
     );

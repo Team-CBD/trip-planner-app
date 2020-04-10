@@ -24,19 +24,19 @@ const Forecast = () => {
         console.log(query);
     return (
         <div>
-        <h4 className="text-dark">Find Current Weather Conditions</h4>
+        <h4 className="text-dark">Weather</h4>
         
         <div>
         <form onSubmit={getForecast}>
                 <input
-                    type="text" className="textInput"
+                    type="text" className="textInput m-2 p-2 neuflip"
                     placeholder="Enter City"
                     maxLength="50"
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
                      />
-
-                <button className="Button" type="submit">Get Forecast</button>
+                <br />
+                <button className="btn neu" type="submit">Search</button>
 
             </form>
 
@@ -44,7 +44,7 @@ const Forecast = () => {
                  {query.map((item,index) => (
                      <div>
                      {/* <p><strong>{item.city.name}</strong></p> */}
-                     <p>{Math.round(item.main.temp)}° with {item.weather[0].description}</p>
+                     <p><strong>{Math.round(item.main.temp)}°</strong> {item.weather[0].description}</p>
                      <img className="icon" src ={`http://openweathermap.org/img/w/${item.weather[0].icon}.png`} alt="wthr img" />
                         </div>
                         ))}

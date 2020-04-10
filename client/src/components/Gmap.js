@@ -1,84 +1,60 @@
 import React, { Component } from 'react';
-import GmapReact from 'google-map-react';
+import GoogleMapReact from 'google-map-react';
 import "../styles/map.css";
 
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
+const AnyReactComponent = ({ text }) => <div style={{
+  color: 'white', 
+  background: '#1c75bc',
+  padding: '5px 5px',
+  display: 'inline-flex',
+  textAlign: 'center',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: '100%',
+  transform: 'translate(-50%, -50%)'
+}}>{text}</div>;
 
+var LatLng = {lat: 33.5, lng: -117.5};
 
 class Gmap extends Component {
   static defaultProps = {
+    center: {LatLng},
+    zoom: 8
   };
 
   componentWillMount() {
-    var map, infoWindow;
-      function initMap() {
-        map = new window.google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 6
-        });
-        infoWindow = new window.google.maps.InfoWindow;
-
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      }
-
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      }
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        this.setState({ lat: position.coords.latitude, lng: position.coords.longitude });
+      },
+      error => console.log(error)
+    );
   }
-    
-
-  
-
 
 
   render() {
     return (
-      <div id="map" className="map neu" style={{ height: '94%', width: '94%' }}>
-
-        <GmapReact
+      <div id="map" className="neu" style={{ height: '94%', width: '94%' }}>
+        
+        <GoogleMapReact
           bootstrapURLKeys={{
             key: "AIzaSyDOpL4ut22yVDXSPOcY6AiqvoHuX_Auah4",
             language: 'en',
             region: 'us'
           }}
-          defaultCenter={window.pos}
-          defaultZoom={10}
-          center={
-            // eslint-disable-next-line
-            this.props.lat,
-            this.props.lng
-          }
+          defaultCenter={this.props.center}
+          defaultZoom={this.props.zoom}
+          center={LatLng}
         >
           <AnyReactComponent
-            lat={this.props.lat}
-            lng={this.props.lng}
+            lat={43.77}
+            lng={11.24}
+            text="Florence"
           />
-        </GmapReact>
-        <script src='https://maps.google.com/maps/api/js?key=AIzaSyDOpL4ut22yVDXSPOcY6AiqvoHuX_Auah4&libraries=places&callback=initMap' async defer></script>
+        </GoogleMapReact>
+        <script src='https://maps.google.com/maps/api/js?key=AIzaSyDOpL4ut22yVDXSPOcY6AiqvoHuX_Auah4&libraries=places&callback=initAutocomplete' async defer></script>
 
       </div>
       
@@ -88,4 +64,3 @@ class Gmap extends Component {
 }
 
 export default Gmap;
-

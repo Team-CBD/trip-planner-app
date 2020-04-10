@@ -5,7 +5,7 @@ import TripData from "../components/Trips";
 
 function TripCreate() {
     return (
-        <div className="">
+        <div className="container">
 
             <TripData />
 
