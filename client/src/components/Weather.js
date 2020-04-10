@@ -24,7 +24,7 @@ const Forecast = () => {
         console.log(query);
     return (
         <div>
-        <h4 className="text-dark">Weather</h4>
+        <h4 className="text-dark">Five Day Forecast</h4>
         
         <div>
         <form onSubmit={getForecast}>
@@ -37,15 +37,17 @@ const Forecast = () => {
                      />
                 <br />
                 <button className="btn neu" type="submit">Search</button>
-
             </form>
 
             <div className="weather">
                  {query.map((item,index) => (
                      <div>
-                     {/* <p><strong>{item.city.name}</strong></p> */}
-                     <p><strong>{Math.round(item.main.temp)}°</strong> {item.weather[0].description}</p>
+                         {index % 9 === 0 &&
+                     <div>
+                     <p><strong>{Math.round(item.main.temp)}°</strong> with {item.weather[0].description}</p>
                      <img className="icon" src ={`http://openweathermap.org/img/w/${item.weather[0].icon}.png`} alt="wthr img" />
+                      </div>
+                            }
                         </div>
                         ))}
                </div>
@@ -58,4 +60,4 @@ const Forecast = () => {
  
  export default Forecast;
 
- //for (var i=1;i<arr.length, i+8)
+ 
