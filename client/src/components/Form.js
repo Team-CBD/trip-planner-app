@@ -31,7 +31,7 @@ handleSubmit(evt) {
              <h2 className="text-dark">Trip</h2>
               <form onSubmit={this.handleSubmit}>
                 <input className="neuflip m-2 p-2" 
-                  type="text" placeholder="City Name"
+                  type="text" id="city" placeholder="City Name"
                   name="city"
                   value={this.state.city}
                   onChange={this.handleChange}
@@ -44,7 +44,7 @@ handleSubmit(evt) {
                   name="date"
                   value={this.state.date}
                   onChange={this.handleChange} /><br/>
-                  <button className="btn-sm btn-primary">Save</button>
+                  <button id="submit" className="btn-sm btn-primary">Save</button>
               </form>
            </div>
         );

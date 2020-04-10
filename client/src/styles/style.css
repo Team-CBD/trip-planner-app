@@ -2,9 +2,14 @@ body {
 	background-color:#f4f4f7;
 }
 
+.card {
+     border:none;
+}
+
 .card-body {
 	padding: 1.8rem 1.25rem 1.25rem 1.25rem;
 }
+
 .card-title {
 	font-weight: bold;
 	
@@ -15,13 +20,15 @@ body {
 	background: #f4f4f7;
 	box-shadow: 2px 2px 3px #9d9fa1,
 			-2px -2px 3px #ffffff;
+	border: none;
 }
 
 .neuflip {
 	border-radius: 7px;
 	background: #f4f4f7;
 	box-shadow: inset 2px 2px 2px #9d9fa1,
-			    inset -2px -2px 2px #ffffff;
+				inset -2px -2px 2px #ffffff;
+	border: none;
 }
 
 .App-header {

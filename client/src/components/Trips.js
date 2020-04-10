@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Form from "./Form.js";
 // eslint-disable-next-line
-import Gmap from "./GoogleMap";
+import Gmap from "./Gmap";
 import Weather from "./Weather";
 
 class TripData extends Component {
@@ -44,10 +44,7 @@ class TripData extends Component {
         <div className="row">
 
           <div id="map" className="map col-sm-5 pt-5 offset-1">
-            <div id="floating-panel">
-              <input id="address" type="textbox" value=""></input>
-              <input id="submit" type="button" value="Geocode"></input>
-            </div>
+           
             <Gmap />
             <br />
             <Weather />
