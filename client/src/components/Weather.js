@@ -7,6 +7,7 @@ const Forecast = () => {
 
     let [query, setQuery] = useState([]);
 
+
     function getForecast(e) {
 
         e.preventDefault();
@@ -20,7 +21,7 @@ const Forecast = () => {
         .catch(err => console.error(err));
            
     }
-        console.log(setQuery);
+        console.log(query);
     return (
         <div>
         <h4 className="text-dark">Find Current Weather Conditions</h4>
@@ -40,10 +41,10 @@ const Forecast = () => {
             </form>
 
             <div className="weather">
-                 {query.map((item) => (
+                 {query.map((item,index) => (
                      <div>
                      {/* <p><strong>{item.city.name}</strong></p> */}
-                     <p> It is {Math.round(item.main.temp)} degrees out with {item.weather[0].description}.</p>
+                     <p>{Math.round(item.main.temp)}° with {item.weather[0].description}</p>
                      <img className="icon" src ={`http://openweathermap.org/img/w/${item.weather[0].icon}.png`} alt="wthr img" />
                         </div>
                         ))}
@@ -56,3 +57,5 @@ const Forecast = () => {
  }
  
  export default Forecast;
+
+ //for (var i=1;i<arr.length, i+8)
