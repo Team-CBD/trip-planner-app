@@ -30,6 +30,22 @@ const tripSchema = new mongoose.Schema({
         required: [true, 'A name for your trip is required'],
         trim: true
     },
+    daysEvents: [
+        {
+          name: {
+            type: String,
+            trim: true,
+            required: "You must enter a City Name"
+          },
+          duration: {
+            type: String,
+          },
+          date: {
+            type: Date,
+            default: Date.now
+          }
+        }
+      ],
     startDate: {
         type: Date,
         default: Date.now
@@ -40,11 +56,7 @@ const tripSchema = new mongoose.Schema({
     createdAt: {
         type: Date,
         default: Date.now
-    },
-    daysEvent:[{ 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'DaysEvent'
-    }]
+    }
     //daysEvent: [ daysEventSchema ]
 });
 
