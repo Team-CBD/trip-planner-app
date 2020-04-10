@@ -24,7 +24,7 @@ const Forecast = () => {
         console.log(query);
     return (
         <div>
-        <h4 className="text-dark">Five Day Forecast</h4>
+        <h4>Five Day Forecast</h4>
         
         <div>
         <form onSubmit={getForecast}>

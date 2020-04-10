@@ -54,9 +54,7 @@ class EventData extends Component {
           <div className="col-sm-6">
           {this.renderTrips()}
           </div>
-          <div className="col-sm-5">
-          <Weather />
-          </div>
+
         </div>
       </div>
     );
