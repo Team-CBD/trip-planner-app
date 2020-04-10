@@ -8,8 +8,8 @@ import '../styles/style.css'
 function Home() {
   return (
     <div>
-      <div class="container">
-        <div class="row">
+      <div className="container">
+        <div className="row">
           <div className="col-md-7 offset-1 justify-content-center">
             <h2 className="text-dark">Dashboard</h2>
 

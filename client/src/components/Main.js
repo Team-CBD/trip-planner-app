@@ -3,6 +3,8 @@ import "../styles/style.css";
 import Home from '../routes/home';
 import Friends from '../routes/friends';
 import TripCreate from '../routes/tripcreate';
+import Converter from '../routes/converter';
+
 import {
   Switch,
   Route
@@ -20,6 +22,9 @@ function Main () {
       </Route>
       <Route path="/friends">
         <Friends />
+      </Route>
+      <Route path="/converter">
+        <Converter />
       </Route>
     </Switch>
   
