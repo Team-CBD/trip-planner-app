@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const router = require('express').Router();
 const Trip = require('../../models/trip.model');
 const auth = require('../../middleware/auth');
+var ObjectID = require('mongodb').ObjectID;
+var co = require('co');
 //const DaysEvent = require('../../models/daysEvent.model');
 
 //auth param taken out for dev purposes
@@ -50,10 +52,6 @@ router.route('/update/:id').post( (req, res) => {
             trip.destination = req.body.destination;
             trip.startDate = Date.parse(req.body.startDate);
             trip.endDate = Date.parse(req.body.endDate);
-            trip.daysEvent.name= req.body.name;
-            trip.daysEvent.description= req.body.description;
-            trip.daysEvent.date= Date.parse(req.body.date);
-
 
             trip.save()
                 .then(() => res.json('Trip updated!'))
@@ -61,21 +59,57 @@ router.route('/update/:id').post( (req, res) => {
         });
 });
 
-// Update event
-router.route('/eventUpdate/:id').put( async( req, res) => {
+// Add an event to specific Trip
+router.route('/addEvent/:id').put( async( req, res) => {
     const tripId =  await Trip.findById(req.params.id);
-       
-
+       console.log(tripId);
     Trip.updateOne(
-
-        {_id: tripId},
+        {_id: req.params.id},
         {$addToSet: 
             {
             daysEvent:
                 {
                     name: req.body.name,
                     description: req.body.description,
-                    date: req.body.date
+                    date: Date.parse(req.body.date)
+                }
+        
+            }      
+        },
+        function(err, result) {
+            if(err) {
+                res.send(err)
+            } else {
+                res.send(result)
+            }
+        }
+    );
+});
+
+// Update an event to specific Trip
+router.route('/updateEvent/:id/').put( async( req, res) => {
+    const { wrap } = require('co');
+
+    const findDaysEvent = wrap(function*(tripId, allEvents) {
+        const trip = yield Trip.findById(tripId);
+
+        let trips = [trip];
+        let ids = [tripId];
+
+        for (let i = 0; i < allEvents; i++) {
+            const thisTrip = yield Trip.find({ daysEvent: {$in: ids}})
+        }
+    })
+
+    Trip.updateOne(
+        {_id: req.params.id},
+        {$push: 
+            {
+            daysEvent:
+                {
+                    name: req.body.name,
+                    description: req.body.description,
+                    date: Date.parse(req.body.date)
                 }
         
             }      

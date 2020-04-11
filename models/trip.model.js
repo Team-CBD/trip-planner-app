@@ -26,7 +26,7 @@ const tripSchema = new mongoose.Schema({
         required: [true, 'A name for your trip is required'],
         trim: true
     },
-    daysEvents: [
+    daysEvent: [
         {
           name: {
             type: String,
