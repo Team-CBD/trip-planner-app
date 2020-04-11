@@ -45,7 +45,7 @@ const Forecast = () => {
                          {index % 9 === 0 &&
                      <div >
                      <p><strong>{Math.round(item.main.temp)}°</strong> with {item.weather[0].description}</p>
-                     <img className="icon" src ={`http://openweathermap.org/img/w/${item.weather[0].icon}.png`} alt="wthr img" />
+                     <img className="icon" src ={`https://openweathermap.org/img/w/${item.weather[0].icon}.png`} alt="wthr img" />
                       </div>
                             }
                         </div>
