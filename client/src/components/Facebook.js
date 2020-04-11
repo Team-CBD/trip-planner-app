@@ -41,7 +41,8 @@ import FacebookLoginBtn from "react-facebook-login";
                 autoLoad={true}
                 fields="name,email,picture"
                 onClick={this.componentClicked}
-                callback={this.responseFacebook} />
+                callback={this.responseFacebook}
+                />
               
             );
 

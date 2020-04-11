@@ -1,10 +1,10 @@
 import React from 'react'
 import CardElement from '../components/Card'
 import TripForm from '../components/TripForm'
-import FriendsList from '../components/FriendsList'
+import FriendsNames from '../components/FriendsNames'
 import '../styles/style.css'
 import API from '../utils/api';
-
+import Facebook from "react-facebook-login";
 
 class Home extends React.Component {
   state = {
@@ -43,7 +43,7 @@ class Home extends React.Component {
       <div>
         <div className="container">
           <div className="row">
-            <div className="col-md-7 offset-1 justify-content-center">
+            <div className="col-md-7 justify-content-center">
               <h2 className="text-dark">Dashboard</h2>
 
               <CardElement />
@@ -52,23 +52,28 @@ class Home extends React.Component {
 
             <div className="col-md-3">
               <div className="sidebar">
+              <div className="fb-login mt-4 pb-3">
+                <Facebook />
+                </div>
+              
                 <TripForm destination = {this.state.destination}
                 handleChange = {this.handleChange}
                 startDate = {this.state.startDate}
                 endDate = {this.state.endDate}
                 handleSubmit = {this.handleSubmit}
                 />
+               
                 <h4 className="text-center text-dark pt-3">Friends List</h4>
-                <FriendsList />
+                <FriendsNames />
 
 
-              </div>
+                </div>
             </div>
           </div>
 
         </div>
-
-      </div>
+        </div>
+     
     );
   }
 
