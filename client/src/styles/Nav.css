@@ -9,7 +9,7 @@
 
 
 .navbar-light .navbar-toggler {
-  margin: 10px 10px -57px 0px;
+  margin: 11px 5px -54px -2px;
   z-index: 1;
 }
 
@@ -22,7 +22,7 @@
   background-color:rgb(248, 248, 248);
   text-decoration-color: #1c75bc;
   margin:5px;
-  border:solid 1px #1c74bc34;
+  border:none;
   padding:10px 0px 10px 0px;
 }
 
@@ -37,7 +37,7 @@
 
 @keyframes menuLi {
   from {background-color: rgb(248, 248, 248);}
-  to {background-color: #000;}
+  to {background-color: rgb(228, 228, 218);}
 }
 
 @media (min-width: 979px) {

@@ -3,6 +3,8 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require("path");
+const routes = require('./routes');
+const config = require('config');
 
 const app = express();
 app.use(logger('dev'));
@@ -23,19 +25,15 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, createIndexes: true }));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/travelynx", 
+const db = config.get('mongoURI');
+
+mongoose.connect(db, 
     { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
 
 // Routes
-const tripsRouter = require('./routes/trips');
-const usersRouter = require('./routes/users');
-//const daysEvent = require('./routes/daysEvent');
+app.use(routes);
 
-app.use('/trips', tripsRouter);
-app.use('/users', usersRouter);
-//app.use('/trips/:id/daysEvent', daysEvent);
-
-app.get("*", function(req, res) {
+app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 

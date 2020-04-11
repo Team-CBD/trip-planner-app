@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/style.css";
 import Home from '../routes/home';
 import Friends from '../routes/friends';
-import TripCreate from '../routes/tripcreate';
+import EventCreate from '../routes/EventCreate';
 import Converter from '../routes/converter';
 
 import {
@@ -17,8 +17,8 @@ function Main () {
       <Route exact path="/">
         <Home />
       </Route>
-      <Route path="/tripcreate">
-        <TripCreate />
+      <Route path="/EventCreate">
+        <EventCreate />
       </Route>
       <Route path="/friends">
         <Friends />

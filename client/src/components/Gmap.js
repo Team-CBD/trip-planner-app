@@ -4,15 +4,23 @@ import "../styles/map.css";
 
 
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
+const AnyReactComponent = ({ text }) => <div style={{
+  color: 'white', 
+  background: '#1c75bc',
+  padding: '5px 5px',
+  display: 'inline-flex',
+  textAlign: 'center',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: '100%',
+  transform: 'translate(-50%, -50%)'
+}}>{text}</div>;
 
+var LatLng = {lat: 33.5, lng: -117.5};
 
 class Gmap extends Component {
   static defaultProps = {
-    center: {
-      lat: 33.5,
-      lng: -117.5
-    },
+    center: {LatLng},
     zoom: 8
   };
 
@@ -38,15 +46,12 @@ class Gmap extends Component {
           }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
-          center={
-            // eslint-disable-next-line
-            this.props.lat,
-            this.props.lng
-          }
+          center={LatLng}
         >
           <AnyReactComponent
-            lat={this.props.lat}
-            lng={this.props.lng}
+            lat={43.77}
+            lng={11.24}
+            text="Florence"
           />
         </GoogleMapReact>
         <script src='https://maps.google.com/maps/api/js?key=AIzaSyDOpL4ut22yVDXSPOcY6AiqvoHuX_Auah4&libraries=places&callback=initAutocomplete' async defer></script>
@@ -59,4 +64,3 @@ class Gmap extends Component {
 }
 
 export default Gmap;
-

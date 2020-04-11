@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Form from "./Form.js";
+import EventForm from "./EventForm.js";
 // eslint-disable-next-line
-import Gmap from "./GoogleMap";
+import Gmap from "./Gmap";
 import Weather from "./Weather";
 
-class TripData extends Component {
+class EventData extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,21 +39,20 @@ class TripData extends Component {
     return (
 
 
-      <div className="justify-content-center">
-        <Form addTrip={this.addTrip} />
-        <div className="row">
+      <div className="justify-content-center ">
 
-          <div id="map" className="map col-sm-5 pt-5 offset-1">
-            <div id="floating-panel">
-              <input id="address"  value="" type="textbox" defaultValue />
-              <input id="submit" type="button" value="Geocode"></input>
-            </div>
-            <Gmap />
-            <br />
-            <Weather />
+        <div className="row">
+          <div className="col-sm-6">
+            <EventForm addTrip={this.addTrip} />
           </div>
           <div className="col-sm-5">
-            {this.renderTrips()}
+            <Gmap />
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-sm-6">
+          {this.renderTrips()}
           </div>
 
         </div>
@@ -63,4 +62,4 @@ class TripData extends Component {
 
 }
 
-export default TripData;
+export default EventData;

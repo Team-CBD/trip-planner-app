@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class FriendsList extends Component {
+class FriendsNames extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,23 +12,12 @@ class FriendsList extends Component {
       ]
     };
   }
-  renderFriendNames() {
+  renderFriendsNames() {
     return (
       <ul className="card-body">
         {this.state.friends.map(friends => (
           <li key={friends.name} className="col card neu center m-2 p-2">
-            <div className="card-title">{friends.name}</div> {friends.relation}<br /> {friends.number}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-  renderFriends() {
-    return (
-      <ul className="card-body">
-        {this.state.friends.map(friends => (
-          <li key={friends.name} className="col card neu center m-2 p-2">
-            <div className="card-title">{friends.name}</div> {friends.relation}<br /> {friends.number}
+            <div className="card-title">{friends.name}</div> 
           </li>
         ))}
       </ul>
@@ -42,11 +31,11 @@ class FriendsList extends Component {
 
       <div className="justify-content-center">
 
-        {this.renderFriends()}
+        {this.renderFriendsNames()}
       </div>
 
     );
   }
 
 }
-export default FriendsList;
+export default FriendsNames;

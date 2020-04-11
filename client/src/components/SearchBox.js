@@ -1,4 +1,4 @@
-//import { withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
+//import { withGmap, Gmap, Marker, InfoWindow } from "react-google-maps";
 
 const google = window.google;
 
@@ -10,7 +10,7 @@ function SearchBox() {
   });
 
   // Create the search box and link it to the UI element.
-  var input = document.getElementById('search-input');
+  var input = document.getElementById('city');
   var searchBox = new google.maps.places.SearchBox(input);
   map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
