@@ -37,7 +37,7 @@ const tripSchema = new mongoose.Schema({
             trim: true,
             required: "You must enter a City Name"
           },
-          duration: {
+          description: {
             type: String,
           },
           date: {
