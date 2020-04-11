@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FacebookLoginBtn from "react-facebook-login";
+import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 
  class Facebook extends Component {
     state = {
@@ -28,15 +28,14 @@ import FacebookLoginBtn from "react-facebook-login";
         this.state.auth ?
             facebookData = (
                 <div>
-                    <img src={this.state.picture} alt={this.state.name} />
-                    <h2>Welcome {this.state.name}</h2>
-                    <p>{this.state.email}</p>
+                    <img className="neu right" src={this.state.picture} alt={this.state.name} />
+                    <h4 className="left">Welcome {this.state.name}</h4>
                     
                 </div>
             ) :
 
             facebookData = (
-                <FacebookLoginBtn
+                <FacebookLogin
                 appId="259668991860796"
                 autoLoad={true}
                 fields="name,email,picture"

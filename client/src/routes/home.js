@@ -58,7 +58,7 @@ class Home extends React.Component {
 
             <div className="col-md-3">
               <div className="sidebar">
-              <div className="fb-login mt-4 pt-4">
+              <div className="fb-login mt-3 pt-3">
                 <Facebook />
                 </div>
                 <div className="mt-4 pt-3">
