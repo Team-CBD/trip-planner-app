@@ -56,7 +56,7 @@ class Home extends React.Component {
 
             </div>
 
-            <div className="col-md-3">
+            <div className="col-md">
               <div className="sidebar">
               <div className="fb-login mt-3 pt-3">
                 <Facebook />
@@ -69,7 +69,7 @@ class Home extends React.Component {
                 handleSubmit = {this.handleSubmit}
                 />
                </div>
-                <h4 className="text-center text-dark pt-3"></h4>
+                <h4 className="text-center text-dark pt-3"> </h4>
                 
 
 
