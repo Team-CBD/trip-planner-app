@@ -6,6 +6,14 @@ var validateEmail = function(email) {
 };
 
 const userSchema = new mongoose.Schema({
+    fName: {
+        type: String,
+        required: [true, 'First name required']
+    },
+    lName: {
+        type: String,
+        required: [true, 'Last name required']
+    },    
     email: {
         type: String,
         required: [true, 'Email address required'],
@@ -17,7 +25,19 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: [true, 'Password required']
-    }
+    },
+    tripsList: [
+        {
+            type: mongoose.Schema.Types.ObjectId, 
+            ref: 'Trip'
+        }
+    ],
+    friendsList: [
+        {
+            type: mongoose.Schema.Types.ObjectId, 
+            ref: 'User' 
+        }
+    ]
 });
 
 const User = mongoose.model('User', userSchema);

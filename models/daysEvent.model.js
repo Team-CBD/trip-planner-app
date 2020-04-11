@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+//const TripSchema = ('./trip.model');
 
-const daysEventSchema = new mongoose.Schema({
+const daysEventSchema = mongoose.Schema({
+    _id: mongoose.Schema.Types.ObjectId,
     selectedDay: {
         type: Date,
         required: [true, 'A date for your event is required'],
@@ -13,6 +15,9 @@ const daysEventSchema = new mongoose.Schema({
     description: {
         type: String,
         trim: true
+    },
+    photo: {
+        type: String
     }
 });
 

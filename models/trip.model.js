@@ -1,14 +1,11 @@
 const mongoose = require('mongoose');
 //const daysEventSchema = require('./daysEvent.model');
-
 // const daysEventSchema = new mongoose.Schema({
 //     _id: mongoose.Schema.Types.ObjectId,
-    
 //     tripDestination: { 
 //         type: mongoose.Schema.Types.ObjectId, 
 //         ref: 'Trip' 
 //     },
-
 //     selectedDay: {
 //         type: Date,
 //         required: [true, 'A date for your event is required'],
@@ -23,7 +20,6 @@ const mongoose = require('mongoose');
 //         trim: true
 //     }
 // });
-
 const tripSchema = new mongoose.Schema({
     destination: {
         type: String,
@@ -37,7 +33,7 @@ const tripSchema = new mongoose.Schema({
             trim: true,
             required: "You must enter a City Name"
           },
-          duration: {
+          description: {
             type: String,
           },
           date: {
@@ -57,10 +53,12 @@ const tripSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
-    //daysEvent: [ daysEventSchema ]
+    // daysEvent:  [{
+    //     index: { unique: true},
+    //     type: mongoose.Schema.Types.ObjectId, 
+    //      ref: 'DaysEvent'  
+    // }]
 });
-
 //const DaysEvent = mongoose.model('DaysEvent', daysEventSchema);
 const Trip = mongoose.model('Trip', tripSchema);
-
 module.exports = Trip;
