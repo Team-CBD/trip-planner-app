@@ -4,6 +4,7 @@ import CurrencyRow from './CurrencyRow'
 const BASE_URL = 'https://api.exchangeratesapi.io/latest'
 
 function Convertor() {
+    console.log("convertor");
   const [currencyOptions, setCurrencyOptions] = useState([])
   const [fromCurrency, setFromCurrency] = useState()
   const [toCurrency, setToCurrency] = useState()
@@ -43,6 +44,7 @@ function Convertor() {
 }, [fromCurrency, toCurrency])
 
 function handleFromAmountChange(e) {
+    console.log("amountchange");
   setAmount(e.target.value)
   setAmountInFromCurrency(true)
   }
