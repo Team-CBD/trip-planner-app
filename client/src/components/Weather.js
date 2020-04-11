@@ -13,7 +13,7 @@ const Forecast = () => {
         e.preventDefault();
         
 
-        fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${"749b68101d8a7b49d61948de98b46bfc&units=imperial"}`)
+        fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${"749b68101d8a7b49d61948de98b46bfc&units=imperial"}`)
        
         .then(res => res.json())
         
