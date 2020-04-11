@@ -1,28 +1,28 @@
 const mongoose = require('mongoose');
 //const daysEventSchema = require('./daysEvent.model');
 
-const daysEventSchema = new mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
+// const daysEventSchema = new mongoose.Schema({
+//     _id: mongoose.Schema.Types.ObjectId,
     
-    tripDestination: { 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Trip' 
-    },
+//     tripDestination: { 
+//         type: mongoose.Schema.Types.ObjectId, 
+//         ref: 'Trip' 
+//     },
 
-    selectedDay: {
-        type: Date,
-        required: [true, 'A date for your event is required'],
-    },
-    event: {
-        type: String,
-        required: [true, 'A name for your trip is required'],
-        trim: true
-    },
-    description: {
-        type: String,
-        trim: true
-    }
-});
+//     selectedDay: {
+//         type: Date,
+//         required: [true, 'A date for your event is required'],
+//     },
+//     event: {
+//         type: String,
+//         required: [true, 'A name for your trip is required'],
+//         trim: true
+//     },
+//     description: {
+//         type: String,
+//         trim: true
+//     }
+// });
 
 const tripSchema = new mongoose.Schema({
     destination: {
@@ -60,7 +60,7 @@ const tripSchema = new mongoose.Schema({
     //daysEvent: [ daysEventSchema ]
 });
 
-const DaysEvent = mongoose.model('DaysEvent', daysEventSchema);
+//const DaysEvent = mongoose.model('DaysEvent', daysEventSchema);
 const Trip = mongoose.model('Trip', tripSchema);
 
 module.exports = Trip;

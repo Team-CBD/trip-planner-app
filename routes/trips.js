@@ -9,13 +9,13 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-    const destination = req.body.destination;
-    const newTrip = new Trip(req.body);
+    
+    Trip.create(req.body);
+    console.log(req.body);
 
-
-newTrip.save()
-    .then(() => res.json('New trip added!'))
-    .catch(err => res.status(400).json(`Error: ${err}`));
+// newTrip.save()
+//     .then(() => res.json('New trip added!'))
+//     .catch(err => res.status(400).json(`Error: ${err}`));
 });
 
 router.route('/:id').get((req, res) => {
