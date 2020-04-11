@@ -1,4 +1,4 @@
-body {
+/* body {
     margin: 0;
     display: flex;
     justify-content: center;
@@ -6,26 +6,26 @@ body {
     min-height: 100vh;
     text-align: center;
     background-color: rgb(24, 91, 122);
-  }
+  } */
   
-  .converter {
+  /* .converter {
     background-color: oldlace;
     padding: 15px;
     border-radius: 25px;
     border: 5px solid #ddd;
-  }
+  } */
   
   h1 {
     margin: 0;
     margin-bottom: .5rem;
   }
   
-  .input {
+  /* .input {
     border: 1px solid #333;
     border-radius: 3em;
     padding: .25rem;
     width: 7em;
-  }
+  } */
   
   .select {
     margin-left: .5rem;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import CurrencyRow from './CurrencyRow'
-import Weather from './Weather'
+import CurrencyRow from './CurrencyRow';
+import '../styles/Converter.css';
+import Weather from './Weather';
 
 const BASE_URL = 'https://api.exchangeratesapi.io/latest'
 
