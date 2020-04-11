@@ -2,7 +2,8 @@ import axios from 'axios';
 
 export default {
     getTrips: () => axios.get("/trips"),
-    addTrips: (trip) => axios.post("/trips/add", trip)
+    addTrips: (trip) => axios.post("/trips/add", trip),
+
 
     
 };

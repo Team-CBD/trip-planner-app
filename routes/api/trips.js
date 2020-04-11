@@ -50,9 +50,9 @@ router.route('/update/:id').post( (req, res) => {
             trip.destination = req.body.destination;
             trip.startDate = Date.parse(req.body.startDate);
             trip.endDate = Date.parse(req.body.endDate);
-            // trip.daysEvent.name= req.body.name;
-            // trip.daysEvent.description= req.body.description;
-            // trip.daysEvent.date= Date.parse(req.body.date);
+            trip.daysEvent.name= req.body.name;
+            trip.daysEvent.description= req.body.description;
+            trip.daysEvent.date= Date.parse(req.body.date);
 
 
             trip.save()
@@ -91,30 +91,30 @@ router.route('/eventUpdate/:id').put( async( req, res) => {
 });
 
 // Remove event
-router.route('deleteEvent/:id').put( ( req, res) => {
-    const tripId =  Trip.findById(req.params.id);
+// router.route('deleteEvent/:id').put( ( req, res) => {
+//     const tripId =  Trip.findById(req.params.id);
     
-    const { name, description} = req.body;
-    const date =Date.parse(req.body.date);
+//     const { name, description} = req.body;
+//     const date =Date.parse(req.body.date);
 
-    const newEvent = {
-        name,
-        description,
-        date
-    };
+//     const newEvent = {
+//         name,
+//         description,
+//         date
+//     };
 
-    Trip.updateOne(
-        {_id: tripId},
-        {$unset: newEvent},
-        function(err, result) {
-            if(err) {
-                res.send(err)
-            } else {
-                res.send(result)
-            }
-        }
-    );
-});
+//     Trip.updateOne(
+//         {_id: tripId},
+//         {$unset: newEvent},
+//         function(err, result) {
+//             if(err) {
+//                 res.send(err)
+//             } else {
+//                 res.send(result)
+//             }
+//         }
+//     );
+// });
 
 // Day Events CRUD
 
