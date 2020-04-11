@@ -4,6 +4,7 @@ import Home from '../routes/home';
 import Friends from '../routes/friends';
 import EventCreate from '../routes/EventCreate';
 import Converter from '../routes/converter';
+import Policy from '../routes/policy';
 
 import {
   Switch,
@@ -25,6 +26,9 @@ function Main () {
       </Route>
       <Route path="/converter">
         <Converter />
+      </Route>
+      <Route path="/policy">
+        <Policy />
       </Route>
     </Switch>
   
