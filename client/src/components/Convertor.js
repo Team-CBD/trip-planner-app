@@ -5,6 +5,7 @@ import Weather from './Weather'
 const BASE_URL = 'https://api.exchangeratesapi.io/latest'
 
 function Convertor() {
+    console.log("convertor");
   const [currencyOptions, setCurrencyOptions] = useState([])
   const [fromCurrency, setFromCurrency] = useState()
   const [toCurrency, setToCurrency] = useState()
@@ -43,9 +44,16 @@ function Convertor() {
     }
   }, [fromCurrency, toCurrency])
 
+<<<<<<< HEAD
+function handleFromAmountChange(e) {
+    console.log("amountchange");
+  setAmount(e.target.value)
+  setAmountInFromCurrency(true)
+=======
   function handleFromAmountChange(e) {
     setAmount(e.target.value)
     setAmountInFromCurrency(true)
+>>>>>>> 145f6f38cdfa10615f33894546adcdfc626992c3
   }
   function handleToAmountChange(e) {
     setAmount(e.target.value)
