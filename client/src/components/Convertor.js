@@ -44,16 +44,9 @@ function Convertor() {
     }
   }, [fromCurrency, toCurrency])
 
-<<<<<<< HEAD
-function handleFromAmountChange(e) {
-    console.log("amountchange");
-  setAmount(e.target.value)
-  setAmountInFromCurrency(true)
-=======
   function handleFromAmountChange(e) {
     setAmount(e.target.value)
     setAmountInFromCurrency(true)
->>>>>>> 145f6f38cdfa10615f33894546adcdfc626992c3
   }
   function handleToAmountChange(e) {
     setAmount(e.target.value)
