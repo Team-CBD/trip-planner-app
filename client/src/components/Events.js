@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import EventForm from "./EventForm.js";
 // eslint-disable-next-line
 import Gmap from "./Gmap";
-import Weather from "./Weather";
+//import Weather from "./Weather";
 
 class EventData extends Component {
   constructor(props) {

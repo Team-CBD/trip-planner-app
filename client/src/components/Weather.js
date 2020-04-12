@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./weather.css";
+import "../styles/weather.css";
 
 const Forecast = () => {
     
@@ -43,9 +43,11 @@ const Forecast = () => {
                  {query.map((item,index) => (
                      <div>
                          {index % 9 === 0 &&
-                     <div >
+                     <div className="row">
+                         <div className="col">
                      <p><strong>{Math.round(item.main.temp)}°</strong> with {item.weather[0].description}</p>
-                     <img className="icon" src ={`https://openweathermap.org/img/w/${item.weather[0].icon}.png`} alt="wthr img" />
+                     <img className="icon col" src ={`https://openweathermap.org/img/w/${item.weather[0].icon}.png`} alt="wthr img" />
+                      </div>
                       </div>
                             }
                         </div>

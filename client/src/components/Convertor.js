@@ -77,7 +77,7 @@ function Convertor() {
                 amount={toAmount} />
             </div>
           </div>
-          <div className="col-sm-5">
+          <div className="col-sm-6 pt-5">
               <Weather />
           </div>
         </div>
