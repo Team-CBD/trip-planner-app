@@ -1,6 +1,7 @@
 #map {
     border-radius:5px!important;
     height:420px;
+    display: -webkit-inline-box;
 }
 .search-input {
     background-color: #fff;
@@ -15,6 +16,7 @@
 
 #floating-panel {
     position: absolute;
+    display:none;
     top: 52px;
     left: 25%;
     z-index: 5;
