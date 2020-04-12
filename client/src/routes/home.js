@@ -4,7 +4,7 @@ import TripForm from '../components/TripForm'
 
 import '../styles/style.css'
 import API from '../utils/api';
-import Facebook from "react-facebook-login";
+import Register from "../components/Register";
 
 class Home extends React.Component {
   state = {
@@ -59,7 +59,7 @@ class Home extends React.Component {
             <div className="col-md">
               <div className="sidebar">
               <div className="fb-login mt-3 pt-3">
-                <Facebook />
+                <Register />
                 </div>
                 <div className="mt-4 pt-3">
                 <TripForm destination = {this.state.destination}
