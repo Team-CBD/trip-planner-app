@@ -15,6 +15,11 @@ body {
 	
 }
 
+.darkmode-toggle {
+	box-shadow: 2px 2px 3px #9d9fa1,
+			-2px -2px 3px #ffffff;
+}
+
 .kep-login-facebook.metro {
     border-radius: 7px!important;
 	box-shadow: 2px 2px 3px #9d9fa1,
@@ -101,6 +106,9 @@ li {
 	margin: 10px;
 }
 
+.darkmode--activated p, .darkmode--activated li {
+    color: #000;
+}
 
 a {
 	text-decoration: none;
@@ -230,7 +238,9 @@ iframe {
 	font-weight: bold;
 	transition: 0.3s;
 }
-
+.text-dark {
+	color:#1e1e1f!important;
+}
 .close:hover,
 .close:focus {
 	color: #bbb;

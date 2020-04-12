@@ -40,7 +40,7 @@ class Home extends React.Component {
   handleSubmit = (evt) => {
     evt.preventDefault();
     this.addTrip();
-    this.setState({ destination: "", startDate: "", endDate: "" });
+    this.setState({ trips: "", destination: "", startDate: "", endDate: "" });
 
   }
 
