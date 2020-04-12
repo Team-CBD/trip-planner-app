@@ -9,7 +9,7 @@ class EventData extends Component {
     super(props);
     this.state = {
       trips: [
-        { city: "Florence, Italy", description: "We are eating pasta", date: "2020-05-13" }
+        { number: 1, city: "Rome, Italy", description: "We are eating pasta and visiting the Colosseum.", date: "2020-05-13" }
       ]
     };
     this.addTrip = this.addTrip.bind(this);
@@ -25,8 +25,8 @@ class EventData extends Component {
     return (
       <ul className="card-body">
         {this.state.trips.map(trips => (
-          <li key={trips.city} className="col card neu center m-2 p-2">
-            <div className="card-title">{trips.city}</div> {trips.description}<br /> {trips.date}
+          <li key={trips.city} className="row card neu center m-2 p-2">
+            <div className="col">{trips.number}</div><div className="card-title col">{trips.city}</div> {trips.description}<br /> {trips.date}
           </li>
         ))}
       </ul>

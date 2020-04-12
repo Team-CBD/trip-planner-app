@@ -12,11 +12,11 @@ function Friends() {
       <h2 className="ptitle text-dark">Friends</h2>
 
       <div className="row">
-        <div className="col-sm-4">
+        <div className="col-sm-6">
           <FriendsList />
           
         </div>
-        <div className="col-sm-4">
+        <div className="col-sm-6">
           <FriendForm />
         </div>
       </div>

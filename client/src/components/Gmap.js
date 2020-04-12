@@ -16,7 +16,7 @@ const AnyReactComponent = ({ text }) => <div style={{
   transform: 'translate(-50%, -50%)'
 }}>{text}</div>;
 
-var LatLng = {lat: 43.77, lng: 11.24};
+var LatLng = {lat: 41.90, lng: 12.49};
 
 class Gmap extends Component {
   static defaultProps = {
@@ -49,9 +49,9 @@ class Gmap extends Component {
           center={LatLng}
         >
           <AnyReactComponent
-            lat={43.77}
-            lng={11.24}
-            text="Florence"
+            lat={41.90}
+            lng={12.49}
+            text="1"
           />
         </GoogleMapReact>
         <script src='https://maps.google.com/maps/api/js?key=AIzaSyDOpL4ut22yVDXSPOcY6AiqvoHuX_Auah4&libraries=places&callback=initMap' async defer></script>
