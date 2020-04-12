@@ -32,7 +32,7 @@
 .navbar li:hover {
   box-shadow:0px 1px 1px 1px #00000009;
   animation-name: menuLi;
-  animation-duration: 4s;
+  animation-duration: 6s;
 }
 
 @keyframes menuLi {
