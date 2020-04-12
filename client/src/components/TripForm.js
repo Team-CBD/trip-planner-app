@@ -1,5 +1,8 @@
 import React from "react";
+import {
 
+  Link
+} from "react-router-dom";
 
 function TripForm ({ destination, handleChange, startDate, endDate, handleSubmit }) {
 
@@ -26,7 +29,7 @@ function TripForm ({ destination, handleChange, startDate, endDate, handleSubmit
                   name="endDate"
                   value={endDate}
                   onChange={handleChange} /><br/>
-                  <button id="submit" className="btn neu">Save</button>
+                  <Link to="/EventCreate"><button id="submit" className="btn neu">Next</button></Link>
               </form>
            </div>
         );
