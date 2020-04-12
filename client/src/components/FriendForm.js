@@ -1,8 +1,9 @@
 import React from "react";
 
 
-function FriendForm ({ fullname, handleChange, relation, phone, handleSubmit }) {
 
+function FriendForm ({ fullname, handleChange, relation, phone, handleSubmit }) {
+  
         return(
            <div>
              <h4 className="text-dark">Add Friend</h4>
@@ -14,13 +15,13 @@ function FriendForm ({ fullname, handleChange, relation, phone, handleSubmit }) 
                   value={fullname}
                   />
                   <br/>
-                  <input type="date"
+                  <input type="text"
                   className="neuflip m-2 p-2"
                   placeholder="Relation"
                   name="relation"
                   value={relation}
                   onChange={handleChange} /><br/>
-                  <input type="date"
+                  <input type="tel"
                   className="neuflip m-2 p-2"
                   placeholder="Phone"
                   name="phone"

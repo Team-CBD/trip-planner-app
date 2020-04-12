@@ -3,6 +3,8 @@ import FriendsList from "../components/FriendsList";
 import FriendForm from "../components/FriendForm";
 import '../styles/style.css'
 
+
+
 function Friends() {
   return (
     <div className="container">
@@ -11,7 +13,7 @@ function Friends() {
 
       <div className="row">
         <div className="col-sm-4">
-          <FriendForm />
+        <FriendForm />
         </div>
         <div className="col-sm-4">
           <FriendsList />

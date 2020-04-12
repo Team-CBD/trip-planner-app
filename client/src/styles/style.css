@@ -19,6 +19,7 @@ body {
 .darkmode-toggle {
 	box-shadow: 2px 2px 3px #9d9fa1,
 			-2px -2px 3px #ffffff;
+	z-index: 999;
 }
 
 .kep-login-facebook.metro {
