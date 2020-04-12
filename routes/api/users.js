@@ -6,13 +6,13 @@ const jwt = require('jsonwebtoken');
 const auth = require('../../middleware/auth');
 
 
-router.route('/').get((req, rest) => {
+router.route('/login').get((req, rest) => {
     User.find()
         .then(users => rest.json(users))
         .catch(err => rest.status(400).json(`Error: ${err}`));
 });
 
-router.route('/').post((req, res) => {
+router.route('/register').post((req, res) => {
     const { fName, lName, email, password } = req.body;
 
     const newUser = new User({
