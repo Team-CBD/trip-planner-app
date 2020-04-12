@@ -28,7 +28,7 @@ handleSubmit(evt) {
     render(){
         return(
            <div>
-             <h2 className="text-dark">Events</h2>
+             
               <form onSubmit={this.handleSubmit}>
                 <input className="neuflip m-2 p-2" 
                   type="text" id="city" placeholder="City Name"

@@ -13,13 +13,14 @@ function Friends() {
 
       <div className="row">
         <div className="col-sm-4">
-        <FriendForm />
+          <FriendsList />
+          
         </div>
         <div className="col-sm-4">
-          <FriendsList />
+          <FriendForm />
         </div>
       </div>
-      </div>
+    </div>
   );
 }
 

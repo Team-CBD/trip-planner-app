@@ -55,7 +55,7 @@ function Convertor() {
   }
   return (
     <div className="justify-content-center">
-<h2 className="ptitle text-dark pb-3">Tools and Conversion</h2>
+<h2 className="ptitle text-dark pb-3">Convert | Search</h2>
       <div className="container">
 
         <div className="row">
