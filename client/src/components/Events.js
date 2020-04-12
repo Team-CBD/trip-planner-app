@@ -9,10 +9,7 @@ class EventData extends Component {
     super(props);
     this.state = {
       trips: [
-        { city: "Florence, Italy", description: "We are eating pasta", date: "2020-05-13" },
-        { city: "Rome, Italy", description: "Seeing the sites", date: "2020-05-15" },
-        { city: "London, England", description: "Going to watch Chelsea football", date: "2020-09-12" },
-        { city: "Sussex, England", description: "Going to watch the Duke and Duchess", date: "2020-09-13" }
+        { city: "Florence, Italy", description: "We are eating pasta", date: "2020-05-13" }
       ]
     };
     this.addTrip = this.addTrip.bind(this);

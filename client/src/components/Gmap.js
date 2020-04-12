@@ -24,7 +24,7 @@ class Gmap extends Component {
     zoom: 8
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     navigator.geolocation.getCurrentPosition(
       position => {
         this.setState({ lat: position.coords.latitude, lng: position.coords.longitude });
@@ -36,7 +36,7 @@ class Gmap extends Component {
 
   render() {
     return (
-      <div id="map" className="neu" style={{ height: '94%', width: '94%' }}>
+      <div id="map" className="neu" style={{ height: '94%', width: '100%' }}>
         
         <GoogleMapReact
           bootstrapURLKeys={{
