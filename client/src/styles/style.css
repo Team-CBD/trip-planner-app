@@ -1,5 +1,6 @@
 body {
-	background-color:#f4f4f7;
+	background-color:#e6e6e6;
+	
 }
 
 .card {
@@ -13,6 +14,12 @@ body {
 .card-title {
 	font-weight: bold;
 	
+}
+
+.darkmode-toggle {
+	box-shadow: 2px 2px 3px #9d9fa1,
+			-2px -2px 3px #ffffff;
+	z-index: 999;
 }
 
 .kep-login-facebook.metro {
@@ -101,6 +108,9 @@ li {
 	margin: 10px;
 }
 
+.darkmode--activated p, .darkmode--activated li {
+    color: #000;
+}
 
 a {
 	text-decoration: none;
@@ -115,7 +125,8 @@ a {
 	left: 0;
 	width: 100%;
 	height: 1.5em;
-	border-top: 4px solid #d6d6d6;
+	box-shadow: 2px 2px 3px #9d9fa1,
+	-2px -2px 3px #ffffff;
 }
 
 #copyright {
@@ -229,7 +240,9 @@ iframe {
 	font-weight: bold;
 	transition: 0.3s;
 }
-
+.text-dark {
+	color:#1e1e1f!important;
+}
 .close:hover,
 .close:focus {
 	color: #bbb;

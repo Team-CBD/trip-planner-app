@@ -35,19 +35,23 @@ const tripSchema = new mongoose.Schema({
           },
           description: {
             type: String,
+            required: "You must enter a Description"
           },
           date: {
             type: Date,
-            default: Date.now
+            default: Date.now,
+            required: "You must enter a Date"
           }
         }
       ],
     startDate: {
         type: Date,
-        default: Date.now
+        default: Date.now,
+        required: "You must enter a Start Date"
     },
     endDate: {
         type: Date,
+        required: "You must enter an End Date"
     },
     createdAt: {
         type: Date,

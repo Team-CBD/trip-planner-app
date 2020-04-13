@@ -1,10 +1,9 @@
 import React from 'react'
 import CardElement from '../components/Card'
 import TripForm from '../components/TripForm'
-
 import '../styles/style.css'
 import API from '../utils/api';
-import Register from "../components/Register";
+import Facebook from "react-facebook-login";
 
 class Home extends React.Component {
   state = {
@@ -15,18 +14,18 @@ class Home extends React.Component {
       endDate: ""
     
   }
-  // getTrip = () => {
-  //   API.getTrips().then(res => {
-  //     console.log(res)
-  //   })
-  // }
+  getTrip = () => {
+    API.getTrips().then(res => {
+      console.log(res)
+    })
+  }
   addTrip = () => {
     const data = {
       destination: this.state.destination,
       startDate: this.state.startDate,
       endDate: this.state.endDate
     }
-    console.log(this.state.trips);
+    // console.log(this.state.trips);
     API.addTrips(data).then(res => {
       console.log(res)
     })
@@ -41,9 +40,12 @@ class Home extends React.Component {
   handleSubmit = (evt) => {
     evt.preventDefault();
     this.addTrip();
-    this.setState({ destination: "", startDate: "", endDate: "" });
+    this.setState({ trips: "", destination: "", startDate: "", endDate: "" });
 
   }
+
+  
+
   render() {
     return (
       <div>
@@ -59,15 +61,14 @@ class Home extends React.Component {
             <div className="col-md">
               <div className="sidebar">
               <div className="fb-login mt-3 pt-3">
-                <Register />
+                <Facebook />
                 </div>
                 <div className="mt-4 pt-3">
                 <TripForm destination = {this.state.destination}
                 handleChange = {this.handleChange}
                 startDate = {this.state.startDate}
                 endDate = {this.state.endDate}
-                handleSubmit = {this.handleSubmit}
-                />
+                handleSubmit = {this.handleSubmit}                />
                </div>
                 <h4 className="text-center text-dark pt-3"> </h4>
                 

@@ -2,17 +2,14 @@ import React, { Component } from "react";
 import EventForm from "./EventForm.js";
 // eslint-disable-next-line
 import Gmap from "./Gmap";
-import Weather from "./Weather";
+//import Weather from "./Weather";
 
 class EventData extends Component {
   constructor(props) {
     super(props);
     this.state = {
       trips: [
-        { city: "Florence, Italy", description: "We are eating pasta", date: "2020-05-13" },
-        { city: "Rome, Italy", description: "Seeing the sites", date: "2020-05-15" },
-        { city: "London, England", description: "Going to watch Chelsea football", date: "2020-09-12" },
-        { city: "Sussex, England", description: "Going to watch the Duke and Duchess", date: "2020-09-13" }
+        { number: 1, city: "Rome, Italy", description: "We are eating pasta and visiting the Colosseum.", date: "2020-05-13" }
       ]
     };
     this.addTrip = this.addTrip.bind(this);
@@ -28,8 +25,8 @@ class EventData extends Component {
     return (
       <ul className="card-body">
         {this.state.trips.map(trips => (
-          <li key={trips.city} className="col card neu center m-2 p-2">
-            <div className="card-title">{trips.city}</div> {trips.description}<br /> {trips.date}
+          <li key={trips.city} className="row card neu center m-2 p-2">
+            <div className="col">{trips.number}</div><div className="card-title col">{trips.city}</div> {trips.description}<br /> {trips.date}
           </li>
         ))}
       </ul>
@@ -40,19 +37,19 @@ class EventData extends Component {
 
 
       <div className="justify-content-center ">
-
+        <h4 className="text-dark pt-3">Events</h4>
         <div className="row">
           <div className="col-sm-6">
-            <EventForm addTrip={this.addTrip} />
-          </div>
-          <div className="col-sm-5">
             <Gmap />
+          </div>
+          <div className="col-sm-6">
+            {this.renderTrips()}
           </div>
         </div>
 
         <div className="row">
           <div className="col-sm-6">
-          {this.renderTrips()}
+            <EventForm addTrip={this.addTrip} />
           </div>
 
         </div>

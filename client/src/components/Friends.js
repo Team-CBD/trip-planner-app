@@ -5,12 +5,7 @@ class FriendData extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        friends: [
-            {name: "Coco Chanel", relation: "Girlfriend", number: "951-123-4567"},
-            {name: "Tommy Hilfiger", relation: "Friend", number: "951-123-4567"},
-            {name: "Marc Jacobs", relation: "Family", number: "951-123-4567"}
-            
-        ]    
+        friends: []    
     };
     this.addFriend = this.addFriend.bind(this);
 } 
@@ -26,7 +21,7 @@ class FriendData extends Component {
           <ul className="card-body">
             {this.state.friends.map(friends => (
               <li className="col card neu center m-2 p-2">
-                <div className="card-title">{friends.name}</div> {friends.relation}<br/> {friends.number}
+                <div className="card-title">{friends.fullname}</div> {friends.relation}<br/> {friends.number}
               </li>
             ))}
           </ul>
@@ -38,7 +33,12 @@ class FriendData extends Component {
             
           <div className="justify-content-center">
             <div className="justify-content-center">
-          <FriendForm addFriend={this.addFriend} />
+          {/* <FriendForm addFriend={this.addFriend} /> */}
+          <FriendForm fullname = {this.state.fullname}
+                handleChange = {this.handleChange}
+                relation = {this.state.relation}
+                phone = {this.state.phone}
+                handleSubmit = {this.handleSubmit}                />
             </div>
             </div>
                  

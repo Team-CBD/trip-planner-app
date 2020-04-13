@@ -55,7 +55,7 @@ function Convertor() {
   }
   return (
     <div className="justify-content-center">
-<h2 className="ptitle text-dark pb-3">Tools and Conversion</h2>
+<h2 className="ptitle text-dark pb-3">Convert | Search</h2>
       <div className="container">
 
         <div className="row">
@@ -77,7 +77,7 @@ function Convertor() {
                 amount={toAmount} />
             </div>
           </div>
-          <div className="col-sm-5">
+          <div className="col-sm-6 pt-5">
               <Weather />
           </div>
         </div>

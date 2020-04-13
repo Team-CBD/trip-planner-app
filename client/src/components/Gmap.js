@@ -16,7 +16,7 @@ const AnyReactComponent = ({ text }) => <div style={{
   transform: 'translate(-50%, -50%)'
 }}>{text}</div>;
 
-var LatLng = {lat: 33.5, lng: -117.5};
+var LatLng = {lat: 41.90, lng: 12.49};
 
 class Gmap extends Component {
   static defaultProps = {
@@ -24,7 +24,7 @@ class Gmap extends Component {
     zoom: 8
   };
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     navigator.geolocation.getCurrentPosition(
       position => {
         this.setState({ lat: position.coords.latitude, lng: position.coords.longitude });
@@ -36,7 +36,7 @@ class Gmap extends Component {
 
   render() {
     return (
-      <div id="map" className="neu" style={{ height: '94%', width: '94%' }}>
+      <div id="map" className="neu mt-4" style={{ height: '300px', width: '100%' }}>
         
         <GoogleMapReact
           bootstrapURLKeys={{
@@ -49,12 +49,12 @@ class Gmap extends Component {
           center={LatLng}
         >
           <AnyReactComponent
-            lat={43.77}
-            lng={11.24}
-            text="Florence"
+            lat={41.90}
+            lng={12.49}
+            text="1"
           />
         </GoogleMapReact>
-        <script src='https://maps.google.com/maps/api/js?key=AIzaSyDOpL4ut22yVDXSPOcY6AiqvoHuX_Auah4&libraries=places&callback=initAutocomplete' async defer></script>
+        <script src='https://maps.google.com/maps/api/js?key=AIzaSyDOpL4ut22yVDXSPOcY6AiqvoHuX_Auah4&libraries=places&callback=initMap' async defer></script>
 
       </div>
       

@@ -15,13 +15,13 @@
 
 .navbar .container, .navbar .container-fluid, .navbar .container-lg, .navbar .container-md, .navbar .container-sm, .navbar .container-xl {
 
-  padding-left: 50px;
+  padding-left: 45px;
 }
 
 .navbar li {
   background-color:rgb(248, 248, 248);
   text-decoration-color: #1c75bc;
-  margin:5px;
+  margin:3px;
   border:none;
   padding:10px 0px 10px 0px;
 }
@@ -32,7 +32,7 @@
 .navbar li:hover {
   box-shadow:0px 1px 1px 1px #00000009;
   animation-name: menuLi;
-  animation-duration: 4s;
+  animation-duration: 6s;
 }
 
 @keyframes menuLi {
