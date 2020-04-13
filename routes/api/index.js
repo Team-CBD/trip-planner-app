@@ -15,6 +15,6 @@ router.use("/users", userRoutes);
 router.use("/auth", authRoutes);
 
 // Comment Routes
-//router.use("/comments", commentsRoutes);
+router.use("/comments", commentsRoutes);
 
 module.exports = router;

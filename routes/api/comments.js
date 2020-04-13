@@ -1,14 +1,14 @@
 const router = require('express').Router();
-const comments = require('../../models/comment.model');
+const Comment = require('../../models/comment.model');
 
-router.get('/comments', (req, res) => {
+router.get('/', (req, res) => {
     Comment.find((err, comments) => {
       if (err) return res.json({ success: false, error: err });
       return res.json({ success: true, data: comments });
     });
   });
   
-  router.post('/comments', (req, res) => {
+  router.post('/', (req, res) => {
     const comment = new Comment();
     // body parser lets us use the req.body
     const { author, text } = req.body;
@@ -27,7 +27,7 @@ router.get('/comments', (req, res) => {
     });
   });
 
-  router.put('/comments/:commentId', (req, res) => {
+  router.put('/:commentId', (req, res) => {
     const { commentId } = req.params;
     if (!commentId) {
       return res.json({ success: false, error: 'No comment id provided' });
@@ -44,7 +44,7 @@ router.get('/comments', (req, res) => {
     });
   });
   
-  router.delete('/comments/:commentId', (req, res) => {
+  router.delete('/:commentId', (req, res) => {
     const { commentId } = req.params;
     if (!commentId) {
       return res.json({ success: false, error: 'No comment id provided' });

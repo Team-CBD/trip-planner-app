@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 
 const daysEventSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    selectedDay: {
+    date: {
         type: Date,
         required: [true, 'A date for your event is required'],
     },
-    event: {
+    name: {
         type: String,
         required: [true, 'A name for your trip is required'],
         trim: true

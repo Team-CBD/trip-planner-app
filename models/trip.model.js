@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-//const daysEventSchema = require('./daysEvent.model');
+const daysEventSchema = require('./daysEvent.model');
 // const daysEventSchema = new mongoose.Schema({
 //     _id: mongoose.Schema.Types.ObjectId,
 //     tripDestination: { 
@@ -31,7 +31,7 @@ const tripSchema = new mongoose.Schema({
           name: {
             type: String,
             trim: true,
-            required: "You must enter a City Name"
+            required: "You must enter a Name"
           },
           description: {
             type: String,
@@ -57,7 +57,7 @@ const tripSchema = new mongoose.Schema({
     //     index: { unique: true},
     //     type: mongoose.Schema.Types.ObjectId, 
     //      ref: 'DaysEvent'  
-    // }]
+    // } ]
 });
 //const DaysEvent = mongoose.model('DaysEvent', daysEventSchema);
 const Trip = mongoose.model('Trip', tripSchema);
