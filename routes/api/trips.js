@@ -87,53 +87,53 @@ router.route('/addEvent/:id').put( async( req, res) => {
 });
 
 // Update an event of a specific Trip
-router.route('/:tripId/updateEvent/:eventId').put( async( req, res) => {
-    const aTripId =  await Trip.findById(req.params.id);
-    const { wrap } = require('co');
+// router.route('/:tripId/updateEvent/:eventId').put( async( req, res) => {
+//     const aTripId =  await Trip.findById(req.params.id);
+//     const { wrap } = require('co');
 
-    const findDaysEvents = wrap(function*(tripId, allEvents) {
-        const trip = yield Trip.findById(tripId);
+//     const findDaysEvents = wrap(function*(tripId, allEvents) {
+//         const trip = yield Trip.findById(tripId);
 
-        let trips = [allTrips]; //will hold all trips
-        let ids = [allTripsId]; //will hold IDs to search in
+//         let trips = [allTrips]; //will hold all trips
+//         let ids = [allTripsId]; //will hold IDs to search in
 
-        let allEvents = trip.daysEvent.length;
-        for (let i = 0; i < allEvents; i++) {
-            const thisTrip = yield Trip.find({ daysEvent: {$in: ids}});
+//         let allEvents = trip.daysEvent.length;
+//         for (let i = 0; i < allEvents; i++) {
+//             const thisTrip = yield Trip.find({ daysEvent: {$in: ids}});
 
-            ids = thisTrip.map(trip => trip._id); //replace with new IDs
-            trips = trips.concat(thisTrip); //add new trips
-        }
-        return trips;
-    });
+//             ids = thisTrip.map(trip => trip._id); //replace with new IDs
+//             trips = trips.concat(thisTrip); //add new trips
+//         }
+//         return trips;
+//     });
 
-    findDaysEvents(aTripId, req.params.eventId)
-        .then(trip => {
-            Trip.updateOne(
-                {_id: aTripId},
-                {$push: 
-                    {
-                    daysEvent:
-                        {
-                            name: req.body.name,
-                            description: req.body.description,
-                            date: Date.parse(req.body.date)
-                        }
+//     findDaysEvents(aTripId, req.params.eventId)
+//         .then(trip => {
+//             Trip.updateOne(
+//                 {_id: aTripId},
+//                 {$push: 
+//                     {
+//                     daysEvent:
+//                         {
+//                             name: req.body.name,
+//                             description: req.body.description,
+//                             date: Date.parse(req.body.date)
+//                         }
                 
-                    }      
-                },
-                function(err, result) {
-                    if(err) {
-                        res.send(err)
-                    } else {
-                        res.send(result)
-                    }
-                }
-            );
-            res.json(trip);
-        })
-        .catch(err => res.status(400).json(`Error: ${err}`));
-});
+//                     }      
+//                 },
+//                 function(err, result) {
+//                     if(err) {
+//                         res.send(err)
+//                     } else {
+//                         res.send(result)
+//                     }
+//                 }
+//             );
+//             res.json(trip);
+//         })
+//         .catch(err => res.status(400).json(`Error: ${err}`));
+// });
 
 // Delete an Event of specific Trip
 router.route('/:tripId/deleteEvent/:eventId').delete( (req, res) => {

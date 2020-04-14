@@ -2,7 +2,7 @@ import React from 'react'
 import CardElement from '../components/Card'
 import TripForm from '../components/TripForm'
 import '../styles/style.css'
-import API from '../utils/api';
+//import API from '../utils/api';
 //import Trip from "../components/Trip";
 import ModalElement from "../components/Modals";
 
@@ -17,35 +17,6 @@ class Home extends React.Component {
       endDate: ""
       
     
-  }
-  getTrip = () => {
-    API.getTrips().then(res => {
-      console.log(res)
-    })
-  }
-  addTrip = () => {
-    const data = {
-      destination: this.state.destination,
-      startDate: this.state.startDate,
-      endDate: this.state.endDate
-    }
-    // console.log(this.state.trips);
-    API.addTrips(data).then(res => {
-      console.log(res)
-    })
-  }
-  
-  handleChange = (evt) => {
-    this.setState({
-      [evt.target.name]: evt.target.value
-    });
-  }
-
-  handleSubmit = (evt) => {
-    evt.preventDefault();
-    this.addTrip();
-    this.setState({ trips: "", destination: "", startDate: "", endDate: "" });
-
   }
 
 
