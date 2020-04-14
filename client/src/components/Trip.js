@@ -53,19 +53,19 @@ function Trip() {
         {trips.length ? (
           <TripList>
             {trips.map(trip => (
-              <div className="col-sm-6">
-              <TripListSingle key={trip._id}>
+              
+              <TripListSingle key={trip._id} className="col-sm-6">
                 <Link to={"/api/trips/" + trip._id}>
                   {trip.destination} From: {trip.startDate} To: {trip.endDate}
                 </Link>
                 <DeleteBtn onClick={() => deleteTrip(trip._id)} />
               </TripListSingle>
-              </div>
+              
             ))}
           </TripList>
         ) : (
-          <p> </p>
-        )};
+          <div>...</div>
+        )}
       </div>
     </div>
   )
