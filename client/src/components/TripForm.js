@@ -29,7 +29,7 @@ function TripForm ({ destination, handleChange, startDate, endDate, handleSubmit
                   name="endDate"
                   value={endDate}
                   onChange={handleChange} /><br/>
-                  <Link to="/EventCreate"><button id="submit" className="btn neu">Next</button></Link>
+                  <Link to="/EventCreate"><button id="submit" className="btn buttonz neu">Next</button></Link>
               </form>
            </div>
         );

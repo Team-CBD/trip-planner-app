@@ -1,5 +1,6 @@
 import React from "react";
 import API from '../utils/api';
+import '../styles/style.css';
 
 
 
@@ -47,30 +48,30 @@ class Register extends React.Component {
              <form name="form" onSubmit={this.handleSubmit}>
                  <div className="form-group">
                      <label>First Name</label>
-                     <input type="text" name="fName" value={this.fName} onChange={this.handleChange} />
+                     <input className="neuflip" type="text" name="fName" value={this.fName} onChange={this.handleChange} />
                          <div className="invalid-feedback">First Name is required</div>
                  </div>
                  <div className="form-group">
                      <label>Last Name</label>
-                     <input type="text" name="lName" value={this.lName} onChange={this.handleChange}  />
+                     <input className="neuflip" type="text" name="lName" value={this.lName} onChange={this.handleChange}  />
                      
                          <div className="invalid-feedback">Last Name is required</div>
                      
                  </div>
                  <div className="form-group">
                      <label>Enter Email</label>
-                     <input type="text" name="email" value={this.email} onChange={this.handleChange} />
+                     <input className="neuflip" type="text" name="email" value={this.email} onChange={this.handleChange} />
                      
                          <div className="invalid-feedback">Username is required</div>
                      
                  </div>
                  <div className="form-group">
                      <label>Password</label>
-                     <input type="password" name="password" value={this.password} onChange={this.handleChange}  />
+                     <input className="neuflip" type="password" name="password" value={this.password} onChange={this.handleChange}  />
                          <div className="invalid-feedback">Password is required</div>
                  </div>
                  <div className="form-group">
-                     <button className="btn btn-danger">
+                     <button className="btn buttonz btn-primary neu text-dark">
                          Register
                      </button>
                      {/* <Link to="/login" className="btn btn-link">Cancel</Link> */}
