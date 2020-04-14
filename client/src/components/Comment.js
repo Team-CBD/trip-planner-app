@@ -12,8 +12,8 @@ const Comment = props => (
       </div>
         <div className="singleCommentButtons">
             <span className="time">{moment(props.timestamp).fromNow()}</span>
-            <a onClick={() => { props.handleUpdateComment(props.id); }}>update</a>
-            <a onClick={() => { props.handleDeleteComment(props.id); }}>delete</a>
+            <a href="/update" onClick={() => { props.handleUpdateComment(props.id); }}>update</a>
+            <a href="/delete" onClick={() => { props.handleDeleteComment(props.id); }}>delete</a>
         </div>
     </div>
   </div>

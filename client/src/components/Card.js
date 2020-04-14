@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/Button";
+// import Card from "react-bootstrap/Card";
+// import Button from "react-bootstrap/Button";
 import Trip from "./Trip";
 
 

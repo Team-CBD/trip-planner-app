@@ -3,7 +3,7 @@ import EventForm from "./EventForm.js";
 // eslint-disable-next-line
 import Gmap from "./Gmap";
 //import Weather from "./Weather";
-import CommentBox from "./CommentBox"
+//import CommentBox from "./CommentBox"
 
 class EventData extends Component {
   constructor(props) {
