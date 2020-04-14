@@ -37,7 +37,7 @@ class EventData extends Component {
 
 
       <div className="justify-content-center ">
-        <h4 className="text-dark pt-3">Events</h4>
+        <h2 className="text-dark pt-3">Events</h2>
         <div className="row">
           <div className="col-sm-6">
             <Gmap />

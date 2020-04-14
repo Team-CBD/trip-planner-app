@@ -53,15 +53,9 @@ class Home extends React.Component {
     return (
       <div>
         <div className="container">
-          <div className="row">
-            <div className="col-md-7 justify-content-center">
-              <h2 className="text-dark">Dashboard</h2>
-
-              <CardElement />
-
-            </div>
-
-            <div className="col-md">
+          <div className="row justify-content-center">
+          <h2 className="text-dark col-sm-12">Dashboard</h2>
+          <div className="col-md">
               <div className="sidebar">
               <div className="fb-login mt-3 pt-3">
                 <ModalElement />
@@ -76,6 +70,13 @@ class Home extends React.Component {
                 <h4 className="text-center text-dark pt-3"> </h4>
                 </div>
             </div>
+            <div className="col-md-7">
+
+              <CardElement />
+
+            </div>
+
+            
           </div>
 
         </div>
