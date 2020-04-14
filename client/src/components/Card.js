@@ -18,7 +18,7 @@ class CardElement extends Component{
             <Card.Text>
                 <Trip />
             </Card.Text>
-            <Button href="/EventCreate" className="neu" variant="primary">Check Details</Button>
+            <Button href="/EventCreate" className="neu buttonz" variant="primary">Check Details</Button>
             </Card.Body>
         </Card>
         

@@ -3,6 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Register from "./Register";
 import Login from "./Login";
+import '../styles/style.css'
 
 
 
@@ -18,7 +19,7 @@ function ModalElement() {
   
     return (
         <>
-        <Button variant="primary" onClick={handleLogin}>
+        <Button className="neu buttonz" variant="primary" onClick={handleLogin}>
           Login
         </Button>
   
@@ -28,14 +29,14 @@ function ModalElement() {
           </Modal.Header>
           <Modal.Body><Login /></Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleLoginClose}>
+            <Button className="neu buttonz text-dark" variant="secondary" onClick={handleLoginClose}>
               Close
             </Button>
           </Modal.Footer>
         </Modal>
 
 
-        <Button variant="primary" onClick={handleRegister}>
+        <Button className="neu buttonz ml-2" variant="primary" onClick={handleRegister}>
           Register
         </Button>
   
@@ -45,7 +46,7 @@ function ModalElement() {
           </Modal.Header>
           <Modal.Body><Register /></Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleRegisterClose}>
+            <Button className="neu buttonz text-dark"variant="secondary" onClick={handleRegisterClose}>
               Close
             </Button>
           </Modal.Footer>

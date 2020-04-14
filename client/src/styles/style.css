@@ -1,11 +1,11 @@
 body {
 	background-color:#e6e6e6;
-	
 }
 
 .modal-backdrop {
 	z-index: 0;
 }
+
 .card {
      border:none;
 }
@@ -243,9 +243,22 @@ iframe {
 	font-weight: bold;
 	transition: 0.3s;
 }
+
 .text-dark {
 	color:#1e1e1f!important;
 }
+
+.buttonz:hover{
+	box-shadow:0px 1px 1px 1px #00000009;
+	animation-name: buttFade;
+	animation-duration: 6s;
+}
+
+@keyframes buttFade {
+	from {background-color:#d3d3d3;}
+	to {background-color: rgb(73, 73, 73);}
+}
+
 .close:hover,
 .close:focus {
 	color: #bbb;

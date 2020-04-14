@@ -33,20 +33,18 @@ render(){
             <form name="form" onSubmit={this.handleSubmit}> 
                 <div className="form-group">
                     <label>Email</label>
-                    <input type="text" name="email" value={this.email}/>
+                    <input className="neuflip" type="text" name="email" value={this.email}/>
                 </div>
                 <div className="form-group">
                     <label>Password</label>
-                        <input type="password" name="password" value={this.password}/>
+                        <input className="neuflip" type="password" name="password" value={this.password}/>
                 </div>
                 <div>
-                    <button className="btn btn-info neu">Login</button>
+                    <button className="btn buttonz btn-primary text-dark neu">Login</button>
                 </div>
             </form>
         </div>
         
-    
-
     );
   }
 }  
