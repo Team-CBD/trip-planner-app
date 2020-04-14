@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../styles/style.css';
 
 
 class Login extends Component {
@@ -39,7 +40,7 @@ render(){
                         <input type="password" name="password" value={this.password}/>
                 </div>
                 <div>
-                    <button className="btn btn-info">Login</button>
+                    <button className="btn btn-info neu">Login</button>
                 </div>
             </form>
         </div>

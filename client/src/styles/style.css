@@ -3,6 +3,9 @@ body {
 	
 }
 
+.modal-backdrop {
+	z-index: 0;
+}
 .card {
      border:none;
 }
