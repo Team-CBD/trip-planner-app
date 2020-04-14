@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import Trip from "./Trip";
 
 
 
@@ -15,7 +16,7 @@ class CardElement extends Component{
             <Card.Body>
             <Card.Title>Rome Trip</Card.Title>
             <Card.Text>
-                Our trip to Italy we will visit the Roman Colosseum
+                <Trip />
             </Card.Text>
             <Button href="/EventCreate" className="neu" variant="primary">Check Details</Button>
             </Card.Body>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import 'whatwg-fetch';
 import CommentList from './CommentList';
 import CommentForm from './CommentForm';
 
@@ -28,8 +27,6 @@ class CommentBox extends Component {
   }
 
   loadCommentsFromServer = () => {
-    // fetch returns a promise. If you are not familiar with promises, see
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
     fetch('/api/comments/')
       .then(data => data.json())
       .then((res) => {

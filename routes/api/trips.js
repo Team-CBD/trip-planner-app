@@ -14,7 +14,7 @@ router.route('/').get( (req, res) => {
 });
 
 //auth param taken out for dev purposes
-router.route('/add').post( (req, res) => {
+router.route('/').post( (req, res) => {
     //const destination = req.body.destination;
     // const startDate = Date.parse(req.body.startDate);
     // const endDate = Date.parse(req.body.endDate);

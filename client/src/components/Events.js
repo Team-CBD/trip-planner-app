@@ -3,6 +3,7 @@ import EventForm from "./EventForm.js";
 // eslint-disable-next-line
 import Gmap from "./Gmap";
 //import Weather from "./Weather";
+import CommentBox from "./CommentBox"
 
 class EventData extends Component {
   constructor(props) {
@@ -51,7 +52,9 @@ class EventData extends Component {
           <div className="col-sm-6">
             <EventForm addTrip={this.addTrip} />
           </div>
-
+          {/* <div className="col-sm-6">
+            <CommentBox />
+          </div> */}
         </div>
       </div>
     );
