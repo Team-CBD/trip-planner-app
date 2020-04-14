@@ -70,7 +70,7 @@ class Register extends React.Component {
                          <div className="invalid-feedback">Password is required</div>
                  </div>
                  <div className="form-group">
-                     <button className="btn btn-primary">
+                     <button className="btn btn-danger">
                          Register
                      </button>
                      {/* <Link to="/login" className="btn btn-link">Cancel</Link> */}

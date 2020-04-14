@@ -3,8 +3,10 @@ import CardElement from '../components/Card'
 import TripForm from '../components/TripForm'
 import '../styles/style.css'
 import API from '../utils/api';
-// import Facebook from "react-facebook-login";
-import Register from "../components/Register";
+
+import ModalElement from "../components/Modals";
+
+
 
 class Home extends React.Component {
   state = {
@@ -13,6 +15,7 @@ class Home extends React.Component {
       destination: "",
       startDate: "",
       endDate: ""
+      
     
   }
   getTrip = () => {
@@ -45,7 +48,6 @@ class Home extends React.Component {
 
   }
 
-  
 
   render() {
     return (
@@ -62,7 +64,7 @@ class Home extends React.Component {
             <div className="col-md">
               <div className="sidebar">
               <div className="fb-login mt-3 pt-3">
-                <Register />
+                <ModalElement />
                 </div>
                 <div className="mt-4 pt-3">
                 <TripForm destination = {this.state.destination}
@@ -72,9 +74,6 @@ class Home extends React.Component {
                 handleSubmit = {this.handleSubmit}                />
                </div>
                 <h4 className="text-center text-dark pt-3"> </h4>
-                
-
-
                 </div>
             </div>
           </div>
