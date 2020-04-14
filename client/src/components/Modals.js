@@ -22,7 +22,7 @@ function ModalElement() {
           Login
         </Button>
   
-        <Modal show={login} onHide={handleLoginClose}>
+        <Modal show={login} onHide={handleLoginClose}backdrop="false">
           <Modal.Header closeButton>
             <Modal.Title>Welcome Back</Modal.Title>
           </Modal.Header>
@@ -39,7 +39,7 @@ function ModalElement() {
           Register
         </Button>
   
-        <Modal show={register} onHide={handleRegisterClose}>
+        <Modal show={register} onHide={handleRegisterClose} backdrop="false">
           <Modal.Header closeButton>
             <Modal.Title>Welcome to our Team</Modal.Title>
           </Modal.Header>
