@@ -3,6 +3,8 @@ import DeleteBtn from './DeleteBtn';
 import API from '../utils/api';
 import { Link } from 'react-router-dom';
 import { TripList, TripListSingle } from "./TripList";
+import '../styles/style.css';
+
 
 function Trip() {
   const [trips, setTrips, destination, startDate, endDate] = useState([])
@@ -46,46 +48,23 @@ function Trip() {
 
   return(
     <div className = "container">
-      <div className = "tripForm">
-        <h4 className="text-dark">Create Trip</h4>
-        <form onSubmit={handleFormSubmit}>
-          <input className="neuflip m-2 p-2" 
-            type="text" id="destination" placeholder="Destination"
-            name="destination"
-            onChange={event => handleInputChange(event)}
-            value={destination}
-            />
-            <br/>
-            <input type="date"
-            className="neuflip m-2 p-2"
-            placeholder="Start Date"
-            name="startDate"
-            value={startDate}
-            onChange={handleInputChange} /><br/>
-            <input type="date"
-            className="neuflip m-2 p-2"
-            placeholder="End Date"
-            name="endDate"
-            value={endDate}
-            onChange={handleInputChange} /><br/>
-            <Link to="/EventCreate"><button id="submit" className="btn neu">Next</button></Link>
-        </form>
-      </div>
 
-      <div className = "tripList">
+      <div className = "tripList row pt-3">
         {trips.length ? (
           <TripList>
             {trips.map(trip => (
+              <div className="col-sm-6">
               <TripListSingle key={trip._id}>
                 <Link to={"/api/trips/" + trip._id}>
                   {trip.destination} From: {trip.startDate} To: {trip.endDate}
                 </Link>
                 <DeleteBtn onClick={() => deleteTrip(trip._id)} />
               </TripListSingle>
+              </div>
             ))}
           </TripList>
         ) : (
-          <h3>No Trips to Display</h3>
+          <p> </p>
         )};
       </div>
     </div>
