@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import DeleteBtn from './DeleteBtn';
+//import DeleteBtn from './DeleteBtn';
 import API from '../utils/api';
 import { Link } from 'react-router-dom';
-import { TripList, TripListSingle } from "./TripList";
+//import { TripList, TripListSingle } from "./TripList";
 import '../styles/style.css';
 
 
 function TripForm() {
-  const [trips, setTrips, destination, startDate, endDate] = useState([])
+  const [/*trips, */setTrips, destination, startDate, endDate] = useState([])
   const [formObject, setFormObject] = useState({})
 
   useEffect(() => {
     loadTrips()
-  }, [])
+  })
 
   function loadTrips() {
     API.getTrips()
@@ -22,11 +22,11 @@ function TripForm() {
     .catch(err => console.log(err));
   }
 
-  function deleteTrip(id) {
-    API.deleteTrip(id)
-      .then(res => loadTrips())
-      .catch(err => console.log(err));
-  }
+  // function deleteTrip(id) {
+  //   API.deleteTrip(id)
+  //     .then(res => loadTrips())
+  //     .catch(err => console.log(err));
+  // }
 
   function handleInputChange(event) {
     const { name, value } = event.target;

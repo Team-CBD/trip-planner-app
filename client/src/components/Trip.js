@@ -7,8 +7,8 @@ import '../styles/style.css';
 
 
 function Trip() {
-  const [trips, setTrips, destination, startDate, endDate] = useState([])
-  const [formObject, setFormObject] = useState({})
+  const [trips, setTrips/*, destination, startDate, endDate*/] = useState([])
+  // const [formObject, setFormObject] = useState({})
 
   useEffect(() => {
     loadTrips()
@@ -28,23 +28,23 @@ function Trip() {
       .catch(err => console.log(err));
   }
 
-  function handleInputChange(event) {
-    const { name, value } = event.target;
-    setFormObject({...formObject, [name]: value})
-  };
+  // function handleInputChange(event) {
+  //   const { name, value } = event.target;
+  //   setFormObject({...formObject, [name]: value})
+  // };
 
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    if (formObject.destination && formObject.startDate && formObject.endDate) {
-      API.addTrip({
-        destination: formObject.destination,
-        startDate: formObject.startDate,
-        endDate: formObject.endDate,
-      })
-      .then(res => loadTrips())
-      .catch(err => console.log(err));
-    }
-  };
+  // function handleFormSubmit(event) {
+  //   event.preventDefault();
+  //   if (formObject.destination && formObject.startDate && formObject.endDate) {
+  //     API.addTrip({
+  //       destination: formObject.destination,
+  //       startDate: formObject.startDate,
+  //       endDate: formObject.endDate,
+  //     })
+  //     .then(res => loadTrips())
+  //     .catch(err => console.log(err));
+  //   }
+  // };
 
   return(
     <div className = "container">

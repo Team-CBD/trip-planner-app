@@ -3,7 +3,7 @@ import CardElement from '../components/Card'
 import TripForm from '../components/TripForm'
 import '../styles/style.css'
 import API from '../utils/api';
-import Trip from "../components/Trip";
+//import Trip from "../components/Trip";
 import ModalElement from "../components/Modals";
 
 
