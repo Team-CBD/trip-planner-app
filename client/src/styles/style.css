@@ -255,7 +255,7 @@ iframe {
 }
 
 @keyframes buttFade {
-	from {background-color:#f4f4f7;}
+	from {background-color:#d3d3d3;}
 	to {background-color: rgb(73, 73, 73);}
 }
 
