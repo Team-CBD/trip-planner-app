@@ -3,7 +3,7 @@ import CardElement from '../components/Card'
 import TripForm from '../components/TripForm'
 import '../styles/style.css'
 import API from '../utils/api';
-
+import Trip from "../components/Trip";
 import ModalElement from "../components/Modals";
 
 
@@ -59,13 +59,15 @@ class Home extends React.Component {
               <div className="sidebar">
               <div className="fb-login mt-3 pt-3">
                 <ModalElement />
+                <TripForm />
                 </div>
                 <div className="mt-4 pt-3">
-                <TripForm destination = {this.state.destination}
+                
+                {/* <TripForm destination = {this.state.destination}
                 handleChange = {this.handleChange}
                 startDate = {this.state.startDate}
                 endDate = {this.state.endDate}
-                handleSubmit = {this.handleSubmit}                />
+                handleSubmit = {this.handleSubmit}                /> */}
                </div>
                 <h4 className="text-center text-dark pt-3"> </h4>
                 </div>
