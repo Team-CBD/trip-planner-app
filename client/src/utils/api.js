@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export default {
     getTrips: () => axios.get("api/trips"),
-    addTrip: (trip) => axios.post("api/trips/add", trip),
+    addTrip: (tripData) => axios.post("api/trips/", tripData),
     deleteTrip: (id) => axios.delete("api/trips/" + id),
 
     getUser: () => axios.get("api/users/login"),

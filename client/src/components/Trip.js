@@ -68,7 +68,8 @@ function Trip() {
             name="endDate"
             value={endDate}
             onChange={handleInputChange} /><br/>
-            <Link to="/EventCreate"><button id="submit" className="btn neu">Next</button></Link>
+            <Link to="/"><button onSubmit={handleFormSubmit} id="submit" className="btn neu">Add</button></Link>
+            
         </form>
       </div>
 
