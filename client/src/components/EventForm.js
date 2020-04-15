@@ -16,7 +16,7 @@ handleChange(evt){
         console.log(this.state[evt.target.name]);
 }
 
-handleSubmit(evt) {
+handleSubmit(evt){
     evt.preventDefault();
    this.props.addTrip(this.state);
    this.setState({city: "", description: "", date: ""});
@@ -48,7 +48,7 @@ handleSubmit(evt) {
                   value={this.state.date}
                   onChange={this.handleChange} /><br/>
                   
-                  <button id="submit" className="btn neu">Save</button>
+                  <submit id="submit" className="btn btn-md neu">Save</submit>
               </form>
            </div>
         );

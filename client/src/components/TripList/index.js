@@ -3,7 +3,7 @@ import React from "react";
 export function TripList({ children }) {
   return (
     <div className="list-overflow-container">
-      <ul className="list-group">{ children }</ul>
+      <ul className="btn list-group">{ children }</ul>
     </div>
   );
 }
