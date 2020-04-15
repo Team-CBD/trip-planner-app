@@ -35,10 +35,10 @@ class FriendData extends Component {
             <div className="justify-content-center">
           {/* <FriendForm addFriend={this.addFriend} /> */}
           <FriendForm fullname = {this.state.fullname}
-                handleChange = {this.handleChange}
+                handleChange = {this.handleInputChange}
                 relation = {this.state.relation}
                 phone = {this.state.phone}
-                handleSubmit = {this.handleSubmit}                />
+                handleSubmit = {this.handleFormSubmit}                />
             </div>
             </div>
                  

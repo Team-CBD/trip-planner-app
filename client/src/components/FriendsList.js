@@ -1,34 +1,25 @@
 import React, { Component } from "react";
 
-class FriendsList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      friends: [
-        { name: "Coco Chanel", relation: "Girlfriend", number: "951-123-4567" },
-        { name: "Tommy Hilfiger", relation: "Friend", number: "951-123-4567" },
-        { name: "Marc Jacobs", relation: "Family", number: "951-123-4567" }
 
-      ]
-    };
-  }
-  renderFriendNames() {
+function FriendsList(props) {
+  
+  // function renderFriendNames() {
+  //   return (
+  //     <ul className="card-body">
+  //       {this.state.friends.map(friends => (
+  //         <li key={friends.name} className="col card neu center m-2 p-2">
+  //           <div className="card-title">{friends.name}</div>
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
+  function renderFriends() {
     return (
       <ul className="card-body">
-        {this.state.friends.map(friends => (
+        {props.friends.map(friends => (
           <li key={friends.name} className="col card neu center m-2 p-2">
-            <div className="card-title">{friends.name}</div> {friends.relation}<br /> {friends.number}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-  renderFriends() {
-    return (
-      <ul className="card-body">
-        {this.state.friends.map(friends => (
-          <li key={friends.name} className="col card neu center m-2 p-2">
-            <div className="card-title">{friends.name}</div> {friends.relation}<br /> {friends.number}
+            <div className="card-title">{friends.fullName}</div> {friends.relation}<br /> {friends.phone}
           </li>
         ))}
       </ul>
@@ -36,17 +27,17 @@ class FriendsList extends Component {
   }
 
 
-  render() {
+
     return (
 
 
       <div className="justify-content-center">
 
-        {this.renderFriends()}
+        {renderFriends()}
       </div>
 
     );
-  }
+  
 
 }
 export default FriendsList;
