@@ -50,7 +50,7 @@ class EventData extends Component {
 
         <div className="row">
           <div className="col-sm-6">
-            <EventForm addTrip={this.addTrip} />
+            <EventForm />
           </div>
           {/* <div className="col-sm-6">
             <CommentBox />
