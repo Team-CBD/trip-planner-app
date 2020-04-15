@@ -5,6 +5,7 @@ import Friends from '../routes/friends';
 import EventCreate from '../routes/EventCreate';
 import Converter from '../routes/converter';
 import Policy from '../routes/policy';
+import TripEvents from '../routes/TripEvents';
 
 import {
   Switch,
@@ -32,6 +33,9 @@ function Main () {
       <Route path="/policy">
         <Policy />
       </Route>
+      {/* <Route path="/trip/:id">
+        <TripEvents />
+      </Route> */}
     </Switch>
   
     );
