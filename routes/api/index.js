@@ -8,6 +8,9 @@ const commentsRoutes = require('./comments');
 // Trip routes
 router.use("/trips", tripRoutes);
 
+// Day's Event Routes
+router.use("/daysEvent", daysEventRoutes);
+
 // User routes
 router.use("/users", userRoutes);
 

@@ -41,6 +41,7 @@ router.route('/:id').get( (req, res) => {
 //auth param taken out for dev purposes
 router.route('/:id').delete( (req, res) => {
     Trip.findByIdAndDelete(req.params.id)
+        //.then(trip => trip.remove())
         .then(() => res.json('Trip Deleted.'))
         .catch(err => res.status(400).json(`Error: ${err}`));
 });
@@ -60,31 +61,31 @@ router.route('/update/:id').post( (req, res) => {
 });
 
 // Add an event to specific Trip
-router.route('/addEvent/:id').put( async( req, res) => {
-    const tripId =  await Trip.findById(req.params.id);
-       console.log(tripId);
-    Trip.updateOne(
-        {_id: req.params.id},
-        {$addToSet: 
-            {
-            daysEvent:
-                {
-                    name: req.body.name,
-                    description: req.body.description,
-                    date: Date.parse(req.body.date)
-                }
+// router.route('/addEvent/:id').put( async( req, res) => {
+//     const tripId =  await Trip.findById(req.params.id);
+//        console.log(tripId);
+//     Trip.updateOne(
+//         {_id: req.params.id},
+//         {$addToSet: 
+//             {
+//             daysEvent:
+//                 {
+//                     name: req.body.name,
+//                     description: req.body.description,
+//                     date: Date.parse(req.body.date)
+//                 }
         
-            }      
-        },
-        function(err, result) {
-            if(err) {
-                res.send(err)
-            } else {
-                res.send(result)
-            }
-        }
-    );
-});
+//             }      
+//         },
+//         function(err, result) {
+//             if(err) {
+//                 res.send(err)
+//             } else {
+//                 res.send(result)
+//             }
+//         }
+//     );
+// });
 
 // Update an event of a specific Trip
 // router.route('/:tripId/updateEvent/:eventId').put( async( req, res) => {
@@ -136,9 +137,9 @@ router.route('/addEvent/:id').put( async( req, res) => {
 // });
 
 // Delete an Event of specific Trip
-router.route('/:tripId/deleteEvent/:eventId').delete( (req, res) => {
+// router.route('/:tripId/deleteEvent/:eventId').delete( (req, res) => {
     
-})
+// })
 
 // router.route('/updateEvent/:tripId/:eventId').put( async( req, res) => {
 //     const aTripId =  await Trip.findById(req.params.id);
