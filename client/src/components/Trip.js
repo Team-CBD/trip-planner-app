@@ -38,9 +38,9 @@ function Trip() {
             {trips.map(trip => (
               
               <TripListSingle key={trip._id} className="col-sm-6">
-                
+                <Link to={"/EventCreate/" + trip._id}>
                   {trip.destination} From: {trip.startDate} To: {trip.endDate}
-               
+                </Link>
                 <DeleteBtn onClick={() => deleteTrip(trip._id)} />
               </TripListSingle>
               
