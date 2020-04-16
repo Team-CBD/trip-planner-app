@@ -1,4 +1,4 @@
 {
-    "mongoURI": "mongodb://heroku_m9937lk3:traveLynx1@ds145584.mlab.com:45584/heroku_m9937lk3 || 'mongodb://localhost/travelynx'",
+    "mongoURI": "process.env.MONGODB_URI || 'mongodb://localhost/travelynx'",
     "jwtSecret": "TL_myJwtSecret"
 }
