@@ -53,7 +53,7 @@ function FriendForm(props) {
             onChange={handleInputChange} /><br/>
             <input type="tel"
             className="neuflip m-2 p-2"
-            placeholder="Phone, Numbers Only"
+            placeholder="Phone"
             name="phone"
            
             required
