@@ -10,14 +10,10 @@ class weatherSearch extends React.Component {
         <h2 className="ptitle text-dark">Weather</h2>
   
         <div className="row">
-        <div className="col-sm-6">
+        <div className="col-sm-12">
             <Weather />
           </div>
-          <div className="col-sm-6">
-            
-            
-          </div>
-  
+          
         </div>
       </div>
 
