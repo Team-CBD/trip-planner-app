@@ -47,27 +47,27 @@ class Register extends React.Component {
              <h2>Register</h2>
              <form name="form" onSubmit={this.handleSubmit}>
                  <div className="form-group">
-                     <label>First Name</label>
-                     <input className="neuflip" type="text" name="fName" value={this.fName} onChange={this.handleChange} />
+                     <label className="pr-2">First Name: </label>
+                     <input className="p-2 neuflip" type="text" name="fName" value={this.fName} onChange={this.handleChange} />
                          <div className="invalid-feedback">First Name is required</div>
                  </div>
                  <div className="form-group">
-                     <label>Last Name</label>
-                     <input className="neuflip" type="text" name="lName" value={this.lName} onChange={this.handleChange}  />
+                     <label className="pr-2">Last Name: </label>
+                     <input className="p-2 neuflip" type="text" name="lName" value={this.lName} onChange={this.handleChange}  />
                      
                          <div className="invalid-feedback">Last Name is required</div>
                      
                  </div>
                  <div className="form-group">
-                     <label>Enter Email</label>
-                     <input className="neuflip" type="text" name="email" value={this.email} onChange={this.handleChange} />
+                     <label className="pr-2">Enter Email: </label>
+                     <input className="p-2 neuflip" type="text" name="email" value={this.email} onChange={this.handleChange} />
                      
                          <div className="invalid-feedback">Username is required</div>
                      
                  </div>
                  <div className="form-group">
-                     <label>Password</label>
-                     <input className="neuflip" type="password" name="password" value={this.password} onChange={this.handleChange}  />
+                     <label className="pr-2">Password: </label>
+                     <input className="p-2 neuflip" type="password" name="password" value={this.password} onChange={this.handleChange}  />
                          <div className="invalid-feedback">Password is required</div>
                  </div>
                  <div className="form-group">

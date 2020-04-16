@@ -10,8 +10,8 @@ class CardElement extends Component {
 
     render() {
         return (
-            <div className="row neu card">
-                <div className="col-sm-6 p-3">
+            <div className="row">
+                <div className="p-2">
                     <Trip />
                 </div>
             </div>

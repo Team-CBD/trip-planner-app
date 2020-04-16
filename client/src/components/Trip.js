@@ -27,12 +27,11 @@ function Trip() {
       .catch(err => console.log(err));
   }
 
-
-
+  
   return(
     <div className = "container">
 
-      <div className = "tripList row pt-3">
+      <div className = "tripList pt-3">
         {trips.length ? (
           <TripList>
             {trips.map(trip => (
@@ -43,7 +42,7 @@ function Trip() {
                 </Link>
                 <DeleteBtn onClick={() => deleteTrip(trip._id)} />
               </TripListSingle>
-              
+              </div>
             ))}
           </TripList>
         ) : (
