@@ -7,3 +7,7 @@
 .logo {
     width:100%;
 }
+
+.darkmode-background {
+	background-color:transparent!important;
+}

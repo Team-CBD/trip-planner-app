@@ -1,7 +1,7 @@
 import React from "react";
-import API from '../utils/api';
+//import API from '../utils/api';
 import '../styles/style.css';
-import axios from "axios";
+//import axios from "axios";
 import { Link } from "react-router-dom";
 
 
@@ -29,23 +29,23 @@ class Register extends React.Component {
          password: this.state.password
         }
                
-        if(data.fName == "") {
+        if(data.fName === "") {
             this.setState({errorMessage: true, errorMessage2: false, errorMessage3: false, errorMessage4: false}, function(){
                 console.log(this.state);
             })
             return;
         
         } 
-        if(data.lName == ""){
+        if(data.lName === ""){
             this.setState({errorMessage: false, errorMessage2: true, errorMessage3: false, errorMessage4:false})
             return;
         } 
 
-        if(data.email == ""){
+        if(data.email === ""){
             this.setState({errorMessage: false, errorMessage2: false, errorMessage3: true, errorMessage4:false})
             return;
         } 
-        if(data.password == ""){
+        if(data.password === ""){
             this.setState({errorMessage: false, errorMessage2: false, errorMessage3: false, errorMessage4:true})
             return;
         } 

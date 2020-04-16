@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Row from './Row';
 import '../styles/Converter.css';
-import Weather from './Weather';
 import SelectRow from './SelectRow';
 
 const BASE_URL = 'https://api.exchangeratesapi.io/latest'
@@ -77,7 +76,7 @@ function Convertor() {
       <div className="container">
 
         <div className="row">
-          <div className="col-sm-6">
+          <div className="col-sm-12">
             <SelectRow 
             selectedConverter = {selectedConverter}
             handleConverterChange = {handleConverterChange}
@@ -99,9 +98,7 @@ function Convertor() {
                 amount={toAmount} />
             </div>
           </div>
-          <div className="col-sm-6 pt-5">
-              <Weather />
-          </div>
+
         </div>
       </div>
     </div>

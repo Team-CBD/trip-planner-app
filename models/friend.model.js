@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
         trim: true
     },
     phone: {
-        type: Number,
+        type: String,
         required: [true, 'Phone Required']
     }
     // ,

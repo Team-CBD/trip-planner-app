@@ -6,6 +6,7 @@ body {
 	z-index: 0;
 }
 
+
 .card {
      border:none;
 }
@@ -19,6 +20,9 @@ body {
 	
 }
 
+.darkmode-background {
+	background-color:transparent!important;
+}
 .darkmode-toggle {
 	box-shadow: 2px 2px 3px #9d9fa1,
 			-2px -2px 3px #ffffff;
