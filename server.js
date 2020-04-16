@@ -13,6 +13,10 @@ const PORT = process.env.PORT || 8080;
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
+
+  app.get("*", function(req, res) {
+    res.sendFile(path.join(__dirname, 'client','build','index.html'));
+  });
 }
 
 // Send every request to the React app
@@ -31,11 +35,9 @@ mongoose.connect(db,
     { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
 
 // Routes
-app.use(routes);
+app.use('/', routes);
 
-app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);

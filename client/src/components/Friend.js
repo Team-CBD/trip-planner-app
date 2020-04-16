@@ -37,9 +37,9 @@ function Friend() {
             {friends.map(friend => (
               
               <FriendListSingle key={friend._id} className="col-sm-6">
-                {/* <Link to={"/api/friends/" + friend._id}>
+                <Link to={"/api/friends/" + friend._id}>
                  <p>Name: {friend.fullName} Relation: {friend.relation} Phone: {friend.phone}</p>
-                </Link> */}
+                </Link>
                 <DeleteBtn onClick={() => deleteFriend(friend._id)} />
               </FriendListSingle>
               

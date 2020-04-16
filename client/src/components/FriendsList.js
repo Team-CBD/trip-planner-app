@@ -20,8 +20,8 @@ function FriendsList(props) {
     return (
       <ul className="card-body">
         {props.friends.map(friends => (
-          <li key={friends.name} className="col card neu center m-2 p-2">
-            <div className="card-title">{friends.fullName}</div> {friends.relation}<br /> {friends.phone}
+          <li key={friends.name} className="col-sm-12 row card neu center m-2 p-2">
+            <div className="card-title"><h3 className="col-sm-4">{friends.fullName}</h3></div> <h4 className="col-sm-4">{friends.relation}</h4><br /> <p  className="col-sm-4">{friends.phone}</p>
             <div className="col-sm-1 offset-11"><DeleteBtn onClick={() => deleteFriend(friends._id)} /></div>
           </li>
         ))}
