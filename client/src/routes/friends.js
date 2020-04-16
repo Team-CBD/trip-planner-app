@@ -1,11 +1,30 @@
 import React from "react";
 import FriendsList from "../components/FriendsList";
 import FriendForm from "../components/FriendForm";
-import '../styles/style.css'
+import API from '../utils/api';
+import '../styles/style.css';
 
 
 
-function Friends() {
+class Friends extends React.Component {
+  state = {
+    friends: []
+  }
+
+componentDidMount() {
+  this.loadFriend();
+}
+
+  loadFriend = () => {
+    API.getFriends()
+    .then(res => {
+      console.log(res.data);
+      this.setState({friends: res.data});
+
+    })
+    .catch(err => console.log(err));
+  }
+  render() {
   return (
     <div className="container">
 
@@ -13,15 +32,15 @@ function Friends() {
 
       <div className="row">
         <div className="col-sm-6">
-          <FriendsList />
+          <FriendsList friends = {this.state.friends}/>
           
         </div>
         <div className="col-sm-6">
-          <FriendForm />
+          <FriendForm loadFriend = {this.loadFriend}/>
         </div>
       </div>
     </div>
   );
 }
-
+}
 export default Friends;

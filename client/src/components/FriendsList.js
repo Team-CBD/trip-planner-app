@@ -1,34 +1,28 @@
-import React, { Component } from "react";
+import React from "react";
+import DeleteBtn from './DeleteBtn';
+import API from '../utils/api';
 
-class FriendsList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      friends: [
-        { name: "Coco Chanel", relation: "Girlfriend", number: "951-123-4567" },
-        { name: "Tommy Hilfiger", relation: "Friend", number: "951-123-4567" },
-        { name: "Marc Jacobs", relation: "Family", number: "951-123-4567" }
 
-      ]
-    };
+function FriendsList(props) {
+  
+  function refreshPage() {
+    window.location.reload(false);
   }
-  renderFriendNames() {
+
+  function deleteFriend(id) {
+    API.deleteFriend(id)
+      window.location.reload(false);
+      refreshPage();
+  }
+
+  function renderFriends() {
+
     return (
       <ul className="card-body">
-        {this.state.friends.map(friends => (
+        {props.friends.map(friends => (
           <li key={friends.name} className="col card neu center m-2 p-2">
-            <div className="card-title">{friends.name}</div> {friends.relation}<br /> {friends.number}
-          </li>
-        ))}
-      </ul>
-    );
-  }
-  renderFriends() {
-    return (
-      <ul className="card-body">
-        {this.state.friends.map(friends => (
-          <li key={friends.name} className="col card neu center m-2 p-2">
-            <div className="card-title">{friends.name}</div> {friends.relation}<br /> {friends.number}
+            <div className="card-title">{friends.fullName}</div> {friends.relation}<br /> {friends.phone}
+            <div className="col-sm-1 offset-11"><DeleteBtn onClick={() => deleteFriend(friends._id)} /></div>
           </li>
         ))}
       </ul>
@@ -36,17 +30,17 @@ class FriendsList extends Component {
   }
 
 
-  render() {
+
     return (
 
 
       <div className="justify-content-center">
 
-        {this.renderFriends()}
+        {renderFriends()}
       </div>
 
     );
-  }
+  
 
 }
 export default FriendsList;
