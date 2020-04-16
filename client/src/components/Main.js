@@ -4,7 +4,7 @@ import Home from '../routes/home';
 import Friends from '../routes/friends';
 import EventCreate from '../routes/EventCreate';
 import Converter from '../routes/converter';
-import Policy from '../routes/policy';
+import Weather from '../routes/weather';
 import TripEventForm from '../routes/TripEventForm';
 
 import {
@@ -30,8 +30,8 @@ function Main () {
       <Route path="/converter">
         <Converter />
       </Route>
-      <Route path="/policy">
-        <Policy />
+      <Route path="/weather">
+        <Weather />
       </Route>
       <Route path="/trip/:id">
         <TripEventForm />
