@@ -42,7 +42,7 @@ function Trip() {
                 </Link>
                 <DeleteBtn onClick={() => deleteTrip(trip._id)} />
               </TripListSingle>
-              </div>
+              
             ))}
           </TripList>
         ) : (
