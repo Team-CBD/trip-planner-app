@@ -6,17 +6,17 @@ const authRoutes = require("./auth");
 const commentsRoutes = require('./comments');
 const friendsRoutes = require("./friends");
 
+// Auth routes
+router.use("/auth", authRoutes);
+
+// User routes
+router.use("/users", userRoutes);
+
 // Trip routes
 router.use("/trip", tripRoutes);
 
 // Day's Event Routes
 router.use("/trip/:tripId/daysEvent", daysEventRoutes);
-
-// User routes
-router.use("/users", userRoutes);
-
-// Auth routes
-router.use("/auth", authRoutes);
 
 // Friends routes
 router.use("/friends", friendsRoutes);

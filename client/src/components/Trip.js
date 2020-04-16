@@ -38,6 +38,7 @@ function Trip() {
              <div className="col">
                                  
               <TripListSingle key={trip._id} className="col-sm-6">
+               
                 <Link to={"/trip/" + trip._id}>
                 <h3>{trip.destination}</h3><br/>
                 {/* IMAGE GOES HERE */}

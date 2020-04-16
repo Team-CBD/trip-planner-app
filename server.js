@@ -25,13 +25,13 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, createIndexes: true }));
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://user1:Newpass1@ds249565.mlab.com:49565/heroku_q3n28rp2', 
-  { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://user1:Newpass1@ds249565.mlab.com:49565/heroku_q3n28rp2', 
+//   { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
 
-// const db = config.get('mongoURI');
+const db = config.get('mongoURI');
 
-// mongoose.connect(db, 
-//     { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
+mongoose.connect(db, 
+    { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
 
 // Routes
 app.use(routes);
