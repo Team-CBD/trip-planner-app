@@ -10,6 +10,12 @@ const app = express();
 app.use(logger('dev'));
 
 const PORT = process.env.PORT || 8080;
+
+const db = config.get('mongoURI');
+
+mongoose.connect(db, 
+    { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
+    
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -29,10 +35,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, createIndexes: true }));
 
-const db = config.get('mongoURI');
 
-mongoose.connect(db, 
-    { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
 
 // Routes
 app.use('/', routes);
