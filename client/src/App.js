@@ -13,7 +13,7 @@ import {
   BrowserRouter as Router
 } from "react-router-dom";
 //sample for route call to frontend
-API.getTrips().then(data => console.log(data.data))
+//API.getTrips().then(data => console.log(data.data))
 
 class App extends Component {
   render() {

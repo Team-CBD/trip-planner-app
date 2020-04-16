@@ -11,37 +11,37 @@ router
         .exec()
         .then(trip => res.json(trip))
         .catch(err => next(`Error: ${err}`))
-        )
-        .post((req, res, next) => {
-            //build new daysEvent
-            const newDaysEvent = new DaysEvent(req.body);
-            newDaysEvent.trip = req.params.tripId;
+    )
+    .post((req, res, next) => {
+        //build new daysEvent
+        const newDaysEvent = new DaysEvent(req.body);
+        newDaysEvent.trip = req.params.tripId;
 
-            //find trip doc
-            return Trip.findById(req.params.tripId)
-                .then(trip => 
-                    //save new daysEvent doc
-                    newDaysEvent.save()
-                        .then(createdDaysEvent => {
-                            //add new daysEvent ID to trip doc
-                            trip.daysEvent.push(createdDaysEvent._id);
-                            return trip
-                                .save()
-                                .then(() => res.json('New event added'))
-                                .catch(err => next(`Error: ${err}`));
-                        })
-                        .catch(err => next(`Error: ${err}`))
-                )
-                .catch(err => next(`Error: ${err}`));
+        //find trip doc
+        return Trip.findById(req.params.tripId)
+            .then(trip => 
+                //save new daysEvent doc
+                newDaysEvent.save()
+                    .then(createdDaysEvent => {
+                        //add new daysEvent ID to trip doc
+                        trip.daysEvent.push(createdDaysEvent._id);
+                        return trip
+                            .save()
+                            .then(() => res.json('New event added'))
+                            .catch(err => next(`Error: ${err}`));
+                    })
+                    .catch(err => next(`Error: ${err}`))
+            )
+            .catch(err => next(`Error: ${err}`));
         });
 
-router
-    .route('/new')
-    .get( (req, res, next) =>
-        Trip.findById(req.params.tripId)
-            .then(trip => res.json(trip))
-            .catch(err => next(`Error: ${err}`))
-    )
+// router
+//     .route('/new')
+//     .get( (req, res, next) =>
+//         Trip.findById(req.params.tripId)
+//             .then(trip => res.json(trip))
+//             .catch(err => next(`Error: ${err}`))
+//     )
 
 router
     .route('/:daysEventId')
@@ -63,14 +63,14 @@ router
             .catch(err => next(`Error: ${err}`))
     });
 
-router
-    .route('/:daysEventId/edit')
-    .get( (req, res, next) =>
-        DaysEvent.findById(req.params.daysEventId)
-            .populate('trip')
-            .then(daysEvent => res.json(daysEvent))
-            .catch(err => next(`Error: ${err}`))
-    )
+// router
+//     .route('/:daysEventId/edit')
+//     .get( (req, res, next) =>
+//         DaysEvent.findById(req.params.daysEventId)
+//             .populate('trip')
+//             .then(daysEvent => res.json(daysEvent))
+//             .catch(err => next(`Error: ${err}`))
+//     )
 
 
 module.exports = router;

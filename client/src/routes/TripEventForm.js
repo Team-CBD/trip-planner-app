@@ -4,7 +4,7 @@ import API from "../utils/api";
 import { TripList, TripListSingle } from "../components/TripList";
 import DeleteBtn from "../components/DeleteBtn";
 
-function TripEvents(props) {
+function TripEventsForm(props) {
   const [trip, setTrip ] = useState([]);
   const [daysEvent, setEvents] = useState([]);
   const [formObject, setFormObject] = useState({});
@@ -106,4 +106,4 @@ function TripEvents(props) {
     );
   }
 
-export default TripEvents;
+export default TripEventsForm;
