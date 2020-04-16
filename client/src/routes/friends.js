@@ -31,13 +31,14 @@ componentDidMount() {
       <h2 className="ptitle text-dark">Friends</h2>
 
       <div className="row">
+      <div className="col-sm-6">
+          <FriendForm loadFriend = {this.loadFriend}/>
+        </div>
         <div className="col-sm-6">
           <FriendsList friends = {this.state.friends}/>
           
         </div>
-        <div className="col-sm-6">
-          <FriendForm loadFriend = {this.loadFriend}/>
-        </div>
+
       </div>
     </div>
   );

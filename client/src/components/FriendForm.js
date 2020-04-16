@@ -30,20 +30,8 @@ function FriendForm(props) {
     const { name, value } = event.target;
     setFormObject({...formObject, [name]: value})
   };
-// // eslint-disable-next-line
-//   function phoneNumber(phoneNum)
-//   {
-//   var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-//   if((phoneNum.value.match(phoneno)))
-//         {
-//       return true;
-//         }
-//       else
-//         {
-//         alert("message");
-//         return false;
-//         }
-//   }
+
+  
 
 
  
@@ -67,10 +55,7 @@ function FriendForm(props) {
             className="neuflip m-2 p-2"
             placeholder="Phone, Numbers Only"
             name="phone"
-            // country="US"
-            // onClick="phoneNumber(document.form1.phone1)"
-            // autoComplete="tel"
-            // // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+           
             required
             onChange={handleInputChange} /><br/>
             

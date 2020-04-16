@@ -1,4 +1,4 @@
 {
-    "mongoURI": "process.env.MONGODB_URI || 'mongodb://localhost/heroku_m9937lk3'",
+    "mongoURI": "process.env.MONGODB_URI || 'mongodb://user1:Newpass1@ds249565.mlab.com:49565/heroku_q3n28rp2'",
     "jwtSecret": "TL_myJwtSecret"
 }

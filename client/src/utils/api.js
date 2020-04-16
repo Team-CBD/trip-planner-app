@@ -1,23 +1,23 @@
-import axios from 'axios';
+import Axios from 'axios';
 
 
 export default {
-    getTrips: () => axios.get("api/trips/"),
-    addTrip: (trip) => axios.post("api/trips/", trip),
-    deleteTrip: (id) => axios.delete("api/trips/" + id),
-    findOneTrip: (id) => axios.get("api/trips/" + id),
-    updateTrip: (id) => axios.post("api/trips/update/" + id),
+    getTrips: () => Axios.get("api/trips/"),
+    addTrip: (trip) => Axios.post("api/trips/", trip),
+    deleteTrip: (id) => Axios.delete("api/trips/" + id),
+    findOneTrip: (id) => Axios.get("api/trips/" + id),
+    updateTrip: (id) => Axios.post("api/trips/update/" + id),
     
-    getEvents: () => axios.get("api/daysEvent"),
-    addEvent: (newEvent) => axios.post("api/daysEvent", newEvent),
-    findOneEvent: (id) => axios.get("api/daysEvent/" + id),
-    updateEvent: (id) => axios.post("api/daysEvent/update/" + id),
-    deleteEvent: (id) => axios.delete("api/daysEvent/" +id),
+    getEvents: () => Axios.get("api/daysEvent"),
+    addEvent: (newEvent) => Axios.post("api/daysEvent", newEvent),
+    findOneEvent: (id) => Axios.get("api/daysEvent/" + id),
+    updateEvent: (id) => Axios.post("api/daysEvent/update/" + id),
+    deleteEvent: (id) => Axios.delete("api/daysEvent/" +id),
 
-    getFriends: () => axios.get("api/friends/"),
-    addFriend: (friend) => axios.post("api/friends/", friend),
-    deleteFriend: (id) => axios.delete("api/friends/" + id),
-    findOneFriend: (id) => axios.get("api/friends/" + id),
-    updateFriend: (id) => axios.post("api/friends/" + id)
+    getFriends: () => Axios.get("api/friends/"),
+    addFriend: (friend) => Axios.post("api/friends/", friend),
+    deleteFriend: (id) => Axios.delete("api/friends/" + id),
+    findOneFriend: (id) => Axios.get("api/friends/" + id),
+    updateFriend: (id) => Axios.post("api/friends/" + id)
 };
 //sample for route call to frontend

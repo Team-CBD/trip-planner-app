@@ -1,7 +1,5 @@
 .navbar {
-  margin-top:10px;
-  position:fixed;
-  z-index: 100;
+  padding-top:20px;
 }
 
 .navbar-collapse {
