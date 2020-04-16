@@ -2,17 +2,17 @@ import axios from 'axios';
 
 
 export default {
-    getTrips: () => axios.get("api/trips/"),
-    addTrip: (trip) => axios.post("api/trips/", trip),
-    deleteTrip: (id) => axios.delete("api/trips/" + id),
-    findOneTrip: (id) => axios.get("api/trips/" + id),
-    updateTrip: (id) => axios.post("api/trips/update/" + id),
+    getTrips: () => axios.get("api/trip/"),
+    addTrip: (trip) => axios.post("api/trip/", trip),
+    deleteTrip: (id) => axios.delete("api/trip/" + id),
+    findOneTrip: (id) => axios.get("api/trip/" + id),
+    updateTrip: (id) => axios.post("api/trip/" + id),
     
-    getEvents: () => axios.get("api/daysEvent"),
-    addEvent: (newEvent) => axios.post("api/daysEvent", newEvent),
-    findOneEvent: (id) => axios.get("api/daysEvent/" + id),
-    updateEvent: (id) => axios.post("api/daysEvent/update/" + id),
-    deleteEvent: (id) => axios.delete("api/daysEvent/" +id),
+    getEvents: () => axios.get("api/trip/daysEvent"),
+    addEvent: (newEvent) => axios.post("api/trip/daysEvent", newEvent),
+    findOneEvent: (id) => axios.get("api/trip/daysEvent/" + id),
+    updateEvent: (id) => axios.patch("api/trip/daysEvent/update/" + id),
+    deleteEvent: (id) => axios.delete("api/trip/daysEvent/" +id),
 
     getFriends: () => axios.get("api/friends/"),
     addFriend: (friend) => axios.post("api/friends/", friend),

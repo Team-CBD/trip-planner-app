@@ -7,10 +7,10 @@ const commentsRoutes = require('./comments');
 const friendsRoutes = require("./friends");
 
 // Trip routes
-router.use("/trips", tripRoutes);
+router.use("/trip", tripRoutes);
 
 // Day's Event Routes
-router.use("/daysEvent", daysEventRoutes);
+router.use("/trip/:tripId/daysEvent", daysEventRoutes);
 
 // User routes
 router.use("/users", userRoutes);
@@ -23,5 +23,13 @@ router.use("/friends", friendsRoutes);
 
 // Comments Routes
 router.use("/comments", commentsRoutes);
+
+//Global Error handler
+router.use((err, req, res, next) =>
+    res.status(err.status || 500).render('error', {
+        message: err.message || 'Something went wrong!',
+        title: err.title || 'Internal Server Error'
+    })
+);
 
 module.exports = router;

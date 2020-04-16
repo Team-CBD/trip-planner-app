@@ -1,64 +1,50 @@
-const mongoose = require('mongoose');
 const router = require('express').Router();
 const Trip = require('../../models/trip.model');
 const auth = require('../../middleware/auth');
-var ObjectID = require('mongodb').ObjectID;
-var co = require('co');
 //const DaysEvent = require('../../models/daysEvent.model');
 
 //auth param taken out for dev purposes
-router.route('/').get( (req, res) => {
-    Trip.find()
-        .then(trips => res.json(trips))
-        .catch(err => res.status(400).json(`Error: ${err}`));
-});
+router
+    .route('/')
+    .get( (req, res) => {
+        Trip.find()
+            .then(trips => res.json(trips))
+            .catch(err => res.status(400).json(`Error: ${err}`));
+    })
+    .post( (req, res) => {
+        
+        const newTrip = new Trip(req.body);
+        
 
-//auth param taken out for dev purposes
-router.route('/').post( (req, res) => {
-    //const destination = req.body.destination;
-    // const startDate = Date.parse(req.body.startDate);
-    // const endDate = Date.parse(req.body.endDate);
-    const newTrip = new Trip(req.body);
-    // const newTrip = new Trip({
-    //     destination,
-    //     startDate,
-    //     endDate
-    // });
+        newTrip.save()
+            .then(() => res.json('New trip added!'))
+            .catch(err => res.status(400).json(`Error: ${err}`));
+    });
+router
+    .route('/:tripId')
+    .get( (req, res) => {
+        Trip.findById(req.params.tripId)
+            .then(trip => res.json(trip))
+            .catch(err => res.status(400).json(`Error: ${err}`));
+    })
+    .delete( (req, res) => {
+        Trip.findByIdAndDelete(req.params.tripId)
+            //.then(trip => trip.remove())
+            .then(() => res.json('Trip Deleted.'))
+            .catch(err => res.status(400).json(`Error: ${err}`));
+    })
+    .post( (req, res) => {
+        Trip.findById(req.params.tripId)
+            .then(trip => {
+                trip.destination = req.body.destination;
+                trip.startDate = Date.parse(req.body.startDate);
+                trip.endDate = Date.parse(req.body.endDate);
 
-newTrip.save()
-    .then(() => res.json('New trip added!'))
-    .catch(err => res.status(400).json(`Error: ${err}`));
-});
-
-//auth param taken out for dev purposes
-router.route('/:id').get( (req, res) => {
-    Trip.findById(req.params.id)
-        .then(trip => res.json(trip))
-        .catch(err => res.status(400).json(`Error: ${err}`));
-});
-
-//Delete Trip
-//auth param taken out for dev purposes
-router.route('/:id').delete( (req, res) => {
-    Trip.findByIdAndDelete(req.params.id)
-        //.then(trip => trip.remove())
-        .then(() => res.json('Trip Deleted.'))
-        .catch(err => res.status(400).json(`Error: ${err}`));
-});
-
-//auth param taken out for dev purposes
-router.route('/update/:id').post( (req, res) => {
-    Trip.findById(req.params.id)
-        .then(trip => {
-            trip.destination = req.body.destination;
-            trip.startDate = Date.parse(req.body.startDate);
-            trip.endDate = Date.parse(req.body.endDate);
-
-            trip.save()
-                .then(() => res.json('Trip updated!'))
-                .catch(err => res.status(400).json(`Error: ${err}`))
-        });
-});
+                trip.save()
+                    .then(() => res.json('Trip updated!'))
+                    .catch(err => res.status(400).json(`Error: ${err}`))
+            });
+    });
 
 // Add an event to specific Trip
 // router.route('/addEvent/:id').put( async( req, res) => {
