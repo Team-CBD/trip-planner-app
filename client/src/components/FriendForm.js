@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import API from '../utils/api';
 import '../styles/style.css';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 
 function FriendForm(props) {
@@ -31,10 +31,10 @@ function FriendForm(props) {
     setFormObject({...formObject, [name]: value})
   };
 
-  function phonenumber(phone)
+  function phonenumber(phoneNum)
   {
   var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-  if((phone.value.match(phoneno)))
+  if((phoneNum.value.match(phoneno)))
         {
       return true;
         }
@@ -73,7 +73,7 @@ function FriendForm(props) {
             required
             onChange={handleInputChange} /><br/>
             
-            <button onClick="phonenumber(tel)" id="submit" className="btn neu">Save</button>
+            <button onClick="phonenumber(document.form.phone)" id="submit" className="btn neu">Save</button>
             
         </form>
       </div>
