@@ -23,7 +23,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
-        <div className="container">
+        <div className="container mt-5">
           <div className="row justify-content-center">
           <h2 className="text-dark col-sm-12">Dashboard</h2>
           <div className="col-md">

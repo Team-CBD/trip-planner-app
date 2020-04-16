@@ -27,6 +27,7 @@ function Trip() {
       .catch(err => console.log(err));
   }
 
+  
   return(
     <div className = "container">
 
@@ -34,14 +35,14 @@ function Trip() {
         {trips.length ? (
           <TripList>
             {trips.map(trip => (
-              <div className="col">
-              <TripListSingle key={trip._id}>
-                <Link to={"/EventCreate/" + trip._id}>
-                  <h3>{trip.destination}</h3><br/>From: {trip.startDate}<br/>To: {trip.endDate}
+              
+              <TripListSingle key={trip._id} className="col-sm-6">
+                <Link to={"/trip/" + trip._id}>
+                  {trip.destination} From: {trip.startDate} To: {trip.endDate}
                 </Link>
                 <DeleteBtn onClick={() => deleteTrip(trip._id)} />
               </TripListSingle>
-              </div>
+              
             ))}
           </TripList>
         ) : (
