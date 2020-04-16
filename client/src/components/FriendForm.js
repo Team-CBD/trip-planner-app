@@ -30,8 +30,8 @@ function FriendForm(props) {
     const { name, value } = event.target;
     setFormObject({...formObject, [name]: value})
   };
-
-  function phonenumber(phoneNum)
+// eslint-disable-next-line
+  function phoneNumber(phoneNum)
   {
   var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
   if((phoneNum.value.match(phoneno)))
@@ -51,7 +51,7 @@ function FriendForm(props) {
     <div className = "container">
       <div className = "friendForm">
         <h4 className="text-dark pt-3">Add Friend</h4>
-        <form onSubmit={handleFormSubmit}>
+        <form name="form1" onSubmit={handleFormSubmit}>
           <input className="neuflip m-2 p-2" 
             type="text" id="fullName" placeholder="Full Name"
             name="fullName"
@@ -66,14 +66,15 @@ function FriendForm(props) {
             <input type="tel"
             className="neuflip m-2 p-2"
             placeholder="Phone, Numbers Only"
-            name="phone"
+            name="phone1"
             country="US"
+            onClick="phoneNumber(document.form1.phone1)"
             autoComplete="tel"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             required
             onChange={handleInputChange} /><br/>
             
-            <button onClick="phonenumber(document.form.phone)" id="submit" className="btn neu">Save</button>
+            <button id="submit" className="btn neu">Save</button>
             
         </form>
       </div>
