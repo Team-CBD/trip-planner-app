@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import API from "../utils/API";
-import { TripList, TripListSingle } from "./TripList";
-import DeleteBtn from "./DeleteBtn";
+import { useParams } from "react-router-dom";
+import API from "../utils/api";
+import { TripList, TripListSingle } from "../components/TripList";
+import DeleteBtn from "../components/DeleteBtn";
 
 function TripEvents(props) {
-  const [trip, setTrip, daysEvents, setEvents] = useState({});
+  const [trip, setTrip ] = useState([]);
+  const [daysEvent, setEvents] = useState([]);
   const [formObject, setFormObject] = useState({});
 
   const {id} = useParams()
-  useEffect(() => {
-    API.getTrip(id)
+  useEffect((id) => {
+  
+    API.findOneTrip(id)
       .then(res => setTrip(res.data))
       .catch(err => console.log(err));
-  }, []);
+  }, [id]);
+
+  useEffect(() => {
+    loadEvents()
+  })
 
   function loadEvents() {
     API.getEvents()
@@ -51,7 +57,7 @@ function TripEvents(props) {
   return (
     <div className = "container">
         <h1>
-            {trip.destination} 
+            Destination: {trip.destination} 
         </h1>
         <h2>
             From: {trip.startDate} To: {trip.endDate}
@@ -82,12 +88,12 @@ function TripEvents(props) {
             </form>
         </div>
 
-        <div className = "eventList">
-            {daysEvents.length ? (
+        <div>
+            {daysEvent.length ? (
                 <TripList>
-                    {daysEvents.map(daysEvent => (
-                        <TripListSingle key={daysEvent._id}>
-                            {daysEvent.date} - {daysEvent.name}: {dayEvent.description}
+                    {daysEvent.map(Event => (
+                        <TripListSingle key={Event._id}>
+                            {Event.date} - {Event.name}: {Event.description}
                             <DeleteBtn onClick={() => deleteEvent(Event._id)} />
                         </TripListSingle>
                     ))}
