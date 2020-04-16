@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import API from '../utils/api';
 import '../styles/style.css';
+//import { Link } from 'react-router-dom';
 
 
 function FriendForm(props) {
@@ -29,6 +30,20 @@ function FriendForm(props) {
     const { name, value } = event.target;
     setFormObject({...formObject, [name]: value})
   };
+// // eslint-disable-next-line
+//   function phoneNumber(phoneNum)
+//   {
+//   var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+//   if((phoneNum.value.match(phoneno)))
+//         {
+//       return true;
+//         }
+//       else
+//         {
+//         alert("message");
+//         return false;
+//         }
+//   }
 
 
  
@@ -36,7 +51,7 @@ function FriendForm(props) {
     <div className = "container">
       <div className = "friendForm">
         <h4 className="text-dark pt-3">Add Friend</h4>
-        <form onSubmit={handleFormSubmit}>
+        <form name="form1" onSubmit={handleFormSubmit}>
           <input className="neuflip m-2 p-2" 
             type="text" id="fullName" placeholder="Full Name"
             name="fullName"
@@ -50,10 +65,17 @@ function FriendForm(props) {
             onChange={handleInputChange} /><br/>
             <input type="tel"
             className="neuflip m-2 p-2"
-            placeholder="Phone"
+            placeholder="Phone, Numbers Only"
             name="phone"
+            // country="US"
+            // onClick="phoneNumber(document.form1.phone1)"
+            // autoComplete="tel"
+            // // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            required
             onChange={handleInputChange} /><br/>
-            <button  id="submit" className="btn neu">Save</button>
+            
+            <button id="submit" className="btn neu">Save</button>
+            
         </form>
       </div>
 

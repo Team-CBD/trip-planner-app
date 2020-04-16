@@ -17,6 +17,10 @@ function TripForm() {
     .catch(err => console.log(err));
   }
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
+  
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.destination && formObject.startDate && formObject.endDate) {
@@ -29,6 +33,8 @@ function TripForm() {
       })
       .then(res => loadTrip())
       .catch(err => console.log(err));
+      window.location.reload(false);
+      refreshPage();
     }
   };
 
@@ -60,7 +66,7 @@ function TripForm() {
             placeholder="End Date"
             name="endDate"
             onChange={handleInputChange} /><br/>
-            <Link to="/EventCreate"><button onClick={handleFormSubmit} id="submit" className="btn neu">Next</button></Link>
+            <Link to="/trips"><button onClick={handleFormSubmit} id="submit" className="btn neu">Next</button></Link>
         </form>
       </div>
 

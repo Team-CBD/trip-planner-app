@@ -27,23 +27,25 @@ function Trip() {
       .catch(err => console.log(err));
   }
 
-
-
+  
   return(
     <div className = "container">
 
-      <div className = "tripList row pt-3">
+      <div className = "tripList pt-3">
         {trips.length ? (
           <TripList>
             {trips.map(trip => (
-              
+             <div className="col">
+                                 
               <TripListSingle key={trip._id} className="col-sm-6">
-                
-                  {trip.destination} From: {trip.startDate} To: {trip.endDate}
-               
+                <Link to={"/trip/" + trip._id}>
+                <h3>{trip.destination}</h3><br/>
+                {/* IMAGE GOES HERE */}
+                <b>From: {trip.startDate}</b><br/><b>To: {trip.endDate}</b>
+                </Link>
                 <DeleteBtn onClick={() => deleteTrip(trip._id)} />
               </TripListSingle>
-              
+              </div>
             ))}
           </TripList>
         ) : (

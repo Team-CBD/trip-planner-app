@@ -85,6 +85,7 @@ class Register extends React.Component {
              <h2>Register</h2>
              <form name="form" onSubmit={this.handleSubmit}>
                  <div className="form-group">
+<<<<<<< HEAD
                      <label>First Name</label>
                      <input className="neuflip" type="text" name="fName" value={this.fName} onChange={this.handleChange} />
                      { this.state.errorMessage &&
@@ -114,6 +115,30 @@ class Register extends React.Component {
                      { this.state.errorMessage4 &&
                          <div className="text-danger">Password is required
                            </div> } 
+=======
+                     <label className="pr-2">First Name: </label>
+                     <input className="p-2 neuflip" type="text" name="fName" value={this.fName} onChange={this.handleChange} />
+                         <div className="invalid-feedback">First Name is required</div>
+                 </div>
+                 <div className="form-group">
+                     <label className="pr-2">Last Name: </label>
+                     <input className="p-2 neuflip" type="text" name="lName" value={this.lName} onChange={this.handleChange}  />
+                     
+                         <div className="invalid-feedback">Last Name is required</div>
+                     
+                 </div>
+                 <div className="form-group">
+                     <label className="pr-2">Enter Email: </label>
+                     <input className="p-2 neuflip" type="text" name="email" value={this.email} onChange={this.handleChange} />
+                     
+                         <div className="invalid-feedback">Username is required</div>
+                     
+                 </div>
+                 <div className="form-group">
+                     <label className="pr-2">Password: </label>
+                     <input className="p-2 neuflip" type="password" name="password" value={this.password} onChange={this.handleChange}  />
+                         <div className="invalid-feedback">Password is required</div>
+>>>>>>> 05fef5c9e785aac507f6e73264e847edca839096
                  </div>
                  <div className="form-group">
                      <button className="btn buttonz btn-primary neu text-dark" >
