@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import API from '../utils/api';
 import '../styles/style.css';
+import { Link } from 'react-router-dom';
 
 
 function FriendForm(props) {
@@ -30,6 +31,20 @@ function FriendForm(props) {
     setFormObject({...formObject, [name]: value})
   };
 
+  function phonenumber(phone)
+  {
+  var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  if((phone.value.match(phoneno)))
+        {
+      return true;
+        }
+      else
+        {
+        alert("message");
+        return false;
+        }
+  }
+
 
  
   return(
@@ -50,10 +65,16 @@ function FriendForm(props) {
             onChange={handleInputChange} /><br/>
             <input type="tel"
             className="neuflip m-2 p-2"
-            placeholder="Phone"
+            placeholder="Phone, Numbers Only"
             name="phone"
+            country="US"
+            autoComplete="tel"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            required
             onChange={handleInputChange} /><br/>
-            <button  id="submit" className="btn neu">Save</button>
+            
+            <button onClick="phonenumber(tel)" id="submit" className="btn neu">Save</button>
+            
         </form>
       </div>
 
