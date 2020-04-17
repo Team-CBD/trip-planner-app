@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import API from "../utils/api";
 import { TripList, TripListSingle } from "../components/TripList";
 import DeleteBtn from "../components/DeleteBtn";
+import '../styles/style.css';
 
 function TripEvents(props) {
   const [trip, setTrip ] = useState([]);

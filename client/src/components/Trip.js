@@ -9,6 +9,9 @@ import '../styles/style.css';
 function Trip() {
   const [trips, setTrips] = useState([])
 
+  // var d = new trips.startDate;
+  // d.toDateString()
+
   useEffect(() => {
     loadTrips()
   }, [])
@@ -26,7 +29,6 @@ function Trip() {
       .then(res => loadTrips())
       .catch(err => console.log(err));
   }
-
   
   return(
     <div className = "container">
