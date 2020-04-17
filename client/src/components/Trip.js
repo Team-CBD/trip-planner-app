@@ -9,9 +9,6 @@ import '../styles/style.css';
 function Trip() {
   const [trip, setTrips] = useState([])
 
-  // var d = new trips.startDate;
-  // d.toDateString()
-
   useEffect(() => {
     loadTrips()
   }, [])
