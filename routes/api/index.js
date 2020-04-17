@@ -24,12 +24,6 @@ router.use("/friends", friendsRoutes);
 // Comments Routes
 router.use("/comments", commentsRoutes);
 
-//Global Error handler
-router.use((err, req, res, next) =>
-    res.status(err.status || 500).render('error', {
-        message: err.message || 'Something went wrong!',
-        title: err.title || 'Internal Server Error'
-    })
-);
+
 
 module.exports = router;

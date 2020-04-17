@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import API from './utils/api'
+//import API from './utils/api';
 import Wrapper from './components/Wrapper';
 import Header from './components/Header';
 import Main from './components/Main';

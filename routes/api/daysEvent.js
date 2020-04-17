@@ -5,14 +5,14 @@ const auth = require('../../middleware/auth');
 
 router
     .route('/')
-    .get((req, res, next) => 
+    .get( (req, res, next) => 
         Trip.findById(req.params.tripId)
         .populate('daysEvent')
         .exec()
         .then(trip => res.json(trip))
         .catch(err => next(`Error: ${err}`))
     )
-    .post((req, res, next) => {
+    .post( (req, res, next) => {
         //build new daysEvent
         const newDaysEvent = new DaysEvent(req.body);
         newDaysEvent.trip = req.params.tripId;
@@ -35,17 +35,17 @@ router
             .catch(err => next(`Error: ${err}`));
         });
 
-// router
-//     .route('/new')
-//     .get( (req, res, next) =>
-//         Trip.findById(req.params.tripId)
-//             .then(trip => res.json(trip))
-//             .catch(err => next(`Error: ${err}`))
-//     )
+router
+    .route('/new')
+    .get( (req, res, next) =>
+        Trip.findById(req.params.tripId)
+            .then(trip => res.json(trip))
+            .catch(err => next(`Error: ${err}`))
+    )
 
 router
     .route('/:daysEventId')
-    .get((req, res, next) => {
+    .get( (req, res, next) => {
         const id = req.params.daysEventId;
         DaysEvent.findById(id)
             .populate('trip')
@@ -63,14 +63,14 @@ router
             .catch(err => next(`Error: ${err}`))
     });
 
-// router
-//     .route('/:daysEventId/edit')
-//     .get( (req, res, next) =>
-//         DaysEvent.findById(req.params.daysEventId)
-//             .populate('trip')
-//             .then(daysEvent => res.json(daysEvent))
-//             .catch(err => next(`Error: ${err}`))
-//     )
+router
+    .route('/:daysEventId/edit')
+    .get( (req, res, next) =>
+        DaysEvent.findById(req.params.daysEventId)
+            .populate('trip')
+            .then(daysEvent => res.json(daysEvent))
+            .catch(err => next(`Error: ${err}`))
+    )
 
 
 module.exports = router;

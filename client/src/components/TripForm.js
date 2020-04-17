@@ -66,7 +66,7 @@ function TripForm() {
             placeholder="End Date"
             name="endDate"
             onChange={handleInputChange} /><br/>
-            <Link to="/trip"><button onClick={handleFormSubmit} id="submit" className="btn neu">Next</button></Link>
+            <Link to="/"><button id="submit" className="btn neu">Next</button></Link>
         </form>
       </div>
 

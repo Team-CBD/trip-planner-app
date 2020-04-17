@@ -7,7 +7,7 @@ import '../styles/style.css';
 
 
 function Trip() {
-  const [trips, setTrips] = useState([])
+  const [trip, setTrips] = useState([])
 
   useEffect(() => {
     loadTrips()
@@ -15,9 +15,10 @@ function Trip() {
 
   function loadTrips() {
     API.getTrips()
-    .then(res => 
+    .then(res => {
+      console.log(res.data);
       setTrips(res.data)
-    )
+    })
     .catch(err => console.log(err));
   }
 
@@ -32,21 +33,23 @@ function Trip() {
     <div className = "container">
 
       <div className = "tripList pt-3">
-        {trips.length ? (
+        {trip.length ? (
           <TripList>
-            {trips.map(trip => (
+            {trip.map(trip => (
+             <TripListSingle key={trip._id} className="col-sm-6">
              <div className="col">
                                  
-              <TripListSingle key={trip._id} className="col-sm-6">
+              
                
                 <Link to={"/trip/" + trip._id}>
                 <h3>{trip.destination}</h3><br/>
-                {/* IMAGE GOES HERE */}
+
                 <b>From: {trip.startDate}</b><br/><b>To: {trip.endDate}</b>
                 </Link>
                 <DeleteBtn onClick={() => deleteTrip(trip._id)} />
-              </TripListSingle>
+              
               </div>
+              </TripListSingle>
             ))}
           </TripList>
         ) : (
