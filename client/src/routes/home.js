@@ -1,5 +1,5 @@
 import React from 'react'
-import CardElement from '../components/Card'
+import Trip from '../components/Trip'
 import TripForm from '../components/TripForm'
 import '../styles/style.css'
 //import API from '../utils/api';
@@ -34,7 +34,7 @@ class Home extends React.Component {
           </div>
           <div className="col-md-6">
 
-            <CardElement />
+            <Trip />
 
           </div>
 
