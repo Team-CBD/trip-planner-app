@@ -26,14 +26,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true, createIndexes: true }));
 
 //Heroku Deploy
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/travelynx', 
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://heroku_2gw68psx:rb24149ue5nb573j0tklandh5a@ds137488.mlab.com:37488/heroku_2gw68psx', 
   { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
 
-//Local Deploy
-// mongoose.connect(process.env.MONGOLAB_BRONZE_URI || 'mongodb://heroku_2gw68psx:rb24149ue5nb573j0tklandh5a@ds137488.mlab.com:37488/heroku_2gw68psx',
-//   { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
-
-//
 
 // const db = config.get("mongoURI");
 
