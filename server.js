@@ -7,7 +7,6 @@ const routes = require('./routes');
 const config = require('config');
 
 const app = express();
-app.use(logger('dev'));
 
 const PORT = process.env.PORT || 8080;
 // Serve up static assets (usually on heroku)
@@ -32,8 +31,8 @@ app.use(express.urlencoded({ extended: true, createIndexes: true }));
 
 const db = config.get("mongoURI");
 
-mongoose.connect(db, 
-    { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
+// mongoose.connect(db, 
+//     { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
 
 // Routes
 app.use(routes);

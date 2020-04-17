@@ -30,15 +30,11 @@ function FriendForm(props) {
     const { name, value } = event.target;
     setFormObject({...formObject, [name]: value})
   };
-
-  
-
-
  
   return(
     <div className = "container">
       <div className = "friendForm">
-        <h4 className="text-dark pt-3">Add Friend</h4>
+        <h4 className="text-dark pt-3">Add</h4>
         <form name="form1" onSubmit={handleFormSubmit}>
           <input className="neuflip m-2 p-2" 
             type="text" id="fullName" placeholder="Full Name"
