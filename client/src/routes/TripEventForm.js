@@ -21,8 +21,9 @@ function TripEventsForm(props) {
       }, [id]);
 
   
-  const [daysEvent, setEvents] = useState({});
+  const [daysEvent, setEvents] = useState(false);
   const [formObject, setFormObject] = useState({});
+  const  [newEvent, setNewEvent] = useState({});
 
 
   useEffect(() => {
@@ -49,7 +50,7 @@ function TripEventsForm(props) {
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.name && formObject.description && formObject.date) {
-      API.addEvent({
+      API.addEvent(id, newEvent = {
         name: formObject.name,
         description: formObject.description,
         date: formObject.date
