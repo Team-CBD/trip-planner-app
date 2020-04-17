@@ -28,7 +28,7 @@ componentDidMount() {
   return (
     <div className="container mt-5">
 
-      <h2 className="ptitle text-dark">Friends</h2>
+      <h2 className="ptitle text-dark">Travelers</h2>
 
       <div className="row">
       <div className="col-sm-6">

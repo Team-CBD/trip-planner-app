@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import "../styles/weather.css";
 
 const Forecast = () => {
-    
+    // eslint-disable-next-line
     let [city, setCity] = useState("");
+    // eslint-disable-next-line
     let [state, setState] = useState("");
-
+    // eslint-disable-next-line
     let [query, setQuery] = useState([]);
 
 

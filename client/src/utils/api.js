@@ -20,6 +20,7 @@ export default {
     findOneFriend: (id) => axios.get("http://localhost:8080/api/friends/" + id),
     updateFriend: (id) => axios.post("http://localhost:8080/api/friends/" + id),
 
-    addUser: (data) => axios.post("http://localhost:8080/api/users/register", data)
+    addUser: (data) => axios.post("http://localhost:8080/api/users/register", data),
+    getUser: (data) => axios.post("http://localhost:8080/api/auth/login", data)
 };
 //sample for route call to frontend

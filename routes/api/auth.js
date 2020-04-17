@@ -22,7 +22,7 @@ router.route('/login').post((req, res) => {
                     config.get('jwtSecret'),
                     (err, token) => {
                         if(err) throw err
-                        res.json({
+                        res.status(200).json({
                             user: {
                                 token,
                                 id: user.id,

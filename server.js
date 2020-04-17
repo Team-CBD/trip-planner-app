@@ -7,7 +7,6 @@ const routes = require('./routes');
 const config = require('config');
 
 const app = express();
-app.use(logger('dev'));
 
 const PORT = process.env.PORT || 8080;
 // Serve up static assets (usually on heroku)
