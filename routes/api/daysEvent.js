@@ -5,34 +5,34 @@ const auth = require('../../middleware/auth');
 
 router
     .route('/')
-    .get((req, res, next) => 
+    .get( (req, res, next) => 
         Trip.findById(req.params.tripId)
         .populate('daysEvent')
         .exec()
         .then(trip => res.json(trip))
         .catch(err => next(`Error: ${err}`))
-        )
-        .post((req, res, next) => {
-            //build new daysEvent
-            const newDaysEvent = new DaysEvent(req.body);
-            newDaysEvent.trip = req.params.tripId;
+    )
+    .post( (req, res, next) => {
+        //build new daysEvent
+        const newDaysEvent = new DaysEvent(req.body);
+        newDaysEvent.trip = req.params.tripId;
 
-            //find trip doc
-            return Trip.findById(req.params.tripId)
-                .then(trip => 
-                    //save new daysEvent doc
-                    newDaysEvent.save()
-                        .then(createdDaysEvent => {
-                            //add new daysEvent ID to trip doc
-                            trip.daysEvent.push(createdDaysEvent._id);
-                            return trip
-                                .save()
-                                .then(() => res.json('New event added'))
-                                .catch(err => next(`Error: ${err}`));
-                        })
-                        .catch(err => next(`Error: ${err}`))
-                )
-                .catch(err => next(`Error: ${err}`));
+        //find trip doc
+        return Trip.findById(req.params.tripId)
+            .then(trip => 
+                //save new daysEvent doc
+                newDaysEvent.save()
+                    .then(createdDaysEvent => {
+                        //add new daysEvent ID to trip doc
+                        trip.daysEvent.push(createdDaysEvent._id);
+                        return trip
+                            .save()
+                            .then(() => res.json('New event added'))
+                            .catch(err => next(`Error: ${err}`));
+                    })
+                    .catch(err => next(`Error: ${err}`))
+            )
+            .catch(err => next(`Error: ${err}`));
         });
 
 router
@@ -45,7 +45,7 @@ router
 
 router
     .route('/:daysEventId')
-    .get((req, res, next) => {
+    .get( (req, res, next) => {
         const id = req.params.daysEventId;
         DaysEvent.findById(id)
             .populate('trip')

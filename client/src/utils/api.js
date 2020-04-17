@@ -2,22 +2,22 @@ import axios from 'axios';
 
 
 export default {
-    getTrips: () => axios.get("api/trip/"),
-    addTrip: (trip) => axios.post("api/trip/", trip),
-    deleteTrip: (id) => axios.delete("api/trip/" + id),
-    findOneTrip: (id) => axios.get("api/trip/" + id),
-    updateTrip: (id) => axios.post("api/trip/" + id),
+    getTrips: () => axios.get("http://localhost:8080/api/trip/"),
+    addTrip: (trip) => axios.post("http://localhost:8080/api/trip/", trip).then(result => result.data),
+    deleteTrip: (id) => axios.delete("http://localhost:8080/api/trip/" + id).then(result => result.data),
+    findOneTrip: (id) => axios.get("http://localhost:8080/api/trip/" + id).then(result => result.data),
+    updateTrip: (id) => axios.post("http://localhost:8080/api/trip/" + id).then(result => result.data),
     
-    getEvents: () => axios.get("api/trip/daysEvent"),
-    addEvent: (newEvent) => axios.post("api/trip/daysEvent", newEvent),
-    findOneEvent: (id) => axios.get("api/trip/daysEvent/" + id),
-    updateEvent: (id) => axios.patch("api/trip/daysEvent/update/" + id),
-    deleteEvent: (id) => axios.delete("api/trip/daysEvent/" +id),
+    getEvents: (id) => axios.get(`http://localhost:8080/api/trip/${id}/daysEvent/`),
+    addEvent: (id, newEvent) => axios.post((`http://localhost:8080/api/trip/${id}/daysEvent/`, newEvent)).then(result => result.data),
+    findOneEvent: (id, eventId) => axios.get((`http://localhost:8080/api/trip/${id}/daysEvent/${eventId}`)).then(result => result.data),
+    updateEvent: (id, eventId) => axios.patch((`http://localhost:8080/api/trip/${id}/daysEvent/${eventId}`)).then(result => result.data),
+    deleteEvent: (id, eventId) => axios.delete(`http://localhost:8080/api/trip/${id}/daysEvent/${eventId}`).then(result => result.data),
 
-    getFriends: () => axios.get("api/friends/"),
-    addFriend: (friend) => axios.post("api/friends/", friend),
-    deleteFriend: (id) => axios.delete("api/friends/" + id),
-    findOneFriend: (id) => axios.get("api/friends/" + id),
-    updateFriend: (id) => axios.post("api/friends/" + id)
+    getFriends: () => axios.get("http://localhost:8080/api/friends/"),
+    addFriend: (friend) => axios.post("http://localhost:8080/api/friends/", friend),
+    deleteFriend: (id) => axios.delete("http://localhost:8080/api/friends/" + id),
+    findOneFriend: (id) => axios.get("http://localhost:8080/api/friends/" + id),
+    updateFriend: (id) => axios.post("http://localhost:8080/api/friends/" + id)
 };
 //sample for route call to frontend

@@ -32,8 +32,8 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://heroku_2gw68psx:rb24149ue
 
 // const db = config.get("mongoURI");
 
-// mongoose.connect(db, 
-//     { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
+mongoose.connect(db, 
+    { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
 
 // Routes
 app.use(routes);

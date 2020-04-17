@@ -5,35 +5,41 @@ import { TripList, TripListSingle } from "../components/TripList";
 import DeleteBtn from "../components/DeleteBtn";
 import '../styles/style.css';
 
-function TripEvents(props) {
-  const [trip, setTrip ] = useState([]);
-  const [daysEvent, setEvents] = useState([]);
+function TripEventsForm(props) {
+  const [trip, setTrip ] = useState(false);
+  const {id} = useParams();
+ 
+    useEffect(() => {
+      console.log(id);
+      if(!trip) {
+      API.findOneTrip(id)
+      .then(res => {
+          console.log(res);
+          setTrip(res)
+        }
+          )
+      }
+      }, [id]);
+
+  
+  const [daysEvent, setEvents] = useState({});
   const [formObject, setFormObject] = useState({});
 
-  const {id} = useParams()
-  useEffect((id) => {
-  
-    API.findOneTrip(id)
-      .then(res => setTrip(res.data))
-      .catch(err => console.log(err));
-  }, [id]);
 
   useEffect(() => {
-    loadEvents()
-  })
+    loadEvents(id)
+  }, [id]);
 
-  function loadEvents() {
-    API.getEvents()
+  function loadEvents(id) {
+    API.getEvents(id)
       .then(res => 
         setEvents(res.data)
       )
-      .catch(err => console.log(err));
   };
 
   function deleteEvent(id) {
     API.deleteEvent(id)
       .then(res => loadEvents())
-      .catch(err => console.log(err));
   };
 
   function handleInputChange(event) {
@@ -50,11 +56,10 @@ function TripEvents(props) {
         date: formObject.date
       })
         .then(res => loadEvents())
-        .catch(err => console.log(err));
     }
   };
   
-
+console.log(trip);
   return (
     <div className = "container">
         <h1>
@@ -107,4 +112,4 @@ function TripEvents(props) {
     );
   }
 
-export default TripEvents;
+export default TripEventsForm;
