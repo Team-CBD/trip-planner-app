@@ -7,6 +7,10 @@
       border-radius: 3px;
   }
 
+  .icon {
+    height:54px!important;
+    width:54px!important;
+  }
   
   .App {
     color: #1c75bc;

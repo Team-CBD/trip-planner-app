@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import '../styles/image.css';
 import axios from "axios";
+import ImageSearch from './ImageSearch';
 
-function ImageSearch(props) {
+function ImageResults(props) {
 
 const [photo, setPhoto] =useState();
 // eslint-disable-next-line
@@ -39,13 +40,9 @@ const [result, setResult] = useState([]);
       <button type="button" className="btn neu btn-primary btn-lrg" onClick={handleSubmit}>Search</button>
       </div>
 
-      <div className="container">
-      {result.map((photo) => (
-        <img className="image" alt="" src={photo.urls.small} />
-      ))}
-      </div>
+
     </div>
   );
 }
 
-export default ImageSearch;
+export default ImageResults;

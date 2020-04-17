@@ -13,7 +13,8 @@ class weatherSearch extends React.Component {
         <div className="col-sm-12">
             <Weather />
           </div>
-          
+
+            
         </div>
       </div>
 
