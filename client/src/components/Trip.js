@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import DeleteBtn from './DeleteBtn';
 import API from '../utils/api';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import { TripList, TripListSingle } from "./TripList";
 import '../styles/style.css';
 
@@ -17,7 +17,7 @@ function Trip() {
     API.getTrips()
     .then(res => {
       console.log(res.data);
-      setTrips(res.data)
+      setTrips(res.data);
     })
     .catch(err => console.log(err));
   }
@@ -28,6 +28,8 @@ function Trip() {
       .catch(err => console.log(err));
   }
   
+
+
   return(
     <div className = "container">
 
@@ -35,14 +37,14 @@ function Trip() {
         {trip.length ? (
           <TripList>
             {trip.map(trip => (
-             <TripListSingle key={trip._id} className="col-sm-6">
+             <TripListSingle key={trip._id} >
              <div className="col">
                
-                <Link to={"/trip/" + trip._id}>
+                
                 <h3>{trip.destination}</h3><br/>
-
+                <img className="rdImg neu mb-4" alt="trip-pic" width="100%" height="auto" src="https://source.unsplash.com/random/?city,UK"></img>
                 <b>From: {trip.startDate}</b><br/><b>To: {trip.endDate}</b>
-                </Link>
+                
                 <DeleteBtn onClick={() => deleteTrip(trip._id)} />
               
               </div>
@@ -62,3 +64,13 @@ function Trip() {
 
 
 export default Trip;
+
+// function randomImg(city, dest}) {
+//   var dest = trip.destination;
+//   document.getElementById('rdTmgr').innerHTML = '<img src="https://source.unsplash.com/random/?'+city+','+dest+'">';
+// }
+
+
+// <img id="rdImg" width="100%" height="auto" onChange="randomImg(city,dest);"></img>
+
+//<Link to={"/trip/" + trip._id}></Link>
