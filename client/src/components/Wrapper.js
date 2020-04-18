@@ -2,7 +2,7 @@ import React from 'react';
 import "../styles/Wrapper.css";
 import Darkmode from 'darkmode-js';
 
-new Darkmode().showWidget();
+// new Darkmode().showWidget();
 
 var options = {
   bottom: '16px', // default: '32px'
@@ -17,8 +17,7 @@ var options = {
   autoMatchOsTheme: true // default: true
 }
 
-const darkmode = new Darkmode(options);
-darkmode.showWidget();
+
 
 function Wrapper({ children }) {
   return (
