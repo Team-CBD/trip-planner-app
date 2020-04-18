@@ -37,8 +37,6 @@ function Trip() {
             {trip.map(trip => (
              <TripListSingle key={trip._id} className="col-sm-6">
              <div className="col">
-                                 
-              
                
                 <Link to={"/trip/" + trip._id}>
                 <h3>{trip.destination}</h3><br/>

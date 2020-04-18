@@ -1,4 +1,5 @@
 import React from "react";
+import '../../styles/style.css';
 
 export function TripList({ children }) {
   return (
@@ -9,5 +10,5 @@ export function TripList({ children }) {
 }
 
 export function TripListSingle({ children }) {
-  return <li className="neu m-2 list-group-item">{children}</li>;
+  return <li className="neu m-2 shadow list-group-item">{children}</li>;
 }

@@ -20,7 +20,7 @@ class FriendData extends Component {
         return (
           <ul className="card-body">
             {this.state.friends.map(friends => (
-              <li className="col card neu center m-2 p-2">
+              <li className="col card shadow center m-2 p-2">
                 <div className="card-title">{friends.fullname}</div> <h4>{friends.relation}</h4><br/> <q>{friends.number}</q>
               </li>
             ))}
