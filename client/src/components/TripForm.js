@@ -1,7 +1,7 @@
 import React, { useState/*, useEffect */} from 'react';
 //import DeleteBtn from './DeleteBtn';
 import API from '../utils/api';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import '../styles/style.css';
 
 
@@ -66,7 +66,7 @@ function TripForm() {
             placeholder="End Date"
             name="endDate"
             onChange={handleInputChange} /><br/>
-            <Link to="/"><button id="submit" className="btn neu">Next</button></Link>
+            <button id="submit" className="btn neu">Next</button>
         </form>
       </div>
 
