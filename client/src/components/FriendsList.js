@@ -24,7 +24,7 @@ function FriendsList(props) {
         {props.friends.map(friends => (
           <li key={friends.name}>
             <div className="row card shadow bg-light center m-5 pt-3">
-          <h5 className="m-2 neu" id="profileImage">{friends.fullName}</h5><h3 className="col-sm">{friends.relation}</h3> <button type="tel" className="card-footer pt-3" href={friends.phone}>{friends.phone}<DeleteBtn onClick={() => deleteFriend(friends._id)} /></button></div>
+          <h5 className="m-2 neu zPage" id="profileImage">{friends.fullName}</h5><h3 className="col-sm">{friends.relation}</h3> <button type="tel" className="card-footer pt-3" href={friends.phone}>{friends.phone}<DeleteBtn onClick={() => deleteFriend(friends._id)} /></button></div>
             
           </li>
         ))}

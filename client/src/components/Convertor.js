@@ -73,7 +73,7 @@ function Convertor() {
   // }
   return (
     <div className="justify-content-center">
-<h2 className="ptitle text-dark pb-3">Tools</h2>
+    {/* <h2 className="ptitle text-dark pb-3">Tools</h2> */}
       <div className="container">
 
         <div className="row">
@@ -83,7 +83,8 @@ function Convertor() {
             handleConverterChange = {handleConverterChange}
             converterOptions={converterOptions}/> */}
             
-            <div className="converter">
+            <div className="converter card shadow bg-light p-4">
+              <div className="card-title">Currency Convertor</div>
               <Row
                 options={options}
                 selectedValue={fromValue}
@@ -99,7 +100,6 @@ function Convertor() {
                 amount={toAmount} />
             </div>
           </div>
-
         </div>
       </div>
     </div>

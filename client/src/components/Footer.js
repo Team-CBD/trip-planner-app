@@ -4,7 +4,7 @@ import "../styles/style.css";
 function Footer () {
     return (
       <div className="pt-5">
-         <div className="footer">
+         <div className="footer zPage">
         
         </div>
       </div>
