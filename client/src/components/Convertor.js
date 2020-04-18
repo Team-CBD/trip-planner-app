@@ -8,6 +8,7 @@ const BASE_URL = 'https://api.exchangeratesapi.io/latest'
 function Convertor() {
     console.log("convertor");
   const converterOptions = ["currency", "temperature", "mass", "length"]
+  // eslint-disable-next-line
   const [selectedConverter, setSelectedConverter] = useState(converterOptions[0])
   const [options, setOptions] = useState([])
   const [fromValue, setFromValue] = useState()
