@@ -63,14 +63,16 @@ function TripEventsForm(props) {
 console.log(trip);
   return (
     <div className = "container">
-        <h1>
+      <div className="row">
+      <div className = "card shadow-sm mt-5 pt-3 col-sm-6 offset-3">
+        <h3 className = "card-title">
             Destination: {trip.destination} 
-        </h1>
-        <h2>
-            From: {trip.startDate} To: {trip.endDate}
-        </h2>
-
-
+        </h3>
+        <h5 className = "card-body">
+            From: {trip.startDate}<br/> To: {trip.endDate}
+        </h5>
+        </div>
+        </div>
         <div className = "eventForm">
             <h4 className="text-dark pt-3">Create Events</h4>
             <form onSubmit={handleFormSubmit}>
@@ -110,6 +112,7 @@ console.log(trip);
             )}
         </div>
     </div>
+    
     );
   }
 

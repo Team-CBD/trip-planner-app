@@ -1,6 +1,7 @@
 import React from "react";
 import DeleteBtn from './DeleteBtn';
 import API from '../utils/api';
+import '../styles/style.css'
 
 
 function FriendsList(props) {
@@ -15,13 +16,15 @@ function FriendsList(props) {
       refreshPage();
   }
 
+
   function renderFriends() {
 
     return (
       <ul className="card-body">
         {props.friends.map(friends => (
-          <li key={friends.name} className="col-sm row card neu center m-2 p-2">
-            <div className="card-title">{friends.fullName}</div> <div className="card-body">{friends.relation}</div><br /> <div  className="card-footer">{friends.phone}<DeleteBtn onClick={() => deleteFriend(friends._id)} /></div>
+          <li key={friends.name}>
+            <div className="row card shadow bg-light center m-5 pt-3">
+          <h5 className="m-2 neu" id="profileImage">{friends.fullName}</h5><h3 className="col-sm">{friends.relation}</h3> <button type="tel" className="card-footer pt-3" href={friends.phone}>{friends.phone}<DeleteBtn onClick={() => deleteFriend(friends._id)} /></button></div>
             
           </li>
         ))}

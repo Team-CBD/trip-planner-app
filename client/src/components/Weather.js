@@ -46,7 +46,7 @@ const Forecast = () => {
                      <div>
                          {index % 9 === 0 &&
                      <div className="col-sm-12 mt-4">
-                         <div className="card neu justify-content-center">
+                         <div className="card shadow justify-content-center">
                          <h4 className="col-sm">{item.dt_txt.split(' ')[0]}</h4><h5>{Math.round(item.main.temp_max)}°</h5><p className="col-sm"> {item.weather[0].description.toUpperCase()}</p><p className="col-sm"> {item.main.humidity}% Humidity</p>
                          <div className="row">
                      <img className="icon offset-3 justify-content-center" src ={`https://openweathermap.org/img/w/${item.weather[0].icon}.png`} alt="wthr img" />

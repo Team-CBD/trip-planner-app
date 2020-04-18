@@ -1,5 +1,5 @@
 {
-  "name": "TRAVELynx",
+  "name": "travelynx",
   "version": "1.0.0",
   "description": "trip planner app",
   "main": "server.js",
@@ -10,6 +10,7 @@
     "client": "cd client && npm run start",
     "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
+    "build": "cd client && npm run build",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "author": "",

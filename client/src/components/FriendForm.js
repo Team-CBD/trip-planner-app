@@ -44,7 +44,7 @@ function FriendForm(props) {
             <br/>
             <input type="text"
             className="neuflip m-2 p-2"
-            placeholder="Relation"
+            placeholder="Relation / Role"
             name="relation"
             onChange={handleInputChange} /><br/>
             <input type="tel"

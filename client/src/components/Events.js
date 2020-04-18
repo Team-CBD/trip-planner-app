@@ -26,7 +26,7 @@ class EventData extends Component {
     return (
       <ul className="card-body">
         {this.state.trips.map(trips => (
-          <li key={trips.city} className="row card neu center m-2 p-2">
+          <li key={trips.city} className="row card shadow center m-2 p-2">
             <div className="col">{trips.number}</div><div className="card-title col">{trips.city}</div> {trips.description}<br /> {trips.date}
           </li>
         ))}

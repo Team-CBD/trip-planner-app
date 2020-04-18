@@ -6,9 +6,25 @@ body {
 	z-index: 0;
 }
 
+.shadow {
+	box-shadow: 0px 10px 12px -5px rgba(0, 0, 0, 0.56)!important;
+}
+
+#profileImage {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background: #1c75bc;
+	font-size: 28px;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+    margin: 20px 0;
+    padding-top: 25px;
+}
 
 .card {
-     border:none;
+	 border:none;
 }
 
 .card-body {
