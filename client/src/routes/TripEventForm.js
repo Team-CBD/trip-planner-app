@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import API from "../utils/api";
 import { TripList, TripListSingle } from "../components/TripList";
 import DeleteBtn from "../components/DeleteBtn";
-import '../styles/style.css';
 
 function TripEventsForm(props) {
   const [trip, setTrip ] = useState(false);
@@ -17,10 +16,8 @@ function TripEventsForm(props) {
           console.log(res);
           setTrip(res)
         }
-          )
-      }
-      // eslint-disable-next-line
-      }, [id]);
+        // eslint-disable-next-line
+          )}}, [id]);
 
   
   const [daysEvent, setEvents] = useState({});
@@ -35,12 +32,13 @@ function TripEventsForm(props) {
     API.getEvents(id)
       .then(res => 
         setEvents(res.data)
+        
       )
   };
 
   function deleteEvent(id) {
     API.deleteEvent(id)
-      .then(res => loadEvents())
+      .then(res => loadEvents(id))
   };
 
   function handleInputChange(event) {
@@ -49,22 +47,22 @@ function TripEventsForm(props) {
   };
 
   function handleFormSubmit(event) {
-    event.preventDefault();
+    // event.preventDefault();
     if (formObject.name && formObject.description && formObject.date) {
       API.addEvent({
         name: formObject.name,
         description: formObject.description,
         date: formObject.date
       })
-        .then(res => loadEvents())
+        .then(res => props.loadEvents(id))
     }
   };
   
 console.log(trip);
   return (
     <div className = "container">
-      <div className="row">
-      <div className = "card shadow-sm mt-5 pt-3 col-sm-6 offset-3">
+      <div className="row justify-content-center">
+      <div className = "card shadow mt-5 pt-3">
         <h3 className = "card-title">
             Destination: {trip.destination} 
         </h3>
@@ -93,7 +91,7 @@ console.log(trip);
                 placeholder="Date of Event"
                 name="date"
                 onChange={handleInputChange} /><br/>
-                <button onClick={handleFormSubmit} id="submit" className="btn neu">Add Event</button>
+                <button id="submit" className="btn neu">Add Event</button>
             </form>
         </div>
 

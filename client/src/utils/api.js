@@ -3,13 +3,13 @@ import axios from 'axios';
 
 export default {
     getTrips: () => axios.get("https://travelynx.herokuapp.com/api/trip/"),
-    addTrip: (trip) => axios.post("https://travelynx.herokuapp.com/api/trip/", trip).then(result => result.data),
+    addTrip: (trip) => axios.post("https://travelynx.herokuapp.com/api/trip/", trip),
     deleteTrip: (id) => axios.delete("https://travelynx.herokuapp.com/api/trip/" + id).then(result => result.data),
     findOneTrip: (id) => axios.get("https://travelynx.herokuapp.com/api/trip/" + id).then(result => result.data),
     updateTrip: (id) => axios.post("https://travelynx.herokuapp.com/api/trip/" + id).then(result => result.data),
     
     getEvents: (id) => axios.get(`https://travelynx.herokuapp.com/api/trip/${id}/daysEvent/`),
-    addEvent: (id, newEvent) => axios.post((`https://travelynx.herokuapp.com/api/trip/${id}/daysEvent/`, newEvent)).then(result => result.data),
+    addEvent: (id, newEvent) => axios.post((`https://travelynx.herokuapp.com/api/trip/${id}/daysEvent/`, newEvent)),
     findOneEvent: (id, eventId) => axios.get((`https://travelynx.herokuapp.com/api/trip/${id}/daysEvent/${eventId}`)).then(result => result.data),
     updateEvent: (id, eventId) => axios.patch((`https://travelynx.herokuapp.com/api/trip/${id}/daysEvent/${eventId}`)).then(result => result.data),
     deleteEvent: (id, eventId) => axios.delete(`https://travelynx.herokuapp.com/api/trip/${id}/daysEvent/${eventId}`).then(result => result.data),
