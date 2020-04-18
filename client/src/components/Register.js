@@ -1,18 +1,26 @@
 import React from "react";
 import API from '../utils/api';
 import '../styles/style.css';
+//import axios from "axios";
+// import { Link } from "react-router-dom";
+
 
 
 
 class Register extends React.Component {
+   
      state = {
-        user: [],
+        user: {},
+        
 
         fName: "",
         lName: "",
         email: "",
-        password: ""
+        password: "",
+        
      }
+    
+     
    
     addUser = () => {
         const data = {
@@ -20,13 +28,37 @@ class Register extends React.Component {
          lName: this.state.lName,
          email: this.state.email,
          password: this.state.password
+         
         }
-        console.log(this.state.user);
+               
+        if(data.fName === "") {
+            this.setState({errorMessage: true, errorMessage2: false, errorMessage3: false, errorMessage4: false}, function(){
+                console.log(this.state);
+            })
+            return;
+        
+        } 
+        if(data.lName === ""){
+            this.setState({errorMessage: false, errorMessage2: true, errorMessage3: false, errorMessage4:false})
+            return;
+        } 
+
+        if(data.email === ""){
+            this.setState({errorMessage: false, errorMessage2: false, errorMessage3: true, errorMessage4:false})
+            return;
+        } 
+        if(data.password === ""){
+            this.setState({errorMessage: false, errorMessage2: false, errorMessage3: false, errorMessage4:true})
+            return;
+        } 
+       
         API.addUser(data).then(res => {
             console.log(res)
-        })
+        });
+
     
     }
+
 
  
      handleChange= (e) => {
@@ -39,6 +71,7 @@ class Register extends React.Component {
          e.preventDefault();
         this.addUser();
 
+
         
      }
      render() {
@@ -47,34 +80,43 @@ class Register extends React.Component {
              <h2>Register</h2>
              <form name="form" onSubmit={this.handleSubmit}>
                  <div className="form-group">
-                     <label className="pr-2">First Name: </label>
-                     <input className="p-2 neuflip" type="text" name="fName" value={this.fName} onChange={this.handleChange} />
-                         <div className="invalid-feedback">First Name is required</div>
+                     <label>First Name</label>
+                     <input className="neuflip" type="text" name="fName" value={this.fName} onChange={this.handleChange} />
+                     { this.state.errorMessage &&
+                         <div className="text-danger">First Name is required
+                           </div> }     
                  </div>
                  <div className="form-group">
-                     <label className="pr-2">Last Name: </label>
-                     <input className="p-2 neuflip" type="text" name="lName" value={this.lName} onChange={this.handleChange}  />
-                     
-                         <div className="invalid-feedback">Last Name is required</div>
-                     
-                 </div>
-                 <div className="form-group">
-                     <label className="pr-2">Enter Email: </label>
-                     <input className="p-2 neuflip" type="text" name="email" value={this.email} onChange={this.handleChange} />
-                     
-                         <div className="invalid-feedback">Username is required</div>
+                     <label>Last Name</label>
+                     <input className="neuflip" type="text" name="lName" value={this.lName} onChange={this.handleChange}  />
+                     { this.state.errorMessage2 &&
+                         <div className="text-danger">Last Name is required
+                           </div> } 
                      
                  </div>
                  <div className="form-group">
-                     <label className="pr-2">Password: </label>
-                     <input className="p-2 neuflip" type="password" name="password" value={this.password} onChange={this.handleChange}  />
-                         <div className="invalid-feedback">Password is required</div>
+                     <label>Enter Email</label>
+                     <input className="neuflip" type="text" name="email" value={this.email} onChange={this.handleChange} />
+                     { this.state.errorMessage3 &&
+                         <div className="text-danger">Email is required
+                          </div> } 
+                        
+                     
                  </div>
                  <div className="form-group">
-                     <button className="btn buttonz btn-primary neu text-dark">
+                     <label>Password</label>
+                     <input className="neuflip" type="password" name="password" value={this.password} onChange={this.handleChange}  />
+                     { this.state.errorMessage4 &&
+                         <div className="text-danger">Password is required
+                           </div> } 
+                 </div>
+
+                 
+                 <div className="form-group">
+                     <button className="btn buttonz btn-primary neu text-dark" >
                          Register
                      </button>
-                     {/* <Link to="/login" className="btn btn-link">Cancel</Link> */}
+                     {/* <Link to="/converter" className="btn btn-link">Cancel</Link> */}
                  </div>
              </form>
          </div>

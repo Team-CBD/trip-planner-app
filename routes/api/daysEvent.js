@@ -1,80 +1,76 @@
-const router = require('express').Router({mergeParams: true});
+const router = require('express').Router({ mergeParams: true });
 const DaysEvent = require('../../models/daysEvent.model');
-const mongoose = require("mongoose");
-//const eventRoutes = require("./events");
+const Trip = require('../../models/trip.model');
+const auth = require('../../middleware/auth');
 
-router.route('/').get((req, res) => {
-    DaysEvent.find()
-    .then(events => res.json(events))
-    .catch(err => res.status(422).json(`Error: ${err}`));
-});
+router
+    .route('/')
+    .get( (req, res, next) => 
+        Trip.findById(req.params.tripId)
+        .populate('daysEvent')
+        .exec()
+        .then(trip => res.json(trip))
+        .catch(err => next(`Error: ${err}`))
+    )
+    .post( (req, res, next) => {
+        //build new daysEvent
+        const newDaysEvent = new DaysEvent(req.body);
+        newDaysEvent.trip = req.params.tripId;
 
-router.route('/').post((req, res, next) => {
-    const newDaysEvent = new DaysEvent(req.body);
+        //find trip doc
+        return Trip.findById(req.params.tripId)
+            .then(trip => 
+                //save new daysEvent doc
+                newDaysEvent.save()
+                    .then(createdDaysEvent => {
+                        //add new daysEvent ID to trip doc
+                        trip.daysEvent.push(createdDaysEvent._id);
+                        return trip
+                            .save()
+                            .then(() => res.json('New event added'))
+                            .catch(err => next(`Error: ${err}`));
+                    })
+                    .catch(err => next(`Error: ${err}`))
+            )
+            .catch(err => next(`Error: ${err}`));
+        });
 
-    newDaysEvent.save()
-        .then(() => res.json('New event added!'))
-        .catch(err => res.status(422).json(`Error: ${err}`));
-      
+router
+    .route('/new')
+    .get( (req, res, next) =>
+        Trip.findById(req.params.tripId)
+            .then(trip => res.json(trip))
+            .catch(err => next(`Error: ${err}`))
+    )
+
+router
+    .route('/:daysEventId')
+    .get( (req, res, next) => {
+        const id = req.params.daysEventId;
+        DaysEvent.findById(id)
+            .populate('trip')
+            .then(daysEvent => res.json(daysEvent))
+            .catch(err => next(`Error: ${err}`))
+    })
+    .patch( (req, res, next) => 
+        DaysEvent.findByIdAndUpdate(req.params.daysEventId)
+            .then(() => res.json('Event Updated'))
+            .catch(err => next(`Error: ${err}`))
+        )
+    .delete( (req, res, next) => {
+        DaysEvent.findByIdAndRemove(req.params.daysEventId)
+            .then(() => res.json('Event Deleted'))
+            .catch(err => next(`Error: ${err}`))
     });
 
-router.route('/:daysEventId').get((req, res) => {
-    const id = req.params.daysEventId;
-    DaysEvent.findById(id)
-    .then(event => res.json(event))
-    .catch(err => res.status(422).json(`Error: ${err}`));
-});
-
-router.route('/update/:eventId').post( (req, res) => {
-    DaysEvent.findById(req.params.eventId)
-        .then(event => {
-            event.name = req.body.name;
-            event.description = req.body.description;
-            event.date = Date.parse(req.body.date);
-
-            event.save()
-                .then(() => res.json('event updated!'))
-                .catch(err => res.status(422).json(`Error: ${err}`))
-        });
-});
-
-router.route('/:eventId').delete( (req, res) => {
-    DaysEvent.findByIdAndDelete(req.params.eventId)
-        //.then(daysEvent => daysEvent.remove())
-        .then(() => res.json('Event Deleted.'))
-        .catch(err => res.status(422).json(`Error: ${err}`));
-});
-
-
-
-
-    //     //const destination = req.body.destination;
-//     // const startDate = Date.parse(req.body.startDate);
-//     // const endDate = Date.parse(req.body.endDate);
-//     const newEvent = new daysEvent(req.body);
-//     // const newevent = new event({
-//     //     destination,
-//     //     startDate,
-//     //     endDate
-//     // });
-
-// newEvent.save()
-//     .then(() => res.json('New event added!'))
-//     .catch(err => res.status(422).json(`Error: ${err}`));
-
-
-// const router = require('express').Router();
-// const event = require('../../models/event.model')
-
-// router.route('/events/:event_id/daysEvent').get((req, res) => {
-//     const event_id = req.params.event_id;
-
-//     event.findById(event_id)
-//         .select('daysEvent')
-//         .then(daysEvent => res.json(daysEvent))
-//         .catch(err => res.status(422).json(`Error: ${err}`));
-// });
-
+router
+    .route('/:daysEventId/edit')
+    .get( (req, res, next) =>
+        DaysEvent.findById(req.params.daysEventId)
+            .populate('trip')
+            .then(daysEvent => res.json(daysEvent))
+            .catch(err => next(`Error: ${err}`))
+    )
 
 
 module.exports = router;

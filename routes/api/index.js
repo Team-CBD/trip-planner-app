@@ -6,22 +6,24 @@ const authRoutes = require("./auth");
 const commentsRoutes = require('./comments');
 const friendsRoutes = require("./friends");
 
-// Trip routes
-router.use("/trips", tripRoutes);
-
-// Day's Event Routes
-router.use("/daysEvent", daysEventRoutes);
+// Auth routes
+router.use("/auth", authRoutes);
 
 // User routes
 router.use("/users", userRoutes);
 
-// Auth routes
-router.use("/auth", authRoutes);
+// Trip routes
+router.use("/trip", tripRoutes);
+
+// Day's Event Routes
+router.use("/trip/:tripId/daysEvent", daysEventRoutes);
 
 // Friends routes
 router.use("/friends", friendsRoutes);
 
 // Comments Routes
 router.use("/comments", commentsRoutes);
+
+
 
 module.exports = router;

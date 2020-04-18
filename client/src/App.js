@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import API from './utils/api'
+//import API from './utils/api';
 import Wrapper from './components/Wrapper';
 import Header from './components/Header';
 import Main from './components/Main';
@@ -13,7 +13,7 @@ import {
   BrowserRouter as Router
 } from "react-router-dom";
 //sample for route call to frontend
-API.getTrips().then(data => console.log(data.data))
+//API.getTrips().then(data => console.log(data.data))
 
 class App extends Component {
   render() {

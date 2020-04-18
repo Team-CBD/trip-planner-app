@@ -10,8 +10,7 @@
     "client": "cd client && npm run start",
     "seed": "node scripts/seedDB.js",
     "install": "cd client && npm install",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -22,7 +21,6 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "bootstrap-icons": "^1.0.0-alpha3",
-    "co": "^4.6.0",
     "config": "^3.3.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -34,7 +32,6 @@
     "morgan": "^1.10.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-facebook-login": "^4.1.1",
-    "uuid": "^7.0.3"
+    "react-facebook-login": "^4.1.1"
   }
 }

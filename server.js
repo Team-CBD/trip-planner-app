@@ -7,7 +7,6 @@ const routes = require('./routes');
 const config = require('config');
 
 const app = express();
-app.use(logger('dev'));
 
 const PORT = process.env.PORT || 8080;
 // Serve up static assets (usually on heroku)
@@ -25,10 +24,15 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, createIndexes: true }));
 
-const db = config.get('mongoURI');
+//Heroku Deploy
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://heroku_2gw68psx:rb24149ue5nb573j0tklandh5a@ds137488.mlab.com:37488/heroku_2gw68psx', 
+  { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
 
-mongoose.connect(db, 
-    { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
+
+// const db = config.get("mongoURI");
+
+// mongoose.connect(db, 
+//     { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
 
 // Routes
 app.use(routes);
