@@ -18,10 +18,10 @@ function TripEventsForm(props) {
         }
           )
       }
-      }, [id]);
+      }, [trip, id]);
 
   
-  const [daysEvent, setEvents] = useState(false);
+  const [daysEvent, setEvents] = useState({});
   const [formObject, setFormObject] = useState({});
 
 

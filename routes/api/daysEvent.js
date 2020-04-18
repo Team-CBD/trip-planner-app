@@ -53,12 +53,12 @@ router
             .catch(err => next(`Error: ${err}`))
     })
     .patch( (req, res, next) => 
-        DaysEvent.findByIdAndUpdate(req.params.daysEventId)
+        DaysEvent.findOneAndReplace(req.params.daysEventId)
             .then(() => res.json('Event Updated'))
             .catch(err => next(`Error: ${err}`))
         )
     .delete( (req, res, next) => {
-        DaysEvent.findByIdAndRemove(req.params.daysEventId)
+        DaysEvent.findOneAndDelete (req.params.daysEventId)
             .then(() => res.json('Event Deleted'))
             .catch(err => next(`Error: ${err}`))
     });

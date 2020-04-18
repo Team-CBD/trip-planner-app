@@ -27,6 +27,7 @@ function Trip() {
       .then(res => loadTrips())
       .catch(err => console.log(err));
   }
+
   
   return(
     <div className = "container">

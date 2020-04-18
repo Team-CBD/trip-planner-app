@@ -6,7 +6,7 @@ import '../styles/style.css';
 
 
 function TripForm() {
-  const [trips, setTrips] = useState([])
+  const [setTrips] = useState({})
   const [formObject, setFormObject] = useState({})
   
   function loadTrip() {
@@ -17,10 +17,6 @@ function TripForm() {
     .catch(err => console.log(err));
   }
 
-  function refreshPage() {
-    window.location.reload(false);
-  }
-  
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.destination && formObject.startDate && formObject.endDate) {
@@ -33,8 +29,6 @@ function TripForm() {
       })
       .then(res => loadTrip())
       .catch(err => console.log(err));
-      window.location.reload(false);
-      refreshPage();
     }
   };
 
@@ -56,17 +50,17 @@ function TripForm() {
             onChange={handleInputChange}
             />
             <br/>
-          <input type="date"
+            <input type="date"
             className="neuflip m-2 p-2"
             placeholder="Start Date"
             name="startDate"
             onChange={handleInputChange} /><br/>
-          <input type="date"
+            <input type="date"
             className="neuflip m-2 p-2"
             placeholder="End Date"
             name="endDate"
             onChange={handleInputChange} /><br/>
-          <Link to="/"><button id="submit" className="btn neu">Next</button></Link>
+            <Link to="/trips"><button onClick={handleFormSubmit} id="submit" className="btn neu">Next</button></Link>
         </form>
       </div>
 
