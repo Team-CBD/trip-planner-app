@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Row from './Row';
 import '../styles/Converter.css';
-import SelectRow from './SelectRow';
+// import SelectRow from './SelectRow';
 
 const BASE_URL = 'https://api.exchangeratesapi.io/latest'
 
 function Convertor() {
     console.log("convertor");
   const converterOptions = ["currency", "temperature", "mass", "length"]
+  // eslint-disable-next-line
   const [selectedConverter, setSelectedConverter] = useState(converterOptions[0])
   const [options, setOptions] = useState([])
   const [fromValue, setFromValue] = useState()
@@ -66,10 +67,10 @@ function Convertor() {
     setAmountInFromCurrency(false)
     }
   }
-  function handleConverterChange(e) {
-    console.log(e.target.value);
-    setSelectedConverter(e.target.value)
-  }
+  // function handleConverterChange(e) {
+  //   console.log(e.target.value);
+  //   setSelectedConverter(e.target.value)
+  // }
   return (
     <div className="justify-content-center">
 <h2 className="ptitle text-dark pb-3">Tools</h2>
@@ -77,10 +78,10 @@ function Convertor() {
 
         <div className="row">
           <div className="col-sm-12">
-            <SelectRow 
+           {/* <SelectRow 
             selectedConverter = {selectedConverter}
             handleConverterChange = {handleConverterChange}
-            converterOptions={converterOptions}/>
+            converterOptions={converterOptions}/> */}
             
             <div className="converter">
               <Row

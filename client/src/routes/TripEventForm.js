@@ -33,12 +33,13 @@ function TripEventsForm(props) {
     API.getEvents(id)
       .then(res => 
         setEvents(res.data)
+        
       )
   };
 
   function deleteEvent(id) {
     API.deleteEvent(id)
-      .then(res => loadEvents())
+      .then(res => loadEvents(id))
   };
 
   function handleInputChange(event) {
@@ -47,28 +48,30 @@ function TripEventsForm(props) {
   };
 
   function handleFormSubmit(event) {
-    event.preventDefault();
+    // event.preventDefault();
     if (formObject.name && formObject.description && formObject.date) {
       API.addEvent({
         name: formObject.name,
         description: formObject.description,
         date: formObject.date
       })
-        .then(res => loadEvents())
+        .then(res => props.loadEvents(id))
     }
   };
   
 console.log(trip);
   return (
     <div className = "container">
-        <h1>
+      <div className="row justify-content-center">
+      <div className = "card shadow mt-5 pt-3">
+        <h3 className = "card-title">
             Destination: {trip.destination} 
-        </h1>
-        <h2>
-            From: {trip.startDate} To: {trip.endDate}
-        </h2>
-
-
+        </h3>
+        <h5 className = "card-body">
+            From: {trip.startDate}<br/> To: {trip.endDate}
+        </h5>
+        </div>
+        </div>
         <div className = "eventForm">
             <h4 className="text-dark pt-3">Create Events</h4>
             <form onSubmit={handleFormSubmit}>
@@ -89,7 +92,7 @@ console.log(trip);
                 placeholder="Date of Event"
                 name="date"
                 onChange={handleInputChange} /><br/>
-                <button onClick={handleFormSubmit} id="submit" className="btn neu">Add Event</button>
+                <button id="submit" className="btn neu">Add Event</button>
             </form>
         </div>
 
@@ -108,6 +111,7 @@ console.log(trip);
             )}
         </div>
     </div>
+    
     );
   }
 

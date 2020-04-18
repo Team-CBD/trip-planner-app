@@ -30,3 +30,19 @@ h1 {
 a:hover {
     text-decoration: none;
 }
+.darkmode-layer--button {
+    width: 0.9rem;
+	height: 0.9rem;
+}
+
+.darkmode-layer--simple {
+    visibility: hidden;
+}
+
+.darkmode-toggle {
+	box-shadow: 2px 2px 3px #9d9fa1,
+			-2px -2px 3px #ffffff;
+	z-index: 999;
+	width: 1rem;
+	height: 1rem;
+}

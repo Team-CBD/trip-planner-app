@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import API from '../utils/api';
-import '../styles/style.css';
 //import { Link } from 'react-router-dom';
 
 
@@ -44,7 +43,7 @@ function FriendForm(props) {
             <br/>
             <input type="text"
             className="neuflip m-2 p-2"
-            placeholder="Relation"
+            placeholder="Relation / Role"
             name="relation"
             onChange={handleInputChange} /><br/>
             <input type="tel"
@@ -55,7 +54,7 @@ function FriendForm(props) {
             required
             onChange={handleInputChange} /><br/>
             
-            <button id="submit" className="btn neu">Save</button>
+            <button id="submit" className="btn bg-primary neu">Save</button>
             
         </form>
       </div>

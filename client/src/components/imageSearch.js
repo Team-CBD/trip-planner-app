@@ -39,9 +39,10 @@ const [result, setResult] = useState([]);
       <button type="button" className="btn neu btn-primary btn-lrg" onClick={handleSubmit}>Search</button>
       </div>
 
-      <div className="container">
+      <div className="row">
+        <div className="col-sm-12"></div>
       {result.map((photo) => (
-        <img className="image" alt="" src={photo.urls.small} />
+        <img className="image rounded" alt="" src={photo.urls.small} />
       ))}
       </div>
     </div>
