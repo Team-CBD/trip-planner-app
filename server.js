@@ -31,8 +31,8 @@ app.use(express.urlencoded({ extended: true, createIndexes: true }));
 
 const db = config.get("mongoURI");
 
-// mongoose.connect(db, 
-//     { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
+mongoose.connect(db, 
+    { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
 
 // Routes
 app.use(routes);

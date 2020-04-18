@@ -6,7 +6,7 @@ import '../styles/style.css';
 
 
 function TripForm() {
-  const [setTrips] = useState([])
+  const [trips, setTrips] = useState([])
   const [formObject, setFormObject] = useState({})
   
   function loadTrip() {
@@ -56,17 +56,17 @@ function TripForm() {
             onChange={handleInputChange}
             />
             <br/>
-            <input type="date"
+          <input type="date"
             className="neuflip m-2 p-2"
             placeholder="Start Date"
             name="startDate"
             onChange={handleInputChange} /><br/>
-            <input type="date"
+          <input type="date"
             className="neuflip m-2 p-2"
             placeholder="End Date"
             name="endDate"
             onChange={handleInputChange} /><br/>
-            <Link to="/"><button id="submit" className="btn neu">Next</button></Link>
+          <Link to="/"><button id="submit" className="btn neu">Next</button></Link>
         </form>
       </div>
 

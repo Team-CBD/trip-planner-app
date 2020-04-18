@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import API from "../utils/api";
 import { TripList, TripListSingle } from "../components/TripList";
 import DeleteBtn from "../components/DeleteBtn";
-import '../styles/style.css';
 
 function TripEventsForm(props) {
   const [trip, setTrip ] = useState(false);
@@ -19,13 +18,11 @@ function TripEventsForm(props) {
         }
           )
       }
-      // eslint-disable-next-line
       }, [id]);
 
   
   const [daysEvent, setEvents] = useState(false);
   const [formObject, setFormObject] = useState({});
-  const  [newEvent, setNewEvent] = useState({});
 
 
   useEffect(() => {
@@ -52,7 +49,7 @@ function TripEventsForm(props) {
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.name && formObject.description && formObject.date) {
-      API.addEvent(id, newEvent = {
+      API.addEvent({
         name: formObject.name,
         description: formObject.description,
         date: formObject.date
