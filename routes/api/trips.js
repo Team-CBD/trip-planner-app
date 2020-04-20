@@ -8,6 +8,7 @@ router
     .route('/')
     .get( (req, res) => {
         Trip.find()
+            .sort({startDate: -1})
             .then(trips => res.json(trips))
             .catch(err => res.status(400).json(`Error: ${err}`));
     })

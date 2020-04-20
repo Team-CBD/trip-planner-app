@@ -1,12 +1,10 @@
 import React, { useState/*, useEffect */} from 'react';
 //import DeleteBtn from './DeleteBtn';
 import API from '../utils/api';
-// import { Link } from 'react-router-dom';
-
-
 
 function TripForm() {
-  const [setTrips] = useState([])
+
+  const [setTrips] = useState({})
   const [formObject, setFormObject] = useState({})
   
   function loadTrip() {
@@ -17,10 +15,6 @@ function TripForm() {
     .catch(err => console.log(err));
   }
 
-  function refreshPage() {
-    window.location.reload(false);
-  }
-  
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.destination && formObject.startDate && formObject.endDate) {
@@ -32,9 +26,6 @@ function TripForm() {
         endDate: formObject.endDate
       })
       .then(res => loadTrip())
-      .catch(err => console.log(err));
-      window.location.reload(false);
-      refreshPage();
     }
   };
 
@@ -73,10 +64,7 @@ function TripForm() {
       
     </div>
   )
-
-
 }
-
 
 
 export default TripForm;
