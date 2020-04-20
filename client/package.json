@@ -2,7 +2,7 @@
   "name": "trip-planner-app",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8080/",
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "axios": "^0.19.2",
     "bootstrap-icons": "1.0.0-alpha3",
@@ -16,8 +16,11 @@
     "react-bootstrap": "^1.0.0",
     "react-dom": "^16.13.1",
     "react-markdown": "^4.3.1",
+    "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "save": "^2.4.0",
     "whatwg-fetch": "^3.0.0"
   },

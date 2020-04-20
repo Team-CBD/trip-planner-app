@@ -28,7 +28,7 @@ function Trip() {
       .catch(err => console.log(err));
   }
 
-  
+  //***startDay and endDay are not landing on the correct day as input its one day behind */
  function generateTrips() {
    console.log("generateTrips");
    return trip.map(trip => {

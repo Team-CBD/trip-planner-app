@@ -1,11 +1,9 @@
 import React, { useState/*, useEffect */} from 'react';
 //import DeleteBtn from './DeleteBtn';
 import API from '../utils/api';
-// import { Link } from 'react-router-dom';
-
-
 
 function TripForm() {
+
   const [setTrips] = useState({})
   const [formObject, setFormObject] = useState({})
   
@@ -66,10 +64,7 @@ function TripForm() {
       
     </div>
   )
-
-
 }
-
 
 
 export default TripForm;

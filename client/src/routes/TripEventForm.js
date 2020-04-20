@@ -66,6 +66,34 @@ function TripEventsForm(props) {
     }
   };
 
+  //***startDay and endDay are not landing on the correct day as input its one day behind */
+  function generateTripHeader() {
+      let startDate = new Date(trip.startDate);
+      let startMonth = startDate.getMonth()+1;
+      let startDay = startDate.getDate();
+      let startYear = startDate.getFullYear();
+      let startDateString = startMonth+"/"+startDay+"/"+startYear;
+      let endDate = new Date(trip.endDate);
+      let endMonth = endDate.getMonth()+1;
+      let endDay = endDate.getDate();
+      let endYear = endDate.getFullYear();
+      let endDateString = endMonth+"/"+endDay+"/"+endYear;
+      return (
+         <div className="col">
+           
+           <h3>{trip.destination}</h3><br/>
+           
+           <b>From: {startDateString}</b><br/><b>To: {endDateString}</b>
+         
+        
+        </div>
+      
+    
+    
+    )
+  }
+
+  //***eventDateDay are not landing on the correct day as input its one day behind */
   function generateEvents() {
     console.log("generateEvents");
     return daysEvents.map(Event => {
@@ -90,36 +118,33 @@ function TripEventsForm(props) {
   return (
     <div className = "container">
       <div className="row justify-content-center">
-      <div className = "card shadow mt-5 pt-3">
-        <h3 className = "card-title">
-            Destination: {trip.destination} 
-        </h3>
-        <h5 className = "card-body">
-            From: {trip.startDate}<br/> To: {trip.endDate}
-        </h5>
-        </div>
-        </div>
+        <div className = "card shadow mt-5 pt-3">
+          {generateTripHeader()}
+        
+      
         <div className = "eventForm">
             <h4 className="text-dark pt-3">Create Events</h4>
             <form onSubmit={handleFormSubmit}>
-            <input className="neuflip m-2 p-2" 
-                type="text" id="name" placeholder="Name of Event"
-                name="name"
-                onChange={handleInputChange}
-                />
-                <br/>
-                <input className="neuflip m-2 p-2" 
-                type="text" id="description" placeholder="Description of Event"
-                name="description"
-                onChange={handleInputChange}
-                />
-                <br/>
-                <input type="date"
-                className="neuflip m-2 p-2"
-                placeholder="Date of Event"
-                name="date"
-                onChange={handleInputChange} /><br/>
-                <button id="submit" className="btn neu">Add Event</button>
+              <input className="neuflip m-2 p-2" 
+                  type="text" id="name" placeholder="Name of Event"
+                  name="name"
+                  onChange={handleInputChange}
+              />
+              <br/>
+              <input className="neuflip m-2 p-2" 
+                  type="text" id="description" placeholder="Description of Event"
+                  name="description"
+                  onChange={handleInputChange}
+              />
+              <br/>
+              <input type="date"
+                  className="neuflip m-2 p-2"
+                  placeholder="Date of Event"
+                  name="date"
+                  onChange={handleInputChange} 
+              />
+              <br/>
+                  <button id="submit" className="btn neu">Add Event</button>
             </form>
         </div>
 
@@ -137,7 +162,9 @@ function TripEventsForm(props) {
             ) : (
                 <h3>No Events Added</h3>
             )}
+          </div>
         </div>
+      </div>
     </div>
     
     );
