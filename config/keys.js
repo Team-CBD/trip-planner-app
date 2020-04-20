@@ -7,3 +7,5 @@ module.exports = {
 //     "mongoURI": "process.env.MONGOLAB_URI_BRONZE || 'mongodb://localhost/travelynx'",
 //     "jwtSecret": "TL_myJwtSecret"
 // }
+
+    // "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
