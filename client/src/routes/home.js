@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 // import API from '../utils/api';
 // import Trip from "../components/Trip";
-// import ModalElement from "../components/Modals";
+import ModalElement from "../components/Modals";
 
 
 
