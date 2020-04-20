@@ -44,14 +44,14 @@ function Trip() {
      let endDateString = endMonth+"/"+endDay+"/"+endYear;
      return (
       <TripListSingle key={trip._id} >
-      <div className="col">
-        
-         
-         <h3>{trip.destination}</h3><br/>
-         <img className="rdImg neu mb-4" alt="trip-pic" width="100%" height="auto" src={"https://source.unsplash.com/random/?city,"+ trip.destination}></img>
-         <b>From: {startDateString}</b><br/><b>To: {endDateString}</b>
-         
-         <DeleteBtn onClick={() => deleteTrip(trip._id)} />
+        <div className="col">
+          
+        <Link to={"/trip/" + trip._id}>
+          <h3>{trip.destination}</h3><br/>
+          <img className="rdImg neu mb-4" alt="trip-pic" width="100%" height="auto" src={"https://source.unsplash.com/random/?city,"+ trip.destination}></img>
+          <b>From: {startDateString}</b><br/><b>To: {endDateString}</b>
+        </Link>
+          <DeleteBtn onClick={() => deleteTrip(trip._id)} />
        
        </div>
        </TripListSingle>

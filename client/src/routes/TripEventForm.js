@@ -62,9 +62,29 @@ function TripEventsForm(props) {
       // let idString = id.toString();
       //console.log(newEvent);
       API.addEvents(id, newEvent)
-       //.then(res => loadEvents(id))
+       .then(res => loadEvents(id))
     }
   };
+
+  function generateEvents() {
+    console.log("generateEvents");
+    return daysEvents.map(Event => {
+      let eventDate = new Date(Event.date);
+      let eventDateMonth = eventDate.getMonth()+1;
+      let eventDateDay = eventDate.getDate();
+      let eventDateYear = eventDate.getFullYear();
+      let eventDateString = eventDateMonth+"/"+eventDateDay+"/"+eventDateYear;
+      
+      return (
+        <TripListSingle key={Event._id}>
+          {eventDateString} - {Event.name}: {Event.description}
+          <DeleteBtn onClick={() => deleteEvent(Event._id)} />
+        </TripListSingle>
+      ) 
+    }
+    
+    )
+  }
   
 //console.log(trip);
   return (
@@ -106,12 +126,13 @@ function TripEventsForm(props) {
         <div>
             {daysEvents.length ? (
                 <TripList>
-                    {daysEvents.map(Event => (
+                  {generateEvents()}
+                    {/* {daysEvents.map(Event => {
                         <TripListSingle key={Event._id}>
                             {Event.date} - {Event.name}: {Event.description}
                             <DeleteBtn onClick={() => deleteEvent(Event._id)} />
                         </TripListSingle>
-                    ))}
+                    })} */}
                 </TripList>
             ) : (
                 <h3>No Events Added</h3>

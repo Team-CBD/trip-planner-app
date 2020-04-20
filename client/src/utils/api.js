@@ -9,11 +9,7 @@ export default {
     updateTrip: (id) => axios.post("http://localhost:8080/api/trip/" + id).then(result => result.data),
     
     getEvents: (id) => axios.get(`http://localhost:8080/api/trip/${id}/daysEvent/`),
-    addEvents: (id, newEvent) => {
-        console.log("adding events");
-        axios.post(`http://localhost:8080/api/trip/${id}/daysEvent/`, newEvent);
-        console.log(id);
-    },
+    addEvents: (id, newEvent) => axios.post(`http://localhost:8080/api/trip/${id}/daysEvent/`, newEvent),
     findOneEvent: (id, eventId) => axios.get(`http://localhost:8080/api/trip/${id}/daysEvent/${eventId}`).then(result => result.data),
     updateEvent: (id, eventId) => axios.patch(`http://localhost:8080/api/trip/${id}/daysEvent/${eventId}`).then(result => result.data),
     deleteEvent: (id, eventId) => axios.delete(`http://localhost:8080/api/trip/${id}/daysEvent/${eventId}`).then(result => result.data),
