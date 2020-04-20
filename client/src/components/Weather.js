@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/weather.css";
 import "../styles/style.css";
+import "../styles/Nav.css";
 
 const Forecast = () => {
     // eslint-disable-next-line
@@ -47,18 +48,18 @@ const Forecast = () => {
             </div>
         
 
-            <div className="col-sm-6">
+            <div className="col">
                 {query.map((item, index) => (
                     <div>
                         {index % 9 === 0 &&
                           <div className="row">
-                                <div className="card wCard col-sm shadow ml-3 pt-2 mt-4">
+                                <div className="card wCard col-sm-12 shadow ml-3 pt-2 mt-4">
                                     <div className="col">{item.dt_txt.split(' ')[0]}</div>
-                                    <div className="col">{Math.round(item.main.temp_max)}°</div>
-                                    <div className="col"> {item.weather[0].description.toUpperCase()}</div>
-                                    <div className="col"> {item.main.humidity}% Humidity</div>
-                                    <div className="col">
-                                        <img className="icon offset-3 justify-content-center" src={`https://openweathermap.org/img/w/${item.weather[0].icon}.png`} alt="wthr img" />
+                                    <div className="">{Math.round(item.main.temp_max)}°</div>
+                                    <div className=""> {item.weather[0].description.toUpperCase()}</div>
+                                    <div className=""> {item.main.humidity}% Humidity</div>
+                                    <div className="">
+                                        <img className="icon justify-content-center" src={`https://openweathermap.org/img/w/${item.weather[0].icon}.png`} alt="wthr img" />
                                     </div>
                                 </div>
                             </div>

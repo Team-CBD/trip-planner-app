@@ -72,12 +72,11 @@ function Convertor() {
   //   setSelectedConverter(e.target.value)
   // }
   return (
-    <div className="justify-content-center">
+    <div className="justify-content-center pb-5">
     {/* <h2 className="ptitle text-dark pb-3">Tools</h2> */}
-      <div className="container">
+      
 
-        <div className="row">
-          <div className="col-sm-12">
+ 
            {/* <SelectRow 
             selectedConverter = {selectedConverter}
             handleConverterChange = {handleConverterChange}
@@ -100,9 +99,8 @@ function Convertor() {
                 amount={toAmount} />
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+     
+
     
     
   );

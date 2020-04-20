@@ -130,6 +130,10 @@ p .darkmode--activated {
 	max-width:150px;
 }
 
+.numberInput {
+	width:100%;
+}
+
 .darkmode-toggle {
     bottom: 5%;
     right: 2%;
