@@ -10,11 +10,11 @@
 }
 
 .App-header {
-  background-color: rgb(228, 228, 228);
+  
   height: 100px;
   padding-bottom: 10px;
-  color: white;
   box-shadow: 2px 2px 3px #9d9fa1;
+  padding-top:150px;
 }
 
 .App-intro {
