@@ -20,7 +20,7 @@ export default {
     findOneFriend: (id) => axios.get("/api/friends/" + id),
     updateFriend: (id) => axios.post("/api/friends/" + id),
 
-    addUser: (data) => axios.post("/api/users/register", data),
-    getUser: (data) => axios.post("/api/auth/login", data)
+    //register: (data) => axios.post("/api/users/register", data),
+    //getUser: (data) => axios.post("/api/auth/login", data)
 };
 //sample for route call to frontend
