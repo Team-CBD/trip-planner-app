@@ -28,7 +28,6 @@ function TripForm() {
         endDate: formObject.endDate
       })
       .then(res => loadTrip())
-      .catch(err => console.log(err));
     }
   };
 
