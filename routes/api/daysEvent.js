@@ -8,6 +8,7 @@ router
     .get( (req, res, next) => 
         Trip.findById(req.params.tripId)
         .populate('daysEvent')
+        .sort({date: -1})
         .exec()
         .then(trip => res.json(trip))
         .catch(err => next(`Error: ${err}`))
@@ -39,6 +40,7 @@ router
     .route('/new')
     .get( (req, res, next) =>
         Trip.findById(req.params.tripId)
+            .sort({date: -1})
             .then(trip => res.json(trip))
             .catch(err => next(`Error: ${err}`))
     )
@@ -49,6 +51,7 @@ router
         const id = req.params.daysEventId;
         DaysEvent.findById(id)
             .populate('trip')
+            .sort({date: -1})
             .then(daysEvent => res.json(daysEvent))
             .catch(err => next(`Error: ${err}`))
     })
@@ -68,6 +71,7 @@ router
     .get( (req, res, next) =>
         DaysEvent.findById(req.params.daysEventId)
             .populate('trip')
+            .sort({date: -1})
             .then(daysEvent => res.json(daysEvent))
             .catch(err => next(`Error: ${err}`))
     )

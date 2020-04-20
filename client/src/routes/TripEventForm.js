@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import API from "../utils/api";
 import { TripList, TripListSingle } from "../components/TripList";
 import DeleteBtn from "../components/DeleteBtn";
@@ -9,36 +9,38 @@ function TripEventsForm(props) {
   const {id} = useParams();
  
     useEffect(() => {
-      console.log(id);
+      //console.log(id);
       if(!trip) {
-      API.findOneTrip(id)
-      .then(res => {
-          console.log(res);
-          setTrip(res)
-        }
-          )
+        API.findOneTrip(id)
+          .then(res => {
+              //console.log(res);
+              setTrip(res)
+          })
+        .then(() => {
+          loadEvents(id)
+        })
       }
-      }, [trip, id]);
+    }, [trip, id]);
 
   
-  const [daysEvent, setEvents] = useState({});
+  const [daysEvents, setEvents] = useState({});
   const [formObject, setFormObject] = useState({});
 
 
-  useEffect(() => {
-    loadEvents(id)
-  }, [id]);
 
   function loadEvents(id) {
+    //console.log("id: " + id);
     API.getEvents(id)
-      .then(res => 
-        setEvents(res.data)
+      .then(res => {
         
-      )
+        setEvents(res.data.daysEvent);
+        //console.log("load : " + res);
+        //console.log(res.data.daysEvent);
+    })
   };
 
-  function deleteEvent(id) {
-    API.deleteEvent(id)
+  function deleteEvent(eventId) {
+    API.deleteEvent(id, eventId)
       .then(res => loadEvents(id))
   };
 
@@ -48,18 +50,23 @@ function TripEventsForm(props) {
   };
 
   function handleFormSubmit(event) {
-    // event.preventDefault();
+    event.preventDefault();
     if (formObject.name && formObject.description && formObject.date) {
-      API.addEvent({
+      const newEvent = {
         name: formObject.name,
         description: formObject.description,
         date: formObject.date
-      })
-        .then(res => props.loadEvents(id))
+      }
+      //const id = (id);
+      // console.log(id.toString());
+      // let idString = id.toString();
+      //console.log(newEvent);
+      API.addEvents(id, newEvent)
+       //.then(res => loadEvents(id))
     }
   };
   
-console.log(trip);
+//console.log(trip);
   return (
     <div className = "container">
       <div className="row justify-content-center">
@@ -76,7 +83,7 @@ console.log(trip);
             <h4 className="text-dark pt-3">Create Events</h4>
             <form onSubmit={handleFormSubmit}>
             <input className="neuflip m-2 p-2" 
-                type="text" id="eventName" placeholder="Name of Event"
+                type="text" id="name" placeholder="Name of Event"
                 name="name"
                 onChange={handleInputChange}
                 />
@@ -97,9 +104,9 @@ console.log(trip);
         </div>
 
         <div>
-            {daysEvent.length ? (
+            {daysEvents.length ? (
                 <TripList>
-                    {daysEvent.map(Event => (
+                    {daysEvents.map(Event => (
                         <TripListSingle key={Event._id}>
                             {Event.date} - {Event.name}: {Event.description}
                             <DeleteBtn onClick={() => deleteEvent(Event._id)} />

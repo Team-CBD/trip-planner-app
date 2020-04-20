@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import DeleteBtn from './DeleteBtn';
 import API from '../utils/api';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { TripList, TripListSingle } from "./TripList";
 import '../styles/style.css';
 
 
 function Trip() {
-  const [trip, setTrips] = useState([])
+  const [trip, setTrips] = useState({})
 
   useEffect(() => {
     loadTrips()
@@ -41,13 +41,13 @@ function Trip() {
              <TripListSingle key={trip._id} >
              <div className="col">
                
-                
+             <Link to={"/trip/" + trip._id}>
                 <h3>{trip.destination}</h3><br/>
                 <img className="rdImg neu mb-4" alt="trip-pic" width="100%" height="auto" src="https://source.unsplash.com/random/?city,UK"></img>
                 <b>From: {trip.startDate}</b><br/><b>To: {trip.endDate}</b>
                 
                 <DeleteBtn onClick={() => deleteTrip(trip._id)} />
-              
+                </Link>
               </div>
               </TripListSingle>
             ))}

@@ -6,7 +6,7 @@ import Header from './components/Header';
 import Main from './components/Main';
 import Footer from './components/Footer';
 import "./styles/style.css";
-import { loadUser } from './actions/authActions';
+//import { loadUser } from './actions/authActions';
 
 
 import { BrowserRouter as Router } from "react-router-dom";
