@@ -1,17 +1,23 @@
 import React, { useState/*, useEffect */} from 'react';
 //import DeleteBtn from './DeleteBtn';
 import API from '../utils/api';
+//import { Redirect } from 'react-router';
 
 function TripForm() {
 
-  const [setTrips] = useState({})
-  const [formObject, setFormObject] = useState({})
+  //const [setTrips] = useState({})
+  //const [tripId] = useState({})
+  const [formObject, setFormObject] = useState({});
+  //const [Redirect, setRedirect] = useState({});
   
-  function loadTrip() {
-    API.findOneTrip()
-    .then(res => 
-      setTrips(res.data)
-    )
+  function loadTrip(id) {
+    API.findOneTrip(id)
+    .then(res => {
+      console.log("@@", res._id);
+      return (
+        document.location = `/trip/${res._id}`
+      )
+    })
     .catch(err => console.log(err));
   }
 
@@ -25,12 +31,18 @@ function TripForm() {
         startDate: formObject.startDate,
         endDate: formObject.endDate
       })
-      .then(res => loadTrip())
+      .then(res => {
+        console.log("**", res.data._id);
+        //tripId = res.data._id;
+        loadTrip(res.data._id)
+      })
     }
   };
 
     function handleInputChange(event) {
     const { name, value } = event.target;
+    console.log("***", name);
+    console.log("*", value);
     setFormObject({...formObject, [name]: value})
   };
 
@@ -57,7 +69,9 @@ function TripForm() {
             placeholder="End Date"
             name="endDate"
             onChange={handleInputChange} /><br/>
-            <button id="submit" className="btn neu">Next</button>
+            {/* <Link to={`/trip/${tripId}`}> */}
+              <button id="submit" className="btn neu">Next</button>
+            {/* </Link> */}
         </form>
       </div>
 

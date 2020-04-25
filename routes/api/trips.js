@@ -18,7 +18,10 @@ router
         
 
         newTrip.save()
-            .then(() => res.json('New trip added!'))
+            .then((data) => {
+                console.log(data);
+                res.json(data)
+        })
             .catch(err => res.status(400).json(`Error: ${err}`));
     });
 router
@@ -40,6 +43,7 @@ router
                 trip.destination = req.body.destination;
                 trip.startDate = Date.parse(req.body.startDate);
                 trip.endDate = Date.parse(req.body.endDate);
+
 
                 trip.save()
                     .then(() => res.json('Trip updated!'))

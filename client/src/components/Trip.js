@@ -32,16 +32,15 @@ function Trip() {
  function generateTrips() {
    console.log("generateTrips");
    return trip.map(trip => {
-     let startDate = new Date(trip.startDate);
-     let startMonth = startDate.getMonth()+1;
-     let startDay = startDate.getDate();
-     let startYear = startDate.getFullYear();
-     let startDateString = startMonth+"/"+startDay+"/"+startYear;
-     let endDate = new Date(trip.endDate);
-     let endMonth = endDate.getMonth()+1;
-     let endDay = endDate.getDate();
-     let endYear = endDate.getFullYear();
-     let endDateString = endMonth+"/"+endDay+"/"+endYear;
+      let newStartDate = trip.startDate.split("T")[0];
+      let [startYr, startMon, startDay] = newStartDate.split("-");
+      // console.log(newStartDate);
+      // console.log(startDay, startMon, startYr);
+      let formatStartDate= `${startMon} / ${startDay} / ${startYr}`;
+      let newEndDate = trip.endDate.split("T")[0];
+      let [endYr, endMon, endDay] = newEndDate.split("-");
+      
+      let formatEndDate= `${endMon}/${endDay}/${endYr}`;
      return (
       <TripListSingle key={trip._id} >
         <div className="col">
@@ -49,7 +48,7 @@ function Trip() {
         <Link to={"/trip/" + trip._id}>
           <h3>{trip.destination}</h3><br/>
           <img className="rdImg neu mb-4" alt="trip-pic" width="100%" height="auto" src={"https://source.unsplash.com/random/?city,"+ trip.destination}></img>
-          <b>From: {startDateString}</b><br/><b>To: {endDateString}</b>
+          <b>From: {formatStartDate}</b><br/><b>To: {formatEndDate}</b>
         </Link>
           <DeleteBtn onClick={() => deleteTrip(trip._id)} />
        

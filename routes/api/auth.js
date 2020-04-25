@@ -20,7 +20,7 @@ router.route('/login').post((req, res) => {
 
                 jwt.sign(
                     { id:user.id },
-                    config.get('jwtSecret'),
+                    process.env.jwtSecret,
                     (err, token) => {
                         if(err) throw err
                         res.status(200).json({

@@ -5,6 +5,7 @@ const cors = require('cors');
 const path = require("path");
 const routes = require('./routes');
 const config = require('config');
+require ('dotenv').config();
 
 const app = express();
 
@@ -26,7 +27,9 @@ app.use(express.urlencoded({ extended: true, createIndexes: true }));
 //   { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
 
 
-const db = config.get("mongoURI");
+//const db = config.get("mongoURI");
+const db = process.env.mongoURI;
+console.log(process.env.mongoURI);
 
 mongoose.connect(db, 
     { 

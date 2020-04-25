@@ -11,13 +11,13 @@ function TripEventsForm(props) {
     useEffect(() => {
       //console.log(id);
       if(!trip) {
-        API.findOneTrip(id)
+      API.findOneTrip(id)
           .then(res => {
-              //console.log(res);
+              console.log("!!", res.startDate);
               setTrip(res)
           })
         .then(() => {
-          loadEvents(id)
+          loadEvents(id);
         })
       }
     }, [trip, id]);
@@ -57,10 +57,6 @@ function TripEventsForm(props) {
         description: formObject.description,
         date: formObject.date
       }
-      //const id = (id);
-      // console.log(id.toString());
-      // let idString = id.toString();
-      //console.log(newEvent);
       API.addEvents(id, newEvent)
        .then(res => loadEvents(id))
     }
@@ -68,6 +64,22 @@ function TripEventsForm(props) {
 
   //***startDay and endDay are not landing on the correct day as input its one day behind */
   function generateTripHeader() {
+      console.log("genHeader");
+      // let newStartDate = trip.startDate.split("T")[0];
+      // let [startYr, startMon, startDay] = newStartDate.split("-");
+      // // console.log(newStartDate);
+      // // console.log(startDay, startMon, startYr);
+      // let formatStartDate= `${startMon} / ${startDay} / ${startYr}`;
+      // let newEndDate = trip.endDate.split("T")[0];
+      // let [endYr, endMon, endDay] = newEndDate.split("-");
+      
+      // let formatEndDate= `${endMon} / ${endDay} / ${endYr}`;
+      try{
+        console.log("@@", trip.startDate);
+      }
+      catch(err) {
+        throw err
+      }
       let startDate = new Date(trip.startDate);
       let startMonth = startDate.getMonth()+1;
       let startDay = startDate.getDate();
@@ -97,15 +109,20 @@ function TripEventsForm(props) {
   function generateEvents() {
     console.log("generateEvents");
     return daysEvents.map(Event => {
-      let eventDate = new Date(Event.date);
-      let eventDateMonth = eventDate.getMonth()+1;
-      let eventDateDay = eventDate.getDate();
-      let eventDateYear = eventDate.getFullYear();
-      let eventDateString = eventDateMonth+"/"+eventDateDay+"/"+eventDateYear;
+      let newDate = Event.date.split("T")[0];
+      let [Yr, Mon, Day] = newDate.split("-");
+      
+      let formatDate= `${Mon}/${Day}/${Yr}`;
+      
+      // let eventDate = new Date(Event.date);
+      // let eventDateMonth = eventDate.getMonth()+1;
+      // let eventDateDay = eventDate.getDate();
+      // let eventDateYear = eventDate.getFullYear();
+      // let eventDateString = eventDateMonth+"/"+eventDateDay+"/"+eventDateYear;
       
       return (
         <TripListSingle key={Event._id}>
-          {eventDateString} - {Event.name}: {Event.description}
+          {formatDate} - {Event.name}: {Event.description}
           <DeleteBtn onClick={() => deleteEvent(Event._id)} />
         </TripListSingle>
       ) 
