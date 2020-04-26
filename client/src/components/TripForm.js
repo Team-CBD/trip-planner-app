@@ -1,15 +1,14 @@
-import React, { useState/*, useEffect */} from 'react';
-//import DeleteBtn from './DeleteBtn';
+import React, { useState } from 'react';
 import API from '../utils/api';
-import GoogleSearchBox from './GoogleSearchBox';
-//import { Redirect } from 'react-router';
+import PlacesAutocomplete, { 
+    geocodeByAddress,
+    getLatLng
+} from 'react-places-autocomplete';
 
 function TripForm() {
 
-  //const [setTrips] = useState({})
-  //const [tripId] = useState({})
   const [formObject, setFormObject] = useState({});
-  //const [Redirect, setRedirect] = useState({});
+  const [destination, setDestination] = useState({});
   
   function loadTrip(id) {
     API.findOneTrip(id)
@@ -24,11 +23,10 @@ function TripForm() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.destination && formObject.startDate && formObject.endDate) {
-      
+    if (destination && formObject.startDate && formObject.endDate) {
       
       API.addTrip({
-        destination: formObject.destination,
+        destination: destination,
         startDate: formObject.startDate,
         endDate: formObject.endDate
       })
@@ -41,12 +39,28 @@ function TripForm() {
   };
 
     function handleInputChange(event) {
-    const { name, value } = event.target;
-    console.log("***", name);
-    console.log("*", value);
-    setFormObject({...formObject, [name]: value})
-  };
+      const { name, value } = event.target;
+      console.log("***", name);
+      console.log("*", value);
+      setFormObject({...formObject, [name]: value})
+    };
 
+  const [address, setAddress] = useState("");
+    const [coordinates, setCoordinates] = useState({
+        lat: null,
+        lng: null
+    });
+
+    const handleSelect = async (gValue) => {
+        const results = await geocodeByAddress(gValue);
+        const latLng = await getLatLng(results[0]);
+        setAddress(gValue);
+        setCoordinates(latLng);
+        console.log("$$", results);
+        console.log(latLng);
+        console.log(results[0].formatted_address);
+        setDestination(results[0].formatted_address);
+    };
 
  
   return(
@@ -54,11 +68,50 @@ function TripForm() {
       <div className = "tripForm">
         <h4 className="text-dark pt-3">Create Trip</h4>
         <form onSubmit={handleFormSubmit}>
-          <GoogleSearchBox className="neuflip m-2 p-2" 
-            type="text" id="destination" placeholder="Destination"
+        <div>
+            <PlacesAutocomplete 
+                value={address} 
+                onChange={setAddress} 
+                onSelect={handleSelect}
+            >
+                {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                    <div>
+                        <input {...getInputProps()} 
+                            className="neuflip m-2 p-2"
+                            type="text" 
+                            id="destination" 
+                            placeholder="Destination"
+                            name="destination"
+                            
+                        />
+                        <div>
+                            {loading ? <div>...loading</div> : null}
+                        
+                            {suggestions.map((suggestion) =>{
+                                const style = {
+                                    backgroundColor: suggestion.active ? "#368cbf" : "#fff"
+                                };
+
+                                return (
+                                    <div {...getSuggestionItemProps(suggestion, { style })}>
+                                        {suggestion.description}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                )}
+            
+            </PlacesAutocomplete>
+        </div>
+          {/* <input className="neuflip m-2 p-2" 
+            type="text" 
+            id="destination" 
+            placeholder="Destination"
             name="destination"
+            value=""
             onChange={handleInputChange}
-            />
+            /> */}
             <br/>
             <input type="date"
             className="neuflip m-2 p-2"

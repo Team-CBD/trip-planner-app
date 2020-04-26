@@ -5,7 +5,9 @@ import PlacesAutocomplete, {
 } from 'react-places-autocomplete';
 
 
-function GoogleSearchBox(props) {
+
+
+function GoogleSearchBox() {
     const [address, setAddress] = useState("");
     const [coordinates, setCoordinates] = useState({
         lat: null,
@@ -18,7 +20,7 @@ function GoogleSearchBox(props) {
         setAddress(value);
         setCoordinates(latLng);
         console.log(results);
-    }
+    };
 
     return (
         <div>
@@ -32,6 +34,7 @@ function GoogleSearchBox(props) {
                     <div>
                         <input {...getInputProps()} 
                             className="neuflip m-2 p-2"
+                            
                         />
                         <div>
                             {loading ? <div>...loading</div> : null}
