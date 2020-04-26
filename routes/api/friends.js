@@ -1,14 +1,15 @@
 const router = require('express').Router({mergeParams: true});
 const Friend = require('../../models/friend.model');
+const auth = require('../../middleware/auth');
 
 router
     .route('/')
-    .get((req, res) => {
+    .get( (req, res) => {
         Friend.find()
         .then(friends => res.json(friends))
         .catch(err => res.status(422).json(`Error: ${err}`));
     })
-    .post((req, res, next) => {
+    .post( (req, res, next) => {
         const newFriend = new Friend(req.body);
 
         newFriend.save()
@@ -19,7 +20,7 @@ router
 
 router
     .route('/:friendId')
-        .get((req, res) => {
+        .get( (req, res) => {
             const id = req.params.friendId;
             Friend.findById(id)
             .then(friend => res.json(friend))

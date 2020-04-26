@@ -84,7 +84,7 @@ class RegisterModal extends Component {
   render() {
     return (
       <div>
-        <NavLink onClick={this.toggle} href='/'>
+        <NavLink onClick={this.toggle} href='#'>
           Register
         </NavLink>
 
@@ -96,15 +96,17 @@ class RegisterModal extends Component {
             ) : null}
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
-                <Label for='name'>Name</Label>
+                <Label for='fName'>First Name</Label>
                 <Input
                   type='text'
-                  fName='fName'
+                  name='fName'
                   id='fName'
                   placeholder='First Name'
                   className='mb-3'
                   onChange={this.onChange}
                 />
+
+                <Label for='lName'>Last Name</Label>
                 <Input
                   type='text'
                   name='lName'

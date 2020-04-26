@@ -26,24 +26,13 @@ const tripSchema = new mongoose.Schema({
         required: [true, 'A name for your trip is required'],
         trim: true
     },
-    // daysEvent: [
-    //     {
-    //       name: {
-    //         type: String,
-    //         trim: true,
-    //         required: "You must enter a Name"
-    //       },
-    //       description: {
-    //         type: String,
-    //         required: "You must enter a Description"
-    //       },
-    //       date: {
-    //         type: Date,
-    //         default: Date.now,
-    //         required: "You must enter a Date"
-    //       }
-    //     }
-    //   ],
+    latitude: {
+        type: String
+    },
+    longitude: {
+        type: String
+    },
+
     startDate: {
         type: Date,
         default: Date.now,

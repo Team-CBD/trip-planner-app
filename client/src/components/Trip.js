@@ -40,7 +40,7 @@ function Trip() {
       let newEndDate = trip.endDate.split("T")[0];
       let [endYr, endMon, endDay] = newEndDate.split("-");
       
-      let formatEndDate= `${endMon}/${endDay}/${endYr}`;
+      let formatEndDate= `${endMon} / ${endDay} / ${endYr}`;
      return (
       <TripListSingle key={trip._id} >
         <div className="col">

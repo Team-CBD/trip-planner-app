@@ -6,6 +6,8 @@ import DeleteBtn from "../components/DeleteBtn";
 
 function TripEventsForm(props) {
   const [trip, setTrip ] = useState(false);
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   const {id} = useParams();
  
     useEffect(() => {
@@ -13,18 +15,22 @@ function TripEventsForm(props) {
       if(!trip) {
       API.findOneTrip(id)
           .then(res => {
-              console.log("!!", res.startDate);
+              setStartDate(res.startDate);
+              setEndDate(res.endDate);
+              console.log("!!", startDate, endDate);
+              console.log("&&", res);
               setTrip(res)
           })
         .then(() => {
           loadEvents(id);
         })
       }
-    }, [trip, id]);
+    }, [trip, startDate, endDate, id]);
 
   
   const [daysEvents, setEvents] = useState({});
   const [formObject, setFormObject] = useState({});
+  
 
 
 
@@ -32,7 +38,7 @@ function TripEventsForm(props) {
     //console.log("id: " + id);
     API.getEvents(id)
       .then(res => {
-        
+        console.log("hello");
         setEvents(res.data.daysEvent);
         //console.log("load : " + res);
         //console.log(res.data.daysEvent);
@@ -65,45 +71,25 @@ function TripEventsForm(props) {
   //***startDay and endDay are not landing on the correct day as input its one day behind */
   function generateTripHeader() {
       console.log("genHeader");
-      // let newStartDate = trip.startDate.split("T")[0];
-      // let [startYr, startMon, startDay] = newStartDate.split("-");
-      // // console.log(newStartDate);
-      // // console.log(startDay, startMon, startYr);
-      // let formatStartDate= `${startMon} / ${startDay} / ${startYr}`;
-      // let newEndDate = trip.endDate.split("T")[0];
-      // let [endYr, endMon, endDay] = newEndDate.split("-");
-      
-      // let formatEndDate= `${endMon} / ${endDay} / ${endYr}`;
-      try{
-        console.log("@@", trip.startDate);
-      }
-      catch(err) {
-        throw err
-      }
-      let startDate = new Date(trip.startDate);
-      let startMonth = startDate.getMonth()+1;
-      let startDay = startDate.getDate();
-      let startYear = startDate.getFullYear();
-      let startDateString = startMonth+"/"+startDay+"/"+startYear;
-      let endDate = new Date(trip.endDate);
-      let endMonth = endDate.getMonth()+1;
-      let endDay = endDate.getDate();
-      let endYear = endDate.getFullYear();
-      let endDateString = endMonth+"/"+endDay+"/"+endYear;
-      return (
-         <div className="col">
-           
-           <h3>{trip.destination}</h3><br/>
-           
-           <b>From: {startDateString}</b><br/><b>To: {endDateString}</b>
-         
+
+      if (startDate !== null && endDate !== null) { 
+        let newStartDate = startDate.split("T")[0];
+        let [startYr, startMon, startDay] = newStartDate.split("-");
+        let formatStartDate= `${startMon} / ${startDay} / ${startYr}`;
         
-        </div>
-      
-    
-    
-    )
-  }
+        let newEndDate = endDate.split("T")[0];
+        let [endYr, endMon, endDay] = newEndDate.split("-");
+        let formatEndDate= `${endMon} / ${endDay} / ${endYr}`;
+
+
+        return (
+          <div className="col">
+            <h3>{trip.destination}</h3><br/>
+            <b>From: {formatStartDate}</b><br/><b>To: {formatEndDate}</b>
+          </div>
+        )
+      };
+  };
 
   //***eventDateDay are not landing on the correct day as input its one day behind */
   function generateEvents() {

@@ -10,7 +10,7 @@ const friendsRoutes = require("./friends");
 router.use("/auth", authRoutes);
 
 // User routes
-router.use("/users", userRoutes);
+router.use("/user", userRoutes);
 
 // Trip routes
 router.use("/trip", tripRoutes);

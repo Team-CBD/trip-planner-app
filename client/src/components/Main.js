@@ -2,7 +2,6 @@ import React from "react";
 import "../styles/style.css";
 import Home from '../routes/home';
 import Friends from '../routes/friends';
-import EventCreate from '../routes/EventCreate';
 import Converter from '../routes/converter';
 import Weather from '../routes/weather';
 import TripEventForm from '../routes/TripEventForm';
@@ -20,9 +19,6 @@ function Main () {
       <Switch>
       <Route exact path="/">
         <Home />
-      </Route>
-      <Route path="/EventCreate">
-        <EventCreate />
       </Route>
       <Route path="/friends">
         <Friends />

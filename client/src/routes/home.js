@@ -1,39 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Trip from '../components/Trip';
 import TripForm from '../components/TripForm';
 import '../styles/style.css';
-import RegisterModal from '../components/auth/RegisterModal';
-import LoginModal from '../components/auth/LoginModal';
-import Logout from '../components/auth/Logout';
-//import { Logout } from '../actions/authActions';
-
-// import API from '../utils/api';
-// import Trip from "../components/Trip";
-//import ModalElement from "../components/Modals";
+//import AppNavbar from '../components/AppNavbar';
 
 
 
-class Home extends React.Component {
+class Home extends Component {
   state = {
     trips: [],
 
     destination: "",
     startDate: "",
     endDate: ""
-
-
   }
 
 
+
   render() {
+
     return (
 
       <div className="container mt-5">
-
+        {/* <AppNavbar /> */}
         <h2 className="ptitle text-dark">Dashboard</h2>
-            <RegisterModal />
-            <Logout />
-            <LoginModal />
 
 
         <div className="row">
@@ -53,5 +43,8 @@ class Home extends React.Component {
   }
 
 }
+
+
+
 export default Home;
 

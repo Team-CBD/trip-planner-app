@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
-const config = require('config');
+//const config = require('config');
 const jwt = require('jsonwebtoken');
 const auth = require('../../middleware/auth');
 
@@ -37,10 +37,10 @@ router.route('/login').post((req, res) => {
         });
 });
 
-router.route('/user').get(auth, (req, res) => {
-    User.findById(req.user.id)
-        .select('-password')
-        .then(user => res.json(user));
-});
+// router.route('/user').get((req, res) => {
+//     User.findById(req.user.id)
+//         .select('-password')
+//         .then(user => res.json(user));
+// });
 
 module.exports = router;
