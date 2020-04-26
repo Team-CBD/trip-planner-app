@@ -1,8 +1,8 @@
 import axios from 'axios';
 //For production
-//const server = "https://travel-lynx.herokuapp.com";
+const server = "https://travel-lynx.herokuapp.com";
 //For dev
-const server = "http://localhost:8080";
+//const server = "http://localhost:8080";
 const googleApiKey = process.env.GOOGLE_API_KEY;
 
 export default {
