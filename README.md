@@ -6,6 +6,8 @@ Travelynx is an app for people to plan trips together. It helps to set up an iti
 
 ## Deployment
 
+https://travelynx.herokuapp.com/
+
 Start by installing front and backend dependencies. While in this directory, run the following command:
 
 ```
