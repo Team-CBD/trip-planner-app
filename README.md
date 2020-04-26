@@ -28,9 +28,13 @@ Your app should now be running on <http://localhost:3000>. The Express server sh
 * [React](https://reactjs.org/)
 * [Materialize CSS](https://materializecss.com/)
 
-## Authors
+## Authors / Contributors
 
-Brad Johnston twopheat@gmail.com
+	cjmendez26  Janet Mendez
+	LegenDeri619	Aidesiderio Alhambra
+	philipipara	Philip Iparaguirre
+	tomatomodest	tomatomodest
+	twopheat	Brad Johnston
 
 ## License
 
