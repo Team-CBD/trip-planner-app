@@ -84,7 +84,7 @@ function TripEventsForm(props) {
         const latLng = await getLatLng(results[0]);
         setAddress(value);
         setCoordinates(latLng);
-        console.log(results);
+        console.log("===", results);
         setName(results[0].formatted_address);
     };
 
@@ -107,6 +107,7 @@ function TripEventsForm(props) {
         return (
           <div className="col">
             <h3>{trip.destination}</h3><br/>
+            <img className="rdImg neu mb-4" alt="trip-pic" width="100%" height="auto" src={"https://source.unsplash.com/random/?city,"+ trip.destination}></img>
             <b>From: {formatStartDate}</b><br/><b>To: {formatEndDate}</b>
           </div>
         )

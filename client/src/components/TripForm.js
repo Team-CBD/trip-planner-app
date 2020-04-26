@@ -55,12 +55,13 @@ function TripForm() {
         lng: null
     });
 
-    const handleSelect = async (gValue) => {
-        const results = await geocodeByAddress(gValue);
+    const handleSelect = async (value) => {
+        console.log("!!", value)
+        const results = await geocodeByAddress(value);
         const latLng = await getLatLng(results[0]);
-        setAddress(gValue);
+        setAddress(value);
         setCoordinates(latLng);
-        console.log("$^^", results[0].place_id);
+        console.log("$^^", results);
         //setPlaceId(results[0].place_id);
         setDestination(results[0].formatted_address);
     };
@@ -107,14 +108,7 @@ function TripForm() {
             
             </PlacesAutocomplete>
         </div>
-          {/* <input className="neuflip m-2 p-2" 
-            type="text" 
-            id="destination" 
-            placeholder="Destination"
-            name="destination"
-            value=""
-            onChange={handleInputChange}
-            /> */}
+          
             <br/>
             <input type="date"
             className="neuflip m-2 p-2"
