@@ -3,6 +3,10 @@ import { useParams } from "react-router";
 import API from "../utils/api";
 import { TripList, TripListSingle } from "../components/TripList";
 import DeleteBtn from "../components/DeleteBtn";
+import PlacesAutocomplete, { 
+    geocodeByAddress,
+    getLatLng
+} from 'react-places-autocomplete';
 
 function TripEventsForm(props) {
   const [trip, setTrip ] = useState(false);
@@ -30,6 +34,7 @@ function TripEventsForm(props) {
   
   const [daysEvents, setEvents] = useState({});
   const [formObject, setFormObject] = useState({});
+  const [name, setName] = useState({});
   
 
 
@@ -57,9 +62,9 @@ function TripEventsForm(props) {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.name && formObject.description && formObject.date) {
+    if (name && formObject.description && formObject.date) {
       const newEvent = {
-        name: formObject.name,
+        name: name,
         description: formObject.description,
         date: formObject.date
       }
@@ -68,7 +73,24 @@ function TripEventsForm(props) {
     }
   };
 
-  //***startDay and endDay are not landing on the correct day as input its one day behind */
+  const [address, setAddress] = useState("");
+    const [coordinates, setCoordinates] = useState({
+        lat: null,
+        lng: null
+    });
+
+    const handleSelect = async (value) => {
+        const results = await geocodeByAddress(value);
+        const latLng = await getLatLng(results[0]);
+        setAddress(value);
+        setCoordinates(latLng);
+        console.log(results);
+        setName(results[0].formatted_address);
+    };
+
+
+
+  //***startDay and endDay are not  landing on the correct day as input its one day behind */
   function generateTripHeader() {
       console.log("genHeader");
 
@@ -128,11 +150,47 @@ function TripEventsForm(props) {
         <div className = "eventForm">
             <h4 className="text-dark pt-3">Create Events</h4>
             <form onSubmit={handleFormSubmit}>
-              <input className="neuflip m-2 p-2" 
+            <div>
+            <PlacesAutocomplete 
+                value={address} 
+                onChange={setAddress} 
+                onSelect={handleSelect}
+            >
+                {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                    <div>
+                        <input {...getInputProps()} 
+                            className="neuflip m-2 p-2"
+                            type="text" 
+                            id="name" 
+                            placeholder="Place"
+                            name="name"
+                            
+                        />
+                        <div>
+                            {loading ? <div>...loading</div> : null}
+                        
+                            {suggestions.map((suggestion) =>{
+                                const style = {
+                                    backgroundColor: suggestion.active ? "#368cbf" : "#fff"
+                                };
+
+                                return (
+                                    <div {...getSuggestionItemProps(suggestion, { style })}>
+                                        {suggestion.description}
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                )}
+            
+            </PlacesAutocomplete>
+        </div>
+              {/* <input className="neuflip m-2 p-2" 
                   type="text" id="name" placeholder="Name of Event"
                   name="name"
                   onChange={handleInputChange}
-              />
+              /> */}
               <br/>
               <input className="neuflip m-2 p-2" 
                   type="text" id="description" placeholder="Description of Event"

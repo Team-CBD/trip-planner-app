@@ -26,10 +26,13 @@ const tripSchema = new mongoose.Schema({
         required: [true, 'A name for your trip is required'],
         trim: true
     },
-    latitude: {
-        type: String
-    },
-    longitude: {
+    // latitude: {
+    //     type: String
+    // },
+    // longitude: {
+    //     type: String
+    // },
+    placeId: {
         type: String
     },
 

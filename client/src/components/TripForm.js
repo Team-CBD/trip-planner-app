@@ -9,6 +9,7 @@ function TripForm() {
 
   const [formObject, setFormObject] = useState({});
   const [destination, setDestination] = useState({});
+  //const [placeId, setPlaceId] = useState("");
   
   function loadTrip(id) {
     API.findOneTrip(id)
@@ -23,12 +24,15 @@ function TripForm() {
 
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (destination && formObject.startDate && formObject.endDate) {
+    if (destination && 
+        formObject.startDate && 
+        formObject.endDate) {
       
       API.addTrip({
         destination: destination,
         startDate: formObject.startDate,
-        endDate: formObject.endDate
+        endDate: formObject.endDate,
+        //placeId: placeId
       })
       .then(res => {
         console.log("**", res.data._id);
@@ -56,9 +60,8 @@ function TripForm() {
         const latLng = await getLatLng(results[0]);
         setAddress(gValue);
         setCoordinates(latLng);
-        console.log("$$", results);
-        console.log(latLng);
-        console.log(results[0].formatted_address);
+        console.log("$^^", results[0].place_id);
+        //setPlaceId(results[0].place_id);
         setDestination(results[0].formatted_address);
     };
 
