@@ -23,20 +23,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true, createIndexes: true }));
 
 //Heroku Deploy
-// mongoose.connect(process.env.MONGODB_URI || 'mongodb://heroku_2gw68psx:rb24149ue5nb573j0tklandh5a@ds137488.mlab.com:37488/heroku_2gw68psx', 
-//   { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://travelynx1:Mytravelynx1@ds029811.mlab.com:29811/heroku_kmkkd2vt', 
+  { useCreateIndex: true, useNewUrlParser: true, useUnifiedTopology: true  });
 
 
 //const db = config.get("mongoURI");
-const db = process.env.mongoURI;
-console.log(process.env.mongoURI);
+// const db = process.env.mongoURI;
+// console.log(process.env.mongoURI);
 
-mongoose.connect(db, 
-    { 
-      useCreateIndex: true, 
-      useNewUrlParser: true, 
-      useUnifiedTopology: true  
-    });
+// mongoose.connect(db, 
+//     { 
+//       useCreateIndex: true, 
+//       useNewUrlParser: true, 
+//       useUnifiedTopology: true  
+//     });
 
 // Routes
 app.use(routes);
