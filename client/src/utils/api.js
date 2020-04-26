@@ -1,5 +1,5 @@
 import axios from 'axios';
-const server = "http://localhost:8080";
+const server = "http://travel-lynx.herokuapp.com";
 
 export default {
     getTrips: () => axios.get(`${server}/api/trip/`),

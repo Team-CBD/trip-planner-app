@@ -25,7 +25,7 @@ function TripForm() {
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.destination && formObject.startDate && formObject.endDate) {
-
+      
       
       API.addTrip({
         destination: formObject.destination,

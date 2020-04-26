@@ -4,6 +4,7 @@ import PlacesAutocomplete, {
     getLatLng
 } from 'react-places-autocomplete';
 
+
 function GoogleSearchBox(props) {
     const [address, setAddress] = useState("");
     const [coordinates, setCoordinates] = useState({
