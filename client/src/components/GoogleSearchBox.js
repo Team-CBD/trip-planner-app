@@ -23,18 +23,21 @@ function GoogleSearchBox(props) {
         <div>
             <PlacesAutocomplete 
                 value={address} 
-                onChange={setAddress, props.handleInputChange} 
+                onChange={setAddress} 
                 onSelect={handleSelect}
+                
             >
                 {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                     <div>
-                        <input {...getInputProps()} />
+                        <input {...getInputProps()} 
+                            className="neuflip m-2 p-2"
+                        />
                         <div>
                             {loading ? <div>...loading</div> : null}
                         
                             {suggestions.map((suggestion) =>{
                                 const style = {
-                                    backgroundColor: suggestion.active ? "#50C1E9" : "#fff"
+                                    backgroundColor: suggestion.active ? "#368cbf" : "#fff"
                                 };
 
                                 return (

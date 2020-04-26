@@ -1,6 +1,7 @@
 import React, { useState/*, useEffect */} from 'react';
 //import DeleteBtn from './DeleteBtn';
 import API from '../utils/api';
+import GoogleSearchBox from './GoogleSearchBox';
 //import { Redirect } from 'react-router';
 
 function TripForm() {
@@ -53,7 +54,7 @@ function TripForm() {
       <div className = "tripForm">
         <h4 className="text-dark pt-3">Create Trip</h4>
         <form onSubmit={handleFormSubmit}>
-          <input className="neuflip m-2 p-2" 
+          <GoogleSearchBox className="neuflip m-2 p-2" 
             type="text" id="destination" placeholder="Destination"
             name="destination"
             onChange={handleInputChange}
