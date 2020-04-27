@@ -27,9 +27,9 @@ const Forecast = () => {
     }
     console.log(query);
     return (
-        <div>
-            <div className="row">
-            <div className="card bg-light wSearch neu">
+        <div className="row">
+            
+            <div className="card col-sm-3 bg-light wSearch neu">
                 <div className="card-title pt-2">Five Day Forecast</div>
             <div className="justify-content-center col-sm-4 p-2">
                 
@@ -48,15 +48,15 @@ const Forecast = () => {
             </div>
         
 
-            <div className="col">
+            <div className="col-sm-9 row">
                 {query.map((item, index) => (
                     <div>
                         {index % 9 === 0 &&
                           <div className="row">
-                                <div className="card wCard col-sm-12 shadow ml-3 pt-2 mt-4">
+                                <div className="card wCard col shadow ml-3 p-2 m-4">
                                     <div className="col">{item.dt_txt.split(' ')[0]}</div>
                                     <div className="">{Math.round(item.main.temp_max)}°</div>
-                                    <div className=""> {item.weather[0].description.toUpperCase()}</div>
+                                    <div className="conditions"> {item.weather[0].description.toUpperCase()}</div>
                                     <div className=""> {item.main.humidity}% Humidity</div>
                                     <div className="">
                                         <img className="icon justify-content-center" src={`https://openweathermap.org/img/w/${item.weather[0].icon}.png`} alt="wthr img" />
@@ -68,7 +68,7 @@ const Forecast = () => {
                     </div>
                 ))}
             </div>
-            </div>
+            
             </div>
             
     );

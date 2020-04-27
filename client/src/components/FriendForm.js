@@ -54,7 +54,7 @@ function FriendForm(props) {
             required
             onChange={handleInputChange} /><br/>
             
-            <button id="submit" className="btn bg-primary neu">Save</button>
+            <button id="submit" className="btn btn-primary neu">Save</button>
             
         </form>
       </div>

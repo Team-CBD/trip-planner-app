@@ -111,8 +111,8 @@ function TripEventsForm(props) {
         return (
           <div className="col">
             <h3>{trip.destination}</h3><br/>
-            <img className="rdImg neu mb-4" alt="trip-pic" width="100%" height="auto" src={"https://source.unsplash.com/random/?city,"+ trip.destination}></img>
-            <b>From: {formatStartDate}</b><br/><b>To: {formatEndDate}</b>
+            <img className="evImg neu mb-4" alt="trip-pic" width="100%" height="auto" src={"https://source.unsplash.com/random/?city,"+ trip.destination}></img>
+            <h5>{formatStartDate}  ꟷ  {formatEndDate}</h5>
           </div>
         )
       };
@@ -145,7 +145,7 @@ function TripEventsForm(props) {
           {generateTripHeader()}
         
       
-        <div className = "eventForm">
+        <div className = "eventForm col-sm-6">
             <h4 className="text-dark pt-3">Create Events</h4>
             <form onSubmit={handleFormSubmit}>
             <div>

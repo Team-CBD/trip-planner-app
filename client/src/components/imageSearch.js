@@ -17,7 +17,7 @@ const [result, setResult] = useState([]);
 
  function handleSubmit(props) {
        console.log(photo);
-
+       props.preventDefault();
       const url = "https://api.unsplash.com/search/photos?page=1&query=" + photo + "&client_id=" + clientId;
      
        axios.get(url)
@@ -27,24 +27,22 @@ const [result, setResult] = useState([]);
        });
  }
 
-
-
   return (
     <div>
       <div className="row">
-      <div className="col-sm-6 order-first justify-content-center">
+      <div className="col-sm-8 order-first justify-content-center">
         
       {result.map((photo) => (
-        <img className="image rounded" alt="" src={photo.urls.small} />
+        <img className="col-4 image rounded" alt="" src={photo.urls.small} />
       ))}
       </div>
-      <div className="col-sm-6 order-last">
+      <div className="col-sm-4 order-last">
       <div className="card neu bg-light p-4">
       <div className="card-title">City Images</div>
       <div>
-      <input className="input-box numberInput neuflip m-2 p-2" onChange={handleChange} type="text" name="photo" placeholder="Search for your city"/>
+      <input className="input-box numberInput neuflip m-2 p-2" onChange={handleChange} type="text" name="photo" placeholder="Search"/>
       {/* <button className="button" onClick={handleSubmit} type="submit">Search</button> */}
-      <button type="button" className="btn neu btn-primary btn-lrg" onClick={handleSubmit}>Search</button>
+      <button type="button" id="submit" className="btn neu btn-primary" onClick={handleSubmit}>Search</button>
       </div>
       </div>
       </div>
