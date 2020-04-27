@@ -36,7 +36,7 @@ class Gmap extends Component {
 
   render() {
     return (
-      <div id="map" className="neu mt-4" style={{ height: '300px', width: '100%' }}>
+      <div id="map" className="col neu" style={{ height: '300px', width: '300px' }}>
         
         <GoogleMapReact
           bootstrapURLKeys={{

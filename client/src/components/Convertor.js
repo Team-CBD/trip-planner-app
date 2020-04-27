@@ -82,7 +82,7 @@ function Convertor() {
             handleConverterChange = {handleConverterChange}
             converterOptions={converterOptions}/> */}
             
-            <div className="converter card shadow bg-light p-4">
+            <div className="converter card neu bg-light p-4">
               <div className="card-title">Currency Convertor</div>
               <Row
                 options={options}

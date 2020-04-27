@@ -70,7 +70,7 @@ function TripForm() {
   return(
     <div className = "container">
       <div className = "tripForm">
-        <h4 className="text-dark pt-3">Create Trip</h4>
+        
         <form onSubmit={handleFormSubmit}>
         <div>
             <PlacesAutocomplete 

@@ -37,7 +37,7 @@ class FriendData extends Component {
           <FriendForm fullname = {this.state.fullname}
                 handleChange = {this.handleInputChange}
                 relation = {this.state.relation}
-                phone = {this.state.phone}
+                phone = {tel:this.state.phone}
                 handleSubmit = {this.handleFormSubmit}                />
             </div>
             </div>
