@@ -1,8 +1,8 @@
 import axios from 'axios';
 //For production
-const server = "https://travel-lynx.herokuapp.com";
+//const server = "https://travel-lynx.herokuapp.com";
 //For dev
-//const server = "http://localhost:8080";
+const server = "http://localhost:8080";
 const googleApiKey = process.env.GOOGLE_API_KEY;
 
 export default {
@@ -24,8 +24,9 @@ export default {
     findOneFriend: (id) => axios.get(`${server}/api/friends/${id}`),
     updateFriend: (id) => axios.post(`${server}/api/friends/${id}`),
 
-    getPhoto: (photoRef) => {
-        return axios.get(`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoRef}&key=${googleApiKey}`)
+    getPhoto: (googleQuery) => {
+        return axios.get(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${googleQuery}&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=${googleApiKey}`);
+        
     }
 
     // register: (data) => axios.post("/api/user/", data),

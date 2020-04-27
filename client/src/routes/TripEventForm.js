@@ -88,6 +88,10 @@ function TripEventsForm(props) {
         setName(results[0].formatted_address);
     };
 
+    const getPhoto = async (placeId) => {
+      
+    }
+
 
 
   //***startDay and endDay are not  landing on the correct day as input its one day behind */
@@ -114,7 +118,6 @@ function TripEventsForm(props) {
       };
   };
 
-  //***eventDateDay are not landing on the correct day as input its one day behind */
   function generateEvents() {
     console.log("generateEvents");
     return daysEvents.map(Event => {
@@ -122,13 +125,7 @@ function TripEventsForm(props) {
       let [Yr, Mon, Day] = newDate.split("-");
       
       let formatDate= `${Mon}/${Day}/${Yr}`;
-      
-      // let eventDate = new Date(Event.date);
-      // let eventDateMonth = eventDate.getMonth()+1;
-      // let eventDateDay = eventDate.getDate();
-      // let eventDateYear = eventDate.getFullYear();
-      // let eventDateString = eventDateMonth+"/"+eventDateDay+"/"+eventDateYear;
-      
+
       return (
         <TripListSingle key={Event._id}>
           {formatDate} - {Event.name}: {Event.description}
