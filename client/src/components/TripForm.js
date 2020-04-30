@@ -62,6 +62,8 @@ function TripForm() {
         setAddress(value);
         setCoordinates(latLng);
         console.log("$^^", results);
+        console.log("$^^", coordinates);
+
         //setPlaceId(results[0].place_id);
         setDestination(results[0].formatted_address);
     };
