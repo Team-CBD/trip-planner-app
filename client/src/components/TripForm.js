@@ -68,9 +68,9 @@ function TripForm() {
         setDestination(results[0].formatted_address);
     };
 
- 
+
   return(
-    <div className = "container">
+
       <div className = "tripForm">
         
         <form onSubmit={handleFormSubmit}>
@@ -83,7 +83,7 @@ function TripForm() {
                 {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                     <div>
                         <input {...getInputProps()} 
-                            className="neuflip m-2 p-2"
+                            className="round neuflip m-2 p-2 border"
                             type="text" 
                             id="destination" 
                             placeholder="Destination"
@@ -112,14 +112,14 @@ function TripForm() {
         </div>
           
             <br/>
+            <p>Start Date</p>
             <input type="date"
             className="neuflip m-2 p-2"
-            placeholder="Start Date"
             name="startDate"
             onChange={handleInputChange} /><br/>
+            <p>End Date</p>
             <input type="date"
             className="neuflip m-2 p-2"
-            placeholder="End Date"
             name="endDate"
             onChange={handleInputChange} /><br/>
             {/* <Link to={`/trip/${tripId}`}> */}
@@ -129,7 +129,7 @@ function TripForm() {
       </div>
 
       
-    </div>
+    
   )
 }
 

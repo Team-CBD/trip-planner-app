@@ -7,7 +7,6 @@
   align-items: flex-start;
 }
 
-
 .navbar-light .navbar-toggler {
   margin: 11px 5px -54px -2px;
   z-index: 1;
@@ -29,6 +28,7 @@
 .navbar li a { 
   margin:20px;
 }
+
 .navbar li:hover {
   box-shadow:0px 1px 1px 1px #00000009;
   animation-name: menuLi;
@@ -45,3 +45,18 @@
     display: block;
   }
 }
+
+@media (min-width: 979px) {
+  ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+  }
+}
+
+/* @media (max-width: 650px) {
+
+  .navbar-light .navbar-toggler {
+    margin: 20px 5px -87px -10px;
+    z-index: 1;
+  }
+
+} */

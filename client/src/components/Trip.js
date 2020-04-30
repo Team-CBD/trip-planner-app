@@ -61,9 +61,9 @@ function Trip() {
  }
 
   return(
-    <div className = "container">
+    
 
-      <div className = "tripList pt-3">
+      <div className = "tripList pl-2 pt-3">
         {trip.length ? (
           <TripList>
             {/* {trip.map(trip => (
@@ -86,7 +86,7 @@ function Trip() {
           <div>No Trips Saved</div>
         )}
       </div>
-    </div>
+    
   )
 
 

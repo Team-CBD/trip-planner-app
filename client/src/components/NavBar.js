@@ -7,12 +7,12 @@ function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
 
-        <button className="navbar-toggler  neu" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button className="navbar-toggler neu" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon navbar-brand" />
         </button>
 
         <div className="collapse navbar-collapse row" id="navbarNav">
-          <div className="navbar-nav block">
+          <div className="navbar-nav">
             <Router />
           </div>
         </div>
