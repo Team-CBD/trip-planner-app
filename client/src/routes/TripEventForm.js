@@ -9,7 +9,7 @@ import PlacesAutocomplete, {
 } from 'react-places-autocomplete';
 //import axios from 'axios';
 //import useGooglePlaces from "../components/useGooglePlaces";
-import Gmap from '../components/Gmap';
+// import Gmap from '../components/Gmap';
 
 function TripEventsForm(props) {
   const [trip, setTrip] = useState(false);
@@ -205,12 +205,20 @@ function TripEventsForm(props) {
   return (
     <div className="container">
       <div className="row justify-content-center">
-        <div className="card shadow mt-5 pt-3">
+        <div className="card shadow mt-5 bg-light pt-3">
           {generateTripHeader()}
 
 
-          <div className="eventForm col-sm-6">
-            <h4 className="text-dark pt-3">Create Events</h4>
+          <div className="eventForm col-sm-12">
+
+          <div className="col-12 col-sm-12">
+            <p>
+              <button className="btn neu btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                New Event
+              </button>
+            </p>
+            <div className="collapse pb-4" id="collapseExample">
+              <div className="card neu card-body">
             <form onSubmit={handleFormSubmit}>
               <div>
                 <PlacesAutocomplete
@@ -221,7 +229,7 @@ function TripEventsForm(props) {
                   {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                     <div>
                       <input {...getInputProps()}
-                        className="neuflip m-2 p-2"
+                        className="neuflip border p-2"
                         type="text"
                         id="name"
                         placeholder="Place"
@@ -254,8 +262,8 @@ function TripEventsForm(props) {
                   onChange={handleInputChange}
               /> */}
               <br />
-              <input className="neuflip m-2 p-2"
-                type="text" id="description" placeholder="Description of Event"
+              <input className="neuflip m-2 p-2 border textarea"
+                type="textarea" rows="4" cols="50" id="description" placeholder="Description of Event"
                 name="description"
                 onChange={handleInputChange}
               />
@@ -270,10 +278,9 @@ function TripEventsForm(props) {
               <button id="submit" className="btn neu">Add Event</button>
             </form>
           </div>
-          <div className="col-sm-6">
-            <Gmap />
-          </div>
-          <div>
+            </div>
+            </div>
+            <div>
             {daysEvents.length ? (
               <TripList>
                 {generateEvents()}
@@ -287,6 +294,7 @@ function TripEventsForm(props) {
             ) : (
                 <h3>No Events Added</h3>
               )}
+          </div>
           </div>
         </div>
       </div>

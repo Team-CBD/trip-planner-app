@@ -10,5 +10,5 @@ export function TripList({ children }) {
 }
 
 export function TripListSingle({ children }) {
-  return <li className="neu m-2 shadow list-group-item mb-5">{children}</li>;
+  return <li className="neu m-2 neuflip list-group-item mb-5">{children}</li>;
 }

@@ -26,33 +26,45 @@ const Forecast = () => {
 
     }
     console.log(query);
+
+    function required() {
+        var empt = document.forms["form"]["text"].value;
+        if (empt == "") {
+            alert("Please input a Value");
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    
     return (
         <div className="row">
-            
+
             <div className="card col-sm-3 bg-light wSearch neu">
                 <div className="card-title pt-2">Five Day Forecast</div>
-            <div className="justify-content-center col-sm-4 p-2">
-                
-                <form onSubmit={getForecast}>
-                    <input
-                        type="text" className="textInput m-2 p-2 neuflip"
-                        placeholder="Enter City"
-                        maxLength="50"
-                        value={city}
-                        onChange={(e) => setCity(e.target.value)}
-                    />
-                    <br />
-                    <button className="btn btn-default neu" type="submit">Search</button>
-                </form>
+                <div className="justify-content-center col-sm-4 p-2">
+
+                    <form id="form" name="form" onSubmit={getForecast,required}>
+                        <input
+                            type="text" id="text" name="text" className="textInput m-2 p-2 neuflip"
+                            placeholder="Enter City"
+                            maxLength="50"
+                            value={city}
+                            onChange={(e) => setCity(e.target.value)}
+                        />
+                        <br />
+                        <button className="btn btn-default neu"type="submit">Search</button>
+                    </form>
                 </div>
             </div>
-        
+
 
             <div className="col-sm-9 row">
                 {query.map((item, index) => (
                     <div>
                         {index % 9 === 0 &&
-                          <div className="row">
+                            <div className="row">
                                 <div className="card wCard col shadow ml-3 p-2 m-4">
                                     <div className="col">{item.dt_txt.split(' ')[0]}</div>
                                     <div className="">{Math.round(item.main.temp_max)}°</div>
@@ -63,14 +75,14 @@ const Forecast = () => {
                                     </div>
                                 </div>
                             </div>
-                            
+
                         }
                     </div>
                 ))}
             </div>
-            
-            </div>
-            
+
+        </div>
+
     );
 }
 

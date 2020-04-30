@@ -21,31 +21,31 @@ class Home extends Component {
 
     return (
 
-      <div className="container mt-5">
+      <div className="mt-5">
         {/* <AppNavbar /> */}
         <h2 className="ptitle text-dark">Dashboard</h2>
 
 
-        <div className="container">
-          <div className="col-12 col-sm-12">
+        
+          <div className="col col-sm center">
             <p>
               <button className="btn neu btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Add Trip
               </button>
             </p>
-            <div className="collapse" id="collapseExample">
+            <div className="collapse col col-sm" id="collapseExample">
               <div className="card neu card-body">
               <TripForm />
             </div>
             </div>
           </div>
-          <div className="col">
+          <div className="col col-sm">
 
             <Trip />
 
           </div>
 
-        </div>
+        
       </div>
     );
   }
