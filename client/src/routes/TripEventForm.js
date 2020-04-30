@@ -7,6 +7,7 @@ import PlacesAutocomplete, {
     geocodeByAddress,
     getLatLng
 } from 'react-places-autocomplete';
+//import axios from 'axios';
 //import useGooglePlaces from "../components/useGooglePlaces";
 
 function TripEventsForm(props) {
@@ -30,7 +31,7 @@ function TripEventsForm(props) {
           loadEvents(id);
         })
       }
-    }, [trip]);
+    }, [trip, id]);
 
   
   const [daysEvents, setEvents] = useState({});
@@ -76,12 +77,51 @@ function TripEventsForm(props) {
     }
   };
 
+  //const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
+  //console.log("%%%", GOOGLE_API_KEY);
+
     const [address, setAddress] = useState("");
     const [placeId, setPlaceId] = useState("");
     const [coordinates, setCoordinates] = useState({
         lat: null,
         lng: null
     });
+
+    // const fetchGoogleData =  (googleData) => {
+    //   // const config = {
+    //   //   headers: 
+    //   //   {
+    //   //     // "Content/Type": "application/json",
+    //   //     "Access-Control-Allow-Methods": "GET",
+    //   //     "Access-Control-Allow-Origin": "*",
+    //   //     "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+    //   //   }
+    //   // };
+    //   var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+    //    var targetUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${googleData}&fields=name,rating,formatted_phone_number,photo,geometry,&key=4${GOOGLE_API_KEY}`;
+    //       axios.get(proxyUrl + targetUrl)
+    //         //.then(blob => blob.json())
+    //         .then(response => {
+    //           console.log(response);
+    //           // document.querySelector("pre").innerHTML = JSON.stringify(data, null, 2);
+    //           // return data;
+    //         })
+    //         .catch(e => {
+    //           console.log(e);
+    //           return e;
+    //         });
+
+      
+    //           // fetch(
+    //           //     `https://maps.googleapis.com/maps/api/place/details/json?place_id=${googleData}&fields=name,rating,formatted_phone_number,photo,geometry,&key=4${GOOGLE_API_KEY}`, { mode: 'no-cors'}, config
+    //           // )                   
+    //           // .then(result => {
+    //           //   console.log("$$$$$", result);
+    //           //   result.json()
+    //           // })
+              
+    //           //console.log("!!!!!!", placeData)
+    // }
 
     //useGooglePlaces(placeId);
 
@@ -91,11 +131,13 @@ function TripEventsForm(props) {
         setAddress(value);
         setCoordinates(latLng);
         console.log("===", results);
-        console.log("===", coordinates);
+        console.log("==", coordinates);
 
         console.log("@@@", results[0].place_id);
         setPlaceId(results[0].place_id);
+        console.log("&&&", placeId);
 
+        //fetchGoogleData(results[0].place_id);
         setName(results[0].formatted_address);
     };
 
@@ -120,7 +162,7 @@ function TripEventsForm(props) {
         return (
           <div className="col">
             <h3>{trip.destination}</h3><br/>
-            <img className="evImg neu mb-4" alt="trip-pic" width="100%" height="auto" src={"https://source.unsplash.com/random/?city,"+ trip.destination}></img>
+            <img className="evImg neu mb-4" alt="trip-pic" width="100%" height="auto" src={"https://source.unsplash.com/random/?name,"+ trip.destination}></img>
             <h5>{formatStartDate}  ꟷ  {formatEndDate}</h5>
           </div>
         )
@@ -129,12 +171,14 @@ function TripEventsForm(props) {
 
   function generateEvents() {
     //console.log("generateEvents");
+    
     return daysEvents.map(Event => {
       let newDate = Event.date.split("T")[0];
       let [Yr, Mon, Day] = newDate.split("-");
       
       let formatDate= `${Mon}/${Day}/${Yr}`;
-
+      
+      
       return (
         <TripListSingle key={Event._id}>
           <h3>{Event.name}</h3>
@@ -195,11 +239,7 @@ function TripEventsForm(props) {
             
             </PlacesAutocomplete>
         </div>
-              {/* <input className="neuflip m-2 p-2" 
-                  type="text" id="name" placeholder="Name of Event"
-                  name="name"
-                  onChange={handleInputChange}
-              /> */}
+            
               <br/>
               <input className="neuflip m-2 p-2" 
                   type="text" id="description" placeholder="Description of Event"
