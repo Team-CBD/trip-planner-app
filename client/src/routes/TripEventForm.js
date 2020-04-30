@@ -7,6 +7,7 @@ import PlacesAutocomplete, {
     geocodeByAddress,
     getLatLng
 } from 'react-places-autocomplete';
+//import useGooglePlaces from "../components/useGooglePlaces";
 
 function TripEventsForm(props) {
   const [trip, setTrip ] = useState(false);
@@ -21,15 +22,15 @@ function TripEventsForm(props) {
           .then(res => {
               setStartDate(res.startDate);
               setEndDate(res.endDate);
-              console.log("!!", startDate, endDate);
-              console.log("&&", res);
+              // console.log("!!", startDate, endDate);
+              // console.log("&&", res);
               setTrip(res)
           })
         .then(() => {
           loadEvents(id);
         })
       }
-    }, [trip, startDate, endDate, id]);
+    }, [trip]);
 
   
   const [daysEvents, setEvents] = useState({});
@@ -43,7 +44,7 @@ function TripEventsForm(props) {
     //console.log("id: " + id);
     API.getEvents(id)
       .then(res => {
-        console.log("hello");
+        //console.log("hello");
         setEvents(res.data.daysEvent);
         //console.log("load : " + res);
         //console.log(res.data.daysEvent);
@@ -69,15 +70,20 @@ function TripEventsForm(props) {
         date: formObject.date
       }
       API.addEvents(id, newEvent)
-       .then(res => loadEvents(id))
+       .then(res => {
+          document.location = `/trip/${id}`;
+          loadEvents(id)})
     }
   };
 
-  const [address, setAddress] = useState("");
+    const [address, setAddress] = useState("");
+    const [placeId, setPlaceId] = useState("");
     const [coordinates, setCoordinates] = useState({
         lat: null,
         lng: null
     });
+
+    //useGooglePlaces(placeId);
 
     const handleSelect = async (value) => {
         const results = await geocodeByAddress(value);
@@ -85,18 +91,21 @@ function TripEventsForm(props) {
         setAddress(value);
         setCoordinates(latLng);
         console.log("===", results);
+        console.log("===", coordinates);
+
+        console.log("@@@", results[0].place_id);
+        setPlaceId(results[0].place_id);
+
         setName(results[0].formatted_address);
     };
 
-    const getPhoto = async (placeId) => {
-      
-    }
+  
 
 
 
   //***startDay and endDay are not  landing on the correct day as input its one day behind */
   function generateTripHeader() {
-      console.log("genHeader");
+      //console.log("genHeader");
 
       if (startDate !== null && endDate !== null) { 
         let newStartDate = startDate.split("T")[0];
@@ -119,7 +128,7 @@ function TripEventsForm(props) {
   };
 
   function generateEvents() {
-    console.log("generateEvents");
+    //console.log("generateEvents");
     return daysEvents.map(Event => {
       let newDate = Event.date.split("T")[0];
       let [Yr, Mon, Day] = newDate.split("-");
@@ -128,7 +137,9 @@ function TripEventsForm(props) {
 
       return (
         <TripListSingle key={Event._id}>
-          {formatDate} - {Event.name}: {Event.description}
+          <h3>{Event.name}</h3>
+          <img className="rdImg neu mb-4" alt="trip-pic" width="100%" height="auto" src={"https://source.unsplash.com/random/?city,"+ Event.name}></img>
+          {formatDate} : {Event.description}
           <DeleteBtn onClick={() => deleteEvent(Event._id)} />
         </TripListSingle>
       ) 

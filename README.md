@@ -6,7 +6,7 @@ Travelynx is an app for people to plan trips together. It helps to set up an iti
 
 ## Deployment
 
-https://travelynx.herokuapp.com/
+https://travel-lynx.herokuapp.com/
 
 Start by installing front and backend dependencies. While in this directory, run the following command:
 
@@ -33,9 +33,8 @@ Your app should now be running on <http://localhost:3000>. The Express server sh
 ## Authors / Contributors
 
 	cjmendez26  Janet Mendez
-	LegenDeri619	Aidesiderio Alhambra
+	LegenDeri619	Aidesiderio (Deri) Alhambra
 	philipipara	Philip Iparaguirre
-	tomatomodest	tomatomodest
 	twopheat	Brad Johnston
 
 ## License

@@ -1,9 +1,9 @@
 import axios from 'axios';
 //For production
-const server = "https://travel-lynx.herokuapp.com";
+//const server = "https://travel-lynx.herokuapp.com";
 //For dev
-//const server = "http://localhost:8080";
-const googleApiKey = process.env.GOOGLE_API_KEY;
+const server = "http://localhost:8080";
+//const googleApiKey = process.env.GOOGLE_API_KEY;
 
 export default {
     getTrips: () => axios.get(`${server}/api/trip/`),
@@ -22,12 +22,12 @@ export default {
     addFriend: (friend) => axios.post(`${server}/api/friends/`, friend),
     deleteFriend: (id) => axios.delete(`${server}/api/friends/${id}`),
     findOneFriend: (id) => axios.get(`${server}/api/friends/${id}`),
-    updateFriend: (id) => axios.post(`${server}/api/friends/${id}`),
+    updateFriend: (id) => axios.post(`${server}/api/friends/${id}`)
 
-    getPhoto: (googleQuery) => {
-        return axios.get(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${googleQuery}&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=${googleApiKey}`);
+    // getPhoto: (googleQuery) => {
+    //     return axios.get(`https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=${googleQuery}&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=${googleApiKey}`);
         
-    }
+    // }
 
     // register: (data) => axios.post("/api/user/", data),
     // login: (data) => axios.post("/api/auth/login", data)
