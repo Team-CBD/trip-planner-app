@@ -26,8 +26,8 @@ class Home extends Component {
         <h2 className="ptitle text-dark">Dashboard</h2>
 
 
-        <div className="col">
-          <div className="">
+        <div className="container">
+          <div className="col-12 col-sm-12">
             <p>
               <button className="btn neu btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Add Trip

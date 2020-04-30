@@ -3,22 +3,23 @@ import { useParams } from "react-router";
 import API from "../utils/api";
 import { TripList, TripListSingle } from "../components/TripList";
 import DeleteBtn from "../components/DeleteBtn";
-import PlacesAutocomplete, { 
-    geocodeByAddress,
-    getLatLng
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng
 } from 'react-places-autocomplete';
 //import axios from 'axios';
 //import useGooglePlaces from "../components/useGooglePlaces";
+import Gmap from '../components/Gmap';
 
 function TripEventsForm(props) {
-  const [trip, setTrip ] = useState(false);
+  const [trip, setTrip] = useState(false);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const {id} = useParams();
- 
-    useEffect(() => {
-      //console.log(id);
-      if(!trip) {
+  const { id } = useParams();
+
+  useEffect(() => {
+    //console.log(id);
+    if (!trip) {
       API.findOneTrip(id)
           .then(res => {
               setStartDate(res.startDate);
@@ -31,13 +32,13 @@ function TripEventsForm(props) {
           loadEvents(id);
         })
       }
-    }, [trip, id]);
+      // eslint-disable-next-line
+    }, [trip]);
 
-  
   const [daysEvents, setEvents] = useState({});
   const [formObject, setFormObject] = useState({});
   const [name, setName] = useState({});
-  
+
 
 
 
@@ -49,7 +50,7 @@ function TripEventsForm(props) {
         setEvents(res.data.daysEvent);
         //console.log("load : " + res);
         //console.log(res.data.daysEvent);
-    })
+      })
   };
 
   function deleteEvent(eventId) {
@@ -59,7 +60,7 @@ function TripEventsForm(props) {
 
   function handleInputChange(event) {
     const { name, value } = event.target;
-    setFormObject({...formObject, [name]: value})
+    setFormObject({ ...formObject, [name]: value })
   };
 
   function handleFormSubmit(event) {
@@ -80,7 +81,9 @@ function TripEventsForm(props) {
   //const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
   //console.log("%%%", GOOGLE_API_KEY);
 
+// eslint-disable-next-line
     const [address, setAddress] = useState("");
+    // eslint-disable-next-line
     const [placeId, setPlaceId] = useState("");
     const [coordinates, setCoordinates] = useState({
         lat: null,
@@ -169,16 +172,22 @@ function TripEventsForm(props) {
       };
   };
 
+  //***eventDateDay are not landing on the correct day as input its one day behind */
   function generateEvents() {
     //console.log("generateEvents");
     
     return daysEvents.map(Event => {
       let newDate = Event.date.split("T")[0];
       let [Yr, Mon, Day] = newDate.split("-");
-      
-      let formatDate= `${Mon}/${Day}/${Yr}`;
-      
-      
+
+      let formatDate = `${Mon}/${Day}/${Yr}`;
+
+      // let eventDate = new Date(Event.date);
+      // let eventDateMonth = eventDate.getMonth()+1;
+      // let eventDateDay = eventDate.getDate();
+      // let eventDateYear = eventDate.getFullYear();
+      // let eventDateString = eventDateMonth+"/"+eventDateDay+"/"+eventDateYear;
+
       return (
         <TripListSingle key={Event._id}>
           <h3>{Event.name}</h3>
@@ -186,98 +195,104 @@ function TripEventsForm(props) {
           {formatDate} : {Event.description}
           <DeleteBtn onClick={() => deleteEvent(Event._id)} />
         </TripListSingle>
-      ) 
+      )
     }
-    
+
     )
   }
-  
-//console.log(trip);
+
+  //console.log(trip);
   return (
-    <div className = "container">
+    <div className="container">
       <div className="row justify-content-center">
-        <div className = "card shadow mt-5 pt-3">
+        <div className="card shadow mt-5 pt-3">
           {generateTripHeader()}
-        
-      
-        <div className = "eventForm col-sm-6">
+
+
+          <div className="eventForm col-sm-6">
             <h4 className="text-dark pt-3">Create Events</h4>
             <form onSubmit={handleFormSubmit}>
-            <div>
-            <PlacesAutocomplete 
-                value={address} 
-                onChange={setAddress} 
-                onSelect={handleSelect}
-            >
-                {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+              <div>
+                <PlacesAutocomplete
+                  value={address}
+                  onChange={setAddress}
+                  onSelect={handleSelect}
+                >
+                  {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                     <div>
-                        <input {...getInputProps()} 
-                            className="neuflip m-2 p-2"
-                            type="text" 
-                            id="name" 
-                            placeholder="Place"
-                            name="name"
-                            
-                        />
-                        <div>
-                            {loading ? <div>...loading</div> : null}
-                        
-                            {suggestions.map((suggestion) =>{
-                                const style = {
-                                    backgroundColor: suggestion.active ? "#368cbf" : "#fff"
-                                };
+                      <input {...getInputProps()}
+                        className="neuflip m-2 p-2"
+                        type="text"
+                        id="name"
+                        placeholder="Place"
+                        name="name"
 
-                                return (
-                                    <div {...getSuggestionItemProps(suggestion, { style })}>
-                                        {suggestion.description}
-                                    </div>
-                                );
-                            })}
-                        </div>
+                      />
+                      <div>
+                        {loading ? <div>...loading</div> : null}
+
+                        {suggestions.map((suggestion) => {
+                          const style = {
+                            backgroundColor: suggestion.active ? "#368cbf" : "#fff"
+                          };
+
+                          return (
+                            <div {...getSuggestionItemProps(suggestion, { style })}>
+                              {suggestion.description}
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
-                )}
-            
-            </PlacesAutocomplete>
-        </div>
-            
-              <br/>
-              <input className="neuflip m-2 p-2" 
-                  type="text" id="description" placeholder="Description of Event"
-                  name="description"
-                  onChange={handleInputChange}
-              />
-              <br/>
-              <input type="date"
-                  className="neuflip m-2 p-2"
-                  placeholder="Date of Event"
-                  name="date"
-                  onChange={handleInputChange} 
-              />
-              <br/>
-                  <button id="submit" className="btn neu">Add Event</button>
-            </form>
-        </div>
+                  )}
 
-        <div>
+                </PlacesAutocomplete>
+              </div>
+              {/* <input className="neuflip m-2 p-2" 
+                  type="text" id="name" placeholder="Name of Event"
+                  name="name"
+                  onChange={handleInputChange}
+              /> */}
+              <br />
+              <input className="neuflip m-2 p-2"
+                type="text" id="description" placeholder="Description of Event"
+                name="description"
+                onChange={handleInputChange}
+              />
+              <br />
+              <input type="date"
+                className="neuflip m-2 p-2"
+                placeholder="Date of Event"
+                name="date"
+                onChange={handleInputChange}
+              />
+              <br />
+              <button id="submit" className="btn neu">Add Event</button>
+            </form>
+          </div>
+          <div className="col-sm-6">
+            <Gmap />
+          </div>
+          <div>
             {daysEvents.length ? (
-                <TripList>
-                  {generateEvents()}
-                    {/* {daysEvents.map(Event => {
+              <TripList>
+                {generateEvents()}
+                {/* {daysEvents.map(Event => {
                         <TripListSingle key={Event._id}>
                             {Event.date} - {Event.name}: {Event.description}
                             <DeleteBtn onClick={() => deleteEvent(Event._id)} />
                         </TripListSingle>
                     })} */}
-                </TripList>
+              </TripList>
             ) : (
                 <h3>No Events Added</h3>
-            )}
+              )}
           </div>
         </div>
       </div>
     </div>
-    
-    );
-  }
+
+  );
+}
 
 export default TripEventsForm;

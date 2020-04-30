@@ -49,7 +49,7 @@ function Trip() {
         <Link to={"/trip/" + trip._id}>
           <h3>{trip.destination}</h3><br/>
           <img className="rdImg neu mb-4" alt="trip-pic" width="100%" height="auto" src={"https://source.unsplash.com/random/?city,"+ trip.destination}></img>
-          <b>{formatStartDate}  ꟷ  {formatEndDate}</b>
+          <b>{formatStartDate}  -  {formatEndDate}</b>
         </Link>
           <DeleteBtn onClick={() => deleteTrip(trip._id)} />
        
