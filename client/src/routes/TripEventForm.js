@@ -8,6 +8,7 @@ import PlacesAutocomplete, {
   getLatLng
 } from 'react-places-autocomplete';
 //import useGooglePlaces from "../components/useGooglePlaces";
+import Gmap from '../components/Gmap';
 
 function TripEventsForm(props) {
   const [trip, setTrip] = useState(false);
@@ -30,6 +31,7 @@ function TripEventsForm(props) {
           loadEvents(id);
         })
       }
+      // eslint-disable-next-line
     }, [trip]);
 
   const [daysEvents, setEvents] = useState({});
@@ -74,8 +76,9 @@ function TripEventsForm(props) {
           loadEvents(id)})
     }
   };
-
+// eslint-disable-next-line
     const [address, setAddress] = useState("");
+    // eslint-disable-next-line
     const [placeId, setPlaceId] = useState("");
     const [coordinates, setCoordinates] = useState({
         lat: null,
