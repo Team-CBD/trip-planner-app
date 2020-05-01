@@ -27,16 +27,6 @@ const Forecast = () => {
     }
     console.log(query);
 
-    function required() {
-        var empt = document.forms["form"]["text"].value;
-        if (empt == "") {
-            alert("Please input a Value");
-            return false;
-        }
-        else {
-            return true;
-        }
-    }
     
     return (
         <div className="row">
@@ -45,16 +35,17 @@ const Forecast = () => {
                 <div className="card-title pt-2">Five Day Forecast</div>
                 <div className="justify-content-center col-sm-4 p-2">
 
-                    <form id="form" name="form" onSubmit={getForecast,required}>
+                    <form id="form" name="form" onSubmit={getForecast}>
                         <input
-                            type="text" id="text" name="text" className="textInput m-2 p-2 neuflip"
+                            type="text" id="text" name="text" className="textInput border m-2 p-2 neuflip"
                             placeholder="Enter City"
                             maxLength="50"
+                            required
                             value={city}
                             onChange={(e) => setCity(e.target.value)}
                         />
                         <br />
-                        <button className="btn btn-default neu"type="submit">Search</button>
+                        <button className="btn btn-default neu" type="submit">Search</button>
                     </form>
                 </div>
             </div>

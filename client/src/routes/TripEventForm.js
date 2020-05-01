@@ -146,7 +146,7 @@ function TripEventsForm(props) {
 
       return (
         <TripListSingle key={Event._id}>
-          <h3>{Event.name}</h3>
+          <h4>{Event.name}</h4>
           <img className="rdImg neu mb-4" alt="trip-pic" width="100%" height="auto" src={"https://source.unsplash.com/random/?city,"+ Event.name}></img>
           {formatDate} : {Event.description}
           <DeleteBtn onClick={() => deleteEvent(Event._id)} />
