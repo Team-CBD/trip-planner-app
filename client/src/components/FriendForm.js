@@ -35,19 +35,19 @@ function FriendForm(props) {
       <div className = "friendForm">
         <h4 className="text-dark pt-3">Add</h4>
         <form name="form1" onSubmit={handleFormSubmit}>
-          <input className="neuflip m-2 p-2" 
+          <input className="neuflip border m-2 p-2" 
             type="text" id="fullName" placeholder="Full Name"
             name="fullName"
             onChange={handleInputChange}
             />
             <br/>
             <input type="text"
-            className="neuflip m-2 p-2"
+            className="neuflip border m-2 p-2"
             placeholder="Relation / Role"
             name="relation"
             onChange={handleInputChange} /><br/>
             <input type="tel"
-            className="neuflip m-2 p-2"
+            className="neuflip border m-2 p-2"
             placeholder="Phone"
             name="phone"
            
