@@ -36,6 +36,7 @@ function TripForm() {
       })
       .then(res => {
         console.log("**", res.data._id);
+        
         //tripId = res.data._id;
         loadTrip(res.data._id)
       })

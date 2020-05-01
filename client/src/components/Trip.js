@@ -16,6 +16,7 @@ function Trip() {
   function loadTrips() {
     API.getTrips()
     .then(res => {
+      
       console.log(res.data);
       setTrips(res.data);
     })
