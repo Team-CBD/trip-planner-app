@@ -4,7 +4,7 @@
   "private": true,
   "proxy": "http://localhost:8080",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bootstrap-icons": "1.0.0-alpha3",
     "darkmode-js": "^1.5.5",
     "eslint": "^6.8.0",
